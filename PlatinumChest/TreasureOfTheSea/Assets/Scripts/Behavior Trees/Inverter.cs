@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inverter : Node
 {
-    protected LinkedListNode node;
+    protected Node node;
 
     public Inverter(Node node)
     {
@@ -13,22 +13,19 @@ public class Inverter : Node
 
     public override NodeState Evaluate()
     {
-        foreach (var node in nodes)
+        switch (node.Evaluate())
         {
-            switch (node.Evaluate())
-            {
-                case NodeState.RUNNING:
-                    _nodeState = NodeState.RUNNING;
-                    break;
-                case NodeState.SUCCESS:
-                    _nodeState = NodeState.FAILURE;
-                    break;
-                case NodeState.FAILURE:
-                    _nodeState = NodeState.SUCCESS;
-                    break;
-                default:
-                    break;
-            }
+            case NodeState.RUNNING:
+                _nodeState = NodeState.RUNNING;
+                break;
+            case NodeState.SUCCESS:
+                _nodeState = NodeState.FAILURE;
+                break;
+            case NodeState.FAILURE:
+                _nodeState = NodeState.SUCCESS;
+                break;
+            default:
+                break;
         }
 
         return _nodeState;
