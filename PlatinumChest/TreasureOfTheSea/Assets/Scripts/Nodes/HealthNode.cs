@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthNode : MonoBehaviour
+public class HealthNode : Node
 {
-    // Start is called before the first frame update
-    void Start()
+    private EnemyAI ai;
+    private float threshold;
+
+    public HealthNode(EnemyAI ai, float threshold)
     {
-        
+        this.ai = ai;
+        this.threshold = threshold;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override NodeState Evaluate()
     {
-        
+        return ai.CurrentHealth <= threshold ? NodeState.SUCCESS : NodeState.FAILURE;
     }
 }
