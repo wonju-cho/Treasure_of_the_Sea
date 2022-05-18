@@ -4,37 +4,44 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private CharacterController Controller;
 
-    [SerializeField] Rigidbody RB;
-    [Space] 
-    [SerializeField] private float MoveSpeed = 5f;
-    [SerializeField] private float RotateSpeed = 3f;
-    [SerializeField] private float JumpForce = 2f;
+    public float MoveSpeed = 6f;
+    public float RotationSpeed = 6f;
+    public float JumpSpeed = 2f;
 
-    private Vector3 PlayerMovementInput;
-    private Vector2 PlayerMouseInput;
+    private void Start()
+    {
+        Controller = GetComponent<CharacterController>();
+        
+        if (!Controller)
+            Debug.Log("There is no controller in the PlayerMovement script");
+    }
 
-    public Transform GroundCheck;
-    public bool IsGrounded;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        PlayerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        float Horizontal = Input.GetAxisRaw("Horizontal");
+        float Vertical = Input.GetAxisRaw("Vertical");
 
-        MovePlayer();
-    }
+        Vector3 Direction = new Vector3(Horizontal, 0f, Vertical);
+        float DirectionMagnitude = Mathf.Clamp01(Direction.magnitude) * MoveSpeed;
+        Direction.Normalize();
 
-    private void MovePlayer()
-    {
-        Vector3 MoveVector = transform.TransformDirection(PlayerMovementInput) * MoveSpeed;
-        RB.velocity = new Vector3(MoveVector.x, RB.velocity.y, MoveVector.z);
+        Controller.SimpleMove(Direction * DirectionMagnitude);
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Direction != Vector3.zero)
         {
-            RB.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+            //Quaternion rot = new Quaternion();
+            //rot.SetLookRotation(Direction);
+            //transform.rotation = rot;
 
+            Quaternion ToRotation = Quaternion.LookRotation(Direction, Vector3.up);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, ToRotation, RotationSpeed * Time.deltaTime);
         }
     }
+
+
 }
