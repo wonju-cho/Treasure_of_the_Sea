@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
             lastGroundedTime = Time.time;
         }
 
-        if(Input.GetKeyDown("space"))
+        if(Input.GetButtonDown("Jump"))
         {
             jumpButtonPressedTime = Time.time;
         }
