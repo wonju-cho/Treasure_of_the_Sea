@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Cover[] avaliableCovers;
+    [SerializeField] private int enemyType; // 0 melee, 1 range, 2 boss
 
     private Material material;
     private Transform bestCoverSpot;
