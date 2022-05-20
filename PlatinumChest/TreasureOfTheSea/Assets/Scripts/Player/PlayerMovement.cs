@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
             lastGroundedTime = Time.time;
         }
 
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetKeyDown("space"))
         {
             jumpButtonPressedTime = Time.time;
         }
@@ -68,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
             
             animator.SetBool("IsJumping", false);
             isJumping = false;
+
+            animator.SetBool("IsFalling", false);
 
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
             {
@@ -85,6 +87,11 @@ public class PlayerMovement : MonoBehaviour
             
             animator.SetBool("IsGrounded", false);
             isGrounded = false;
+
+            if((isJumping && ySpeed < 0) || ySpeed < -2)
+            {
+                animator.SetBool("IsFalling", true);
+            }
         }
 
         Vector3 velocity = direction * directionMagnitude;
