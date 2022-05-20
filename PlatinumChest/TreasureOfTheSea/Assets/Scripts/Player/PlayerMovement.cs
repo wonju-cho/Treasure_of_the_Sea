@@ -10,12 +10,17 @@ public class PlayerMovement : MonoBehaviour
     public float RotationSpeed = 6f;
     public float JumpSpeed = 2f;
 
+    private float ySpeed;
+    private float originalStepOffset;
+
     private void Start()
     {
         Controller = GetComponent<CharacterController>();
         
         if (!Controller)
             Debug.Log("There is no controller in the PlayerMovement script");
+
+        originalStepOffset = Controller.stepOffset;
     }
 
 
@@ -29,13 +34,32 @@ public class PlayerMovement : MonoBehaviour
         float DirectionMagnitude = Mathf.Clamp01(Direction.magnitude) * MoveSpeed;
         Direction.Normalize();
 
-        Controller.SimpleMove(Direction * DirectionMagnitude);
+        ySpeed += Physics.gravity.y * Time.deltaTime; //gravity = -9.81
+
+        if(Controller.isGrounded)
+        {
+            Controller.stepOffset = originalStepOffset;
+
+            ySpeed = -0.5f; //keep character on the ground
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                ySpeed = JumpSpeed;
+            }
+        }
+        else
+        {
+            Controller.stepOffset = 0;
+        }
+
+
+        Vector3 velocity = Direction * DirectionMagnitude;
+        velocity.y = ySpeed;
+
+        Controller.Move(velocity * Time.deltaTime);
 
         if (Direction != Vector3.zero)
         {
-            //Quaternion rot = new Quaternion();
-            //rot.SetLookRotation(Direction);
-            //transform.rotation = rot;
 
             Quaternion ToRotation = Quaternion.LookRotation(Direction, Vector3.up);
 
