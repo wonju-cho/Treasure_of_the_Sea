@@ -4,66 +4,105 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private CharacterController Controller;
+    private CharacterController controller;
+    public Animator animator;
 
-    public float MoveSpeed = 6f;
-    public float RotationSpeed = 6f;
-    public float JumpSpeed = 2f;
+    public float moveSpeed = 6f;
+    public float rotationSpeed = 6f;
+    public float jumpSpeed = 2f;
+    public float jumpButtonGracePeriod;
 
     private float ySpeed;
-    private float originalStepOffset;
+    private float originalStepOffset; //to resolve the character glitch when jumping while colliding object
+    
+    private float? lastGroundedTime; //? means this field is nullable -> if the value is null then return null, otherwise return the value
+    private float? jumpButtonPressedTime;
+
+    private bool isJumping;
+    private bool isGrounded;
 
     private void Start()
     {
-        Controller = GetComponent<CharacterController>();
+        controller = GetComponent<CharacterController>();
         
-        if (!Controller)
+        if (!controller)
             Debug.Log("There is no controller in the PlayerMovement script");
 
-        originalStepOffset = Controller.stepOffset;
+        if (!animator)
+            Debug.Log("There is no animator in the PlayerMovement script");
+
+        originalStepOffset = controller.stepOffset;
     }
 
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float Horizontal = Input.GetAxisRaw("Horizontal");
-        float Vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 Direction = new Vector3(Horizontal, 0f, Vertical);
-        float DirectionMagnitude = Mathf.Clamp01(Direction.magnitude) * MoveSpeed;
-        Direction.Normalize();
+        Vector3 direction = new Vector3(horizontal, 0f, vertical);
+        float directionMagnitude = Mathf.Clamp01(direction.magnitude) * moveSpeed;
+        direction.Normalize();
 
         ySpeed += Physics.gravity.y * Time.deltaTime; //gravity = -9.81
 
-        if(Controller.isGrounded)
+        if (controller.isGrounded)
         {
-            Controller.stepOffset = originalStepOffset;
+            lastGroundedTime = Time.time;
+        }
+
+        if(Input.GetButtonDown("Jump"))
+        {
+            jumpButtonPressedTime = Time.time;
+        }
+
+        if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
+        {
+            controller.stepOffset = originalStepOffset;
 
             ySpeed = -0.5f; //keep character on the ground
+            
+            animator.SetBool("IsGrounded", true);
+            isGrounded = true;
+            
+            animator.SetBool("IsJumping", false);
+            isJumping = false;
 
-            if (Input.GetButtonDown("Jump"))
+            if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
             {
-                ySpeed = JumpSpeed;
+                animator.SetBool("IsJumping", true);
+                isJumping = true;
+                
+                ySpeed = jumpSpeed;
+                jumpButtonPressedTime = null;
+                lastGroundedTime = null;
             }
         }
         else
         {
-            Controller.stepOffset = 0;
+            controller.stepOffset = 0;
+            
+            animator.SetBool("IsGrounded", false);
+            isGrounded = false;
         }
 
-
-        Vector3 velocity = Direction * DirectionMagnitude;
+        Vector3 velocity = direction * directionMagnitude;
         velocity.y = ySpeed;
 
-        Controller.Move(velocity * Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime);
 
-        if (Direction != Vector3.zero)
+        if (direction != Vector3.zero) //when moving
         {
+            animator.SetBool("IsMoving", true);
 
-            Quaternion ToRotation = Quaternion.LookRotation(Direction, Vector3.up);
+            Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, ToRotation, RotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
         }
     }
 
