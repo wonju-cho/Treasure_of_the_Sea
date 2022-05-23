@@ -20,11 +20,21 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isJumping;
     private bool isGrounded;
+    private bool isPlayerDead = false;
+
+    Vector3 playerSpawnPosition;
+
+    [SerializeField]
+    int PlayerHP = 10;
+
+    private int currentHP;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-        
+        currentHP = PlayerHP;
+        playerSpawnPosition = transform.position;
+
         if (!controller)
             Debug.Log("There is no controller in the PlayerMovement script");
 
@@ -38,80 +48,113 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        //Debug.Log(playerSpawnPosition.ToString());
 
-        Vector3 direction = new Vector3(horizontal, 0f, vertical);
-        float directionMagnitude = Mathf.Clamp01(direction.magnitude) * moveSpeed;
-        direction.Normalize();
+        //if (isPlayerDead)
+        //{
 
-        ySpeed += Physics.gravity.y * Time.deltaTime; //gravity = -9.81
+        //    controller.enabled = false;
+        //    transform.position = playerSpawnPosition;
+        //    controller.enabled = true;
 
-        if (controller.isGrounded)
+        //    currentHP = PlayerHP;
+        //}
+
+        //if (currentHP <= 0)
+        //{
+        //    isPlayerDead = true;
+        //    animator.SetTrigger("IsDeath");
+        //}
+        //else
+        //{
+        //    isPlayerDead = false;
+
+        //}
+
+        if (!isPlayerDead)
         {
-            lastGroundedTime = Time.time;
-        }
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetButtonDown("Jump"))
-        {
-            jumpButtonPressedTime = Time.time;
-        }
+            Vector3 direction = new Vector3(horizontal, 0f, vertical);
+            float directionMagnitude = Mathf.Clamp01(direction.magnitude) * moveSpeed;
+            direction.Normalize();
 
-        if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
-        {
-            controller.stepOffset = originalStepOffset;
+            ySpeed += Physics.gravity.y * Time.deltaTime; //gravity = -9.81
 
-            ySpeed = -0.5f; //keep character on the ground
-            
-            animator.SetBool("IsGrounded", true);
-            isGrounded = true;
-            
-            animator.SetBool("IsJumping", false);
-            isJumping = false;
-
-            animator.SetBool("IsFalling", false);
-
-            if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
+            if (controller.isGrounded)
             {
-                animator.SetBool("IsJumping", true);
-                isJumping = true;
-                
-                ySpeed = jumpSpeed;
-                jumpButtonPressedTime = null;
-                lastGroundedTime = null;
+                lastGroundedTime = Time.time;
+            }
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                jumpButtonPressedTime = Time.time;
+            }
+
+            if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
+            {
+                controller.stepOffset = originalStepOffset;
+
+                ySpeed = -0.5f; //keep character on the ground
+
+                animator.SetBool("IsGrounded", true);
+                isGrounded = true;
+
+                animator.SetBool("IsJumping", false);
+                isJumping = false;
+
+                animator.SetBool("IsFalling", false);
+
+                if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
+                {
+                    animator.SetBool("IsJumping", true);
+                    isJumping = true;
+
+                    ySpeed = jumpSpeed;
+                    jumpButtonPressedTime = null;
+                    lastGroundedTime = null;
+                }
+            }
+            else
+            {
+                controller.stepOffset = 0;
+
+                animator.SetBool("IsGrounded", false);
+                isGrounded = false;
+
+                if ((isJumping && ySpeed < 0) || ySpeed < -2)
+                {
+                    animator.SetBool("IsFalling", true);
+                }
+            }
+
+            Vector3 velocity = direction * directionMagnitude;
+            velocity.y = ySpeed;
+
+            controller.Move(velocity * Time.deltaTime);
+
+            if (direction != Vector3.zero) //when moving
+            {
+                animator.SetBool("IsMoving", true);
+
+                Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            }
+            else
+            {
+                animator.SetBool("IsMoving", false);
             }
         }
-        else
-        {
-            controller.stepOffset = 0;
-            
-            animator.SetBool("IsGrounded", false);
-            isGrounded = false;
-
-            if((isJumping && ySpeed < 0) || ySpeed < -2)
-            {
-                animator.SetBool("IsFalling", true);
-            }
-        }
-
-        Vector3 velocity = direction * directionMagnitude;
-        velocity.y = ySpeed;
-
-        controller.Move(velocity * Time.deltaTime);
-
-        if (direction != Vector3.zero) //when moving
-        {
-            animator.SetBool("IsMoving", true);
-
-            Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        }
-        else
-        {
-            animator.SetBool("IsMoving", false);
-        }
+    
     }
 
-
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.gameObject.CompareTag("Sea"))
+        {
+            currentHP = 0;
+        }
+    }
 }
