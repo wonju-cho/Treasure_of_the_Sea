@@ -16,10 +16,16 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Cover[] avaliableCovers;
     [SerializeField] private int enemyType; // 0 melee, 1 range, 2 boss
+    [SerializeField] public Transform[] wayPoints;
+
+    public int wayPointIndex = 0;
+    public float wanderSpeed = 4f;
+    public float chaseSpeed = 7f;
 
     private Material material;
     private Transform bestCoverSpot;
     private NavMeshAgent agent;
+    private Animator animator;
 
     private Node topNode;
     private float _currentHealth;
@@ -38,6 +44,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         _currentHealth = startingHealth;
         ConstructBehaviorTree();
     }
@@ -96,5 +103,24 @@ public class EnemyAI : MonoBehaviour
     public Transform GetBestCoverSpot()
     {
         return bestCoverSpot;
+    }
+
+    public Transform GetWayPointsTransform(int index)
+    {
+        return wayPoints[index];
+    }
+    
+    public void SetWayPointIndex(int index)
+    {
+        if(index == wayPoints.Length -1)
+        {
+            index = 0;
+        }
+        wayPointIndex = index;
+    }
+
+    public int GetWayPointIndex()
+    {
+        return wayPointIndex;
     }
 }

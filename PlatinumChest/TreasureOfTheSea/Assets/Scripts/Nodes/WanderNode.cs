@@ -5,44 +5,118 @@ using UnityEngine.AI;
 
 public class WanderNode : Node
 {
+    public enum WanderType { Random, WayPoint };
+
     [SerializeField] private LayerMask floorMask = 0;
-    private Vector3 origin;
+    [SerializeField] private float viewDistance = 10f;
+
+    public WanderType wanderType;
+    public PlayerMovement player;
+    public Vector3 wanderPoint;
+    public float distance = 10f;
+
+    private Transform transform;
     private NavMeshAgent agent;
     private EnemyAI ai;
+    private bool isAware = false;
 
-    public WanderNode(Vector3 origin, NavMeshAgent agent, EnemyAI ai)
+
+    public WanderNode(Transform transform, NavMeshAgent agent, EnemyAI ai, WanderType wanderType)
     {
-        this.origin = origin;
+        this.transform = transform;
         this.agent = agent;
         this.ai = ai;
+        this.wanderType = wanderType;
+
+        isAware = false;
+        wanderPoint = RandomNavSphere();
     }
 
     public override NodeState Evaluate()
     {
-        float randomX;
-        float randomY;
-        float randomZ;
+        SearchForPlayer();
 
-        float distance = 10.0f;
-
-        //Vector3 randomDestination = UnityEngine.Random.insideUnitSphere * distance;
-        agent.SetDestination(RandomNavSphere(origin, distance, floorMask));
-
-        //여기서 플레이어 거리 체크하고 만약 ai가 목표 지점까지 가는도중에 
-        //플레이어가 거리에 들어오면 fail보냄
-        //목표 지점까지 가는도중에 플레이어가 거리에 안들어오면 success보내고
-        //새로운 목표지점 찾기
+        if (isAware)
+        {
+            return NodeState.FAILURE;
+        }
+        else
+        {
+            Wander();
+        }
+        
         return NodeState.SUCCESS;
     }
 
-    Vector3 RandomNavSphere(Vector3 origin, float distance, LayerMask layerMask)
+    public void SearchForPlayer()
+    {
+        if(Vector3.Angle(Vector3.forward, transform.InverseTransformPoint(player.transform.position))< 60f)
+        {
+            if(Vector3.Distance(player.transform.position, transform.position) < viewDistance)
+            {
+                RaycastHit hit;
+                if(Physics.Linecast(transform.position, player.transform.position, out hit, floorMask))
+                {
+                    if(hit.transform.CompareTag("Player"))
+                    {
+                        OnAware(true);
+                    }
+                }
+            }
+        }
+    }
+
+    public void OnAware(bool aware)
+    {
+        isAware = aware;
+    }
+
+    public void Wander()
+    {
+        if(wanderType == WanderType.Random)
+        {
+            if (Vector3.Distance(transform.position, wanderPoint) < 2f)
+            {
+                wanderPoint = RandomNavSphere();
+            }
+            else
+            {
+                agent.SetDestination(wanderPoint);
+            }
+        }
+        else
+        {
+            //int index = ai.GetWayPointIndex();
+            //Transform waypointTransform = ai.GetWayPointsTransform(index);
+            Transform waypointTransform = ai.wayPoints[ai.wayPointIndex];
+
+            if(Vector3.Distance(waypointTransform.position, transform.position) < 2f)
+            {
+                if(ai.wayPointIndex == ai.wayPoints.Length - 1)
+                {
+                    ai.wayPointIndex = 0;
+                }
+                else
+                {
+                    ++ai.wayPointIndex;
+                }
+                //ai.SetWayPointIndex(++index);
+            }
+            else
+            {
+                agent.SetDestination(waypointTransform.position);
+            }
+        }
+    }
+
+    public Vector3 RandomNavSphere()
     {
         Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * distance;
-        randomDirection += origin;
+        randomDirection += transform.position;
 
         NavMeshHit navHit;
-        NavMesh.SamplePosition(randomDirection, out navHit, distance, layerMask);
+        NavMesh.SamplePosition(randomDirection, out navHit, distance, floorMask);
 
-        return navHit.position;
+        return new Vector3(navHit.position.x, navHit.position.y, navHit.position.z);
     }
 }
