@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class WeightedRandom<T>
+public abstract class WeightedRandom<T>
 {
     public List<Pair> randomList = new List<Pair>();
     private float totalWeight = 0;

@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FruitItem : MonoBehaviour
+public class FruitItem : Item
 {
-    // Start is called before the first frame update
-    void Start()
+    private Transform ItemModel;
+    
+    public FruitItem(Transform transform)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        ItemModel = transform;
+        _itemType = ItemType.FRUIT;
     }
 }
