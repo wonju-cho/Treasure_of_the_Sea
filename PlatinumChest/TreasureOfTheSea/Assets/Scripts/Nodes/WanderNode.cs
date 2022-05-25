@@ -38,11 +38,15 @@ public class WanderNode : Node
 
         if (isAware)
         {
+            //ai.animator.SetBool("Aware", true);
+            agent.speed = ai.chaseSpeed;
             return NodeState.FAILURE;
         }
         else
         {
+            agent.speed = ai.wanderSpeed;
             Wander();
+            ai.animator.SetBool("Aware", false);
         }
         
         return NodeState.SUCCESS;

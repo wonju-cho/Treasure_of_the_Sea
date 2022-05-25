@@ -18,6 +18,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private int enemyType; // 0 melee, 1 range, 2 boss
     [SerializeField] public Transform[] wayPoints;
 
+    //[SerializeField] public WeightedRandom<Transform> randomItemTable;
+    [SerializeField] public List<Transform> randomItemTable;
+   
     public int wayPointIndex = 0;
     public float wanderSpeed = 4f;
     public float chaseSpeed = 7f;
@@ -25,7 +28,7 @@ public class EnemyAI : MonoBehaviour
     private Material material;
     private Transform bestCoverSpot;
     private NavMeshAgent agent;
-    private Animator animator;
+    public Animator animator;
 
     private Node topNode;
     private float _currentHealth;
@@ -51,6 +54,7 @@ public class EnemyAI : MonoBehaviour
 
     private void ConstructBehaviorTree()
     {
+        WanderNode wanderNode = new WanderNode(transform, agent, this, WanderNode.WanderType.WayPoint);
         IsCoveredAvaliableNode coveredAvaliableNode = new IsCoveredAvaliableNode(avaliableCovers, playerTransform, this);
         GoToCoverNode gotoCoverNode = new GoToCoverNode(agent, this);
         HealthNode healthNode = new HealthNode(this, lowHealthThreshold);
@@ -60,6 +64,7 @@ public class EnemyAI : MonoBehaviour
         ShootNode shootNode = new ShootNode(agent, this);
         RangeNode shootingRangeNode = new RangeNode(shootingRange, playerTransform, transform);
 
+        Sequence wanderSequence = new Sequence(new List<Node> { wanderNode });
         Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
         Sequence shootSequence = new Sequence(new List<Node> { shootingRangeNode, shootNode });
         Sequence goToCoverSequence = new Sequence(new List<Node> { coveredAvaliableNode, gotoCoverNode });
@@ -78,11 +83,16 @@ public class EnemyAI : MonoBehaviour
 
         if(topNode.nodeState == NodeState.FAILURE)
         {
-            SetColor(Color.red);
+            //SetColor(Color.red);
             agent.isStopped = true;
         }
 
-        _currentHealth += Time.deltaTime * healthRestoreRate;
+        if(_currentHealth <= 0)
+        {
+            Destroy(gameObject);
+
+        }
+        //_currentHealth += Time.deltaTime * healthRestoreRate;
     }
 
     private void OnMouseDown()
@@ -123,4 +133,5 @@ public class EnemyAI : MonoBehaviour
     {
         return wayPointIndex;
     }
+
 }
