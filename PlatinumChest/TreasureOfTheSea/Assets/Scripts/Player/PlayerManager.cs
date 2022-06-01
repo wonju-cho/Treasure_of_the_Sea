@@ -21,8 +21,6 @@ public class PlayerManager : MonoBehaviour
     int PlayerHP = 10;
     private int currentHP;
 
-    public GameObject Player;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -122,6 +120,5 @@ public class PlayerManager : MonoBehaviour
         SeaTriggerOnce = false;
 
         Debug.Log(isPlaying(animator, "Death"));
-        //animator.ResetTrigger("Death");
     }
 }
