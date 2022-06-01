@@ -9,29 +9,28 @@ public class PlayerManager : MonoBehaviour
 {
     public Animator animator;
     private CharacterController controller;
-    private PlayerController PC;
+    private PlayerController playerController;
 
     public Image HealthBar;
 
     private bool isPlayerDead = false;
-    private bool isPlayerDeadSea = false;
-    private bool seaTriggerOnce = false;
+    private bool triggerOnce = false;
     private float fillSpeed = 2f;
 
     Vector3 playerSpawnPosition;
 
     [SerializeField]
-    float PlayerHP = 10;
+    float playerHP = 10;
     private float currentHP;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHP = PlayerHP;
+        currentHP = playerHP;
         playerSpawnPosition = transform.position;
 
         controller = GetComponent<CharacterController>();
-        PC = GetComponent<PlayerController>();
+        playerController = GetComponent<PlayerController>();
 
         if (!controller)
             Debug.Log("There is no controller in the PlayerManager script");
@@ -69,9 +68,13 @@ public class PlayerManager : MonoBehaviour
         HealthBarFill();
     }
 
+    float GetCurrentHP() { return currentHP; }
+
+    void TakeDamge(int damage) { currentHP -= damage; }
+
     void HealthBarFill()
     {
-        HealthBar.fillAmount = Mathf.Lerp(HealthBar.fillAmount, (currentHP / PlayerHP), fillSpeed * Time.deltaTime);
+        HealthBar.fillAmount = Mathf.Lerp(HealthBar.fillAmount, (currentHP / playerHP), fillSpeed * Time.deltaTime);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -79,7 +82,7 @@ public class PlayerManager : MonoBehaviour
         if (hit.gameObject.CompareTag("Sea"))
         {
             isPlayerDead = true;
-            isPlayerDeadSea = true;
+            //isPlayerDeadSea = true;
         }
     }
 
@@ -94,17 +97,12 @@ public class PlayerManager : MonoBehaviour
 
     void PlayerDeath()
     {
-        PC.enabled = false;
+        playerController.enabled = false;
         animator.SetBool("IsIdle", false);
 
-        if (isPlayerDeadSea && seaTriggerOnce == false)
+        if(isPlayerDead && triggerOnce == false)
         {
-            seaTriggerOnce = true;
-            animator.ResetTrigger("Death");
-            animator.SetTrigger("Death");
-        }
-        else if (isPlayerDead && isPlayerDeadSea == false)
-        {
+            triggerOnce = true;
             animator.ResetTrigger("Death");
             animator.SetTrigger("Death");
         }
@@ -117,9 +115,9 @@ public class PlayerManager : MonoBehaviour
 
     void PlayerRespawn()
     {
-        PC.enabled = true;
+        playerController.enabled = true;
 
-        currentHP = PlayerHP;
+        currentHP = playerHP;
         animator.SetBool("IsIdle", true);
 
         controller.enabled = false;
@@ -127,8 +125,7 @@ public class PlayerManager : MonoBehaviour
         controller.enabled = true;
 
         isPlayerDead = false;
-        isPlayerDeadSea = false;
-        seaTriggerOnce = false;
+        triggerOnce = false;
 
     }
 }
