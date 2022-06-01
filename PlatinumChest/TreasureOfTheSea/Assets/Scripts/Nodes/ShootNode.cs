@@ -15,8 +15,9 @@ public class ShootNode : Node
 
     public override NodeState Evaluate()
     {
-        agent.isStopped = true;
-        ai.SetColor(Color.green);
+        //agent.isStopped = true;
+        //Debug.Log("fire the slingshot");
+        Debug.Log("Attack player");
         return NodeState.SUCCESS;
     }
 

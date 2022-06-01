@@ -10,8 +10,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float lowHealthThreshold;
     [SerializeField] private float healthRestoreRate;
 
-    [SerializeField] private float chasingRange;
-    [SerializeField] private float shootingRange;
+    [SerializeField] public float chasingRange;
+    [SerializeField] public float shootingRange;
     
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Cover[] avaliableCovers;
@@ -54,7 +54,7 @@ public class EnemyAI : MonoBehaviour
 
     private void ConstructBehaviorTree()
     {
-        WanderNode wanderNode = new WanderNode(transform, agent, this, WanderNode.WanderType.WayPoint);
+        WanderNode wanderNode = new WanderNode(transform, agent, this, WanderNode.WanderType.WayPoint, chasingRange);
         IsCoveredAvaliableNode coveredAvaliableNode = new IsCoveredAvaliableNode(avaliableCovers, playerTransform, this);
         GoToCoverNode gotoCoverNode = new GoToCoverNode(agent, this);
         HealthNode healthNode = new HealthNode(this, lowHealthThreshold);
@@ -67,14 +67,14 @@ public class EnemyAI : MonoBehaviour
         Sequence wanderSequence = new Sequence(new List<Node> { wanderNode });
         Sequence chaseSequence = new Sequence(new List<Node> { chasingRangeNode, chaseNode });
         Sequence shootSequence = new Sequence(new List<Node> { shootingRangeNode, shootNode });
-        Sequence goToCoverSequence = new Sequence(new List<Node> { coveredAvaliableNode, gotoCoverNode });
+        //Sequence goToCoverSequence = new Sequence(new List<Node> { coveredAvaliableNode, gotoCoverNode });
 
-        Selector findCoverSelector = new Selector(new List<Node> { goToCoverSequence, chaseSequence });
-        Selector tryToTakeCoverSelector = new Selector(new List<Node> { isCoveredNode, findCoverSelector });
-
-        Sequence mainCoverSequence = new Sequence(new List<Node> { healthNode, tryToTakeCoverSelector });
-
-        topNode = new Selector(new List<Node> { mainCoverSequence, shootSequence, chaseSequence });
+        //Selector findCoverSelector = new Selector(new List<Node> { goToCoverSequence, chaseSequence });
+        //Selector tryToTakeCoverSelector = new Selector(new List<Node> { isCoveredNode, findCoverSelector });
+        //Sequence mainCoverSequence = new Sequence(new List<Node> { healthNode, tryToTakeCoverSelector });
+        
+        //topNode = new Selector(new List<Node> { mainCoverSequence, wanderSequence, shootSequence, chaseSequence });
+        topNode = new Selector(new List<Node> { wanderSequence, chaseSequence, shootSequence });
     }
 
     private void Update()

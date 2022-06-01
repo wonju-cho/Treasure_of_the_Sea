@@ -21,16 +21,18 @@ public class ChaseNode : Node
         ai.SetColor(Color.yellow);
 
         float distance = Vector3.Distance(target.position, agent.transform.position);
-        if(distance > 0.2f)
+        if(distance > ai.shootingRange)
         {
-            agent.isStopped = false;
+            //agent.isStopped = false;
+            Debug.Log("enemy is still chasing");
             agent.SetDestination(target.position);
             return NodeState.RUNNING;
         }
         else
         {
-            agent.isStopped = true;
-            return NodeState.SUCCESS;
+            Debug.Log("chasing player is success");
+            //agent.isStopped = true;
+            return NodeState.FAILURE;
         }
     }
 }
