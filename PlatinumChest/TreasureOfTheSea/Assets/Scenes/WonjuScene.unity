@@ -298,7 +298,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872684556}
-  m_LocalRotation: {x: 0.14521313, y: 0.000000032966827, z: -0.0000000048385016, w: 0.98940045}
+  m_LocalRotation: {x: 0.14521314, y: -1.6271901e-15, z: 2.6894993e-16, w: 0.98940045}
   m_LocalPosition: {x: 9.339602, y: 3.87, z: 10.609177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -762,19 +762,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4376303476521049044, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14521313
+      value: 0.14521314
       objectReference: {fileID: 0}
     - target: {fileID: 4376303476521049044, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000032966827
+      value: -1.6271901e-15
       objectReference: {fileID: 0}
     - target: {fileID: 4376303476521049044, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000048385016
+      value: 2.6894993e-16
       objectReference: {fileID: 0}
     - target: {fileID: 5642741666778700519, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: PlayerHP
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5642741666778700519, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
+      propertyPath: playerHP
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5642741666778700519, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: HealthBar
