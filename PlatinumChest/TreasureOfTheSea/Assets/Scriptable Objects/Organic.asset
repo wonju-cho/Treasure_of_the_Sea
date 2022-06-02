@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07aa4161e8e6343438b1bc40e946fb93, type: 3}
   m_Name: Organic
   m_EditorClassIdentifier: 
-  displayName: 
-  Description: 
+  displayName: Organic
+  Description: Organic material can craft a tool.
   icon: {fileID: 0}
-  maxStackSize: 0
+  maxStackSize: 99

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07aa4161e8e6343438b1bc40e946fb93, type: 3}
   m_Name: Fruit
   m_EditorClassIdentifier: 
-  displayName: 
+  displayName: Fruit
   Description: Can heal HP.
   icon: {fileID: 0}
-  maxStackSize: 0
+  maxStackSize: 99
