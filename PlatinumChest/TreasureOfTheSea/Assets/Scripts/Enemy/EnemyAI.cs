@@ -84,15 +84,35 @@ public class EnemyAI : MonoBehaviour
         if(topNode.nodeState == NodeState.FAILURE)
         {
             //SetColor(Color.red);
-            agent.isStopped = true;
+            //agent.isStopped = true;
+            Debug.Log("Error: top node is failure");
         }
 
         if(_currentHealth <= 0)
         {
-            Destroy(gameObject);
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsGettingDamage", false);
+            animator.ResetTrigger("IsAttacking");
+            animator.SetTrigger("IsDead");
 
+            //after death animation is done, the game object is destroied.
+            StartCoroutine(DelayedDead(animator.GetCurrentAnimatorStateInfo(0).length));
         }
-        //_currentHealth += Time.deltaTime * healthRestoreRate;
+
+        //manage health
+        //for checking animation
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log("Kill");
+            _currentHealth = 0;
+        }
+    }
+
+    IEnumerator DelayedDead(float delay = 0)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Destroy(gameObject);
     }
 
     private void OnMouseDown()

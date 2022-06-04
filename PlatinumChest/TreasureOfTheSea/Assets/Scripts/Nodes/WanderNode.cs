@@ -37,21 +37,23 @@ public class WanderNode : Node
 
     public override NodeState Evaluate()
     {
+        
         SearchForPlayer();
 
         if (isAware)
         {
-            Debug.Log("have to chase");
-            //ai.animator.SetBool("Aware", true);
+            //Debug.Log("have to chase");
             agent.speed = ai.chaseSpeed;
             return NodeState.FAILURE;
         }
         else
         {
-            Debug.Log("wander");
+            //Debug.Log("wander");
+            ai.animator.SetBool("IsWalking", true);
+            ai.animator.SetBool("IsAttacking", false);
+
             agent.speed = ai.wanderSpeed;
             Wander();
-            ai.animator.SetBool("Aware", false);
         }
         
         return NodeState.RUNNING;

@@ -40,7 +40,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentHP);
+        //Debug.Log(currentHP);
 
         if (Input.GetKeyDown(KeyCode.F1) && isPlayerDead)
         {

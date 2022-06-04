@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Boat
   - Sea
+  - WayPoints
   layers:
   - Default
   - TransparentFX

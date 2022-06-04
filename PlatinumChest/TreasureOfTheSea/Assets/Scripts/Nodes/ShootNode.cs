@@ -16,8 +16,11 @@ public class ShootNode : Node
     public override NodeState Evaluate()
     {
         //agent.isStopped = true;
-        //Debug.Log("fire the slingshot");
-        Debug.Log("Attack player");
+        Debug.Log("animation of player is attacking");
+
+        ai.animator.SetTrigger("TrigerAttacking");
+        ai.animator.SetBool("IsAttacking", true);
+        ai.animator.SetBool("IsWalking", false);
         return NodeState.SUCCESS;
     }
 
