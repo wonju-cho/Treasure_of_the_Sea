@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Fruit
   m_EditorClassIdentifier: 
   displayName: Fruit
-  Description: Can heal HP.
+  Description: Fruit that can heal HP.
   icon: {fileID: 0}
   maxStackSize: 99

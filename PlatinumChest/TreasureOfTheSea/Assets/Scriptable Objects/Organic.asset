@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Organic
   m_EditorClassIdentifier: 
   displayName: Organic
-  Description: Organic material can craft a tool.
+  Description: Organic material that can craft a tool.
   icon: {fileID: 0}
   maxStackSize: 99
