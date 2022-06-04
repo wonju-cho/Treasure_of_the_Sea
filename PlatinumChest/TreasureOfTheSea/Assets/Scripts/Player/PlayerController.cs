@@ -22,17 +22,6 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
     private bool isGrounded;
     
-    //private bool isPlayerDead = false;
-    //private bool isPlayerDeadSea = false;
-    //private bool SeaTriggerOnce = false;
-
-    //Vector3 playerSpawnPosition;
-
-    //[SerializeField]
-    //int PlayerHP = 10;
-
-    //private int currentHP;
-
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -42,10 +31,6 @@ public class PlayerController : MonoBehaviour
 
         if (!animator)
             Debug.Log("There is no animator in the PlayerMovement script");
-
-
-        //playerSpawnPosition = transform.position;
-        //currentHP = PlayerHP;
         
         originalStepOffset = controller.stepOffset;
     }
@@ -54,20 +39,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(currentHP);
-
-
-        //if (currentHP <= 0)
-        //{
-        //    isPlayerDead = true;
-        //}
-
-        //if (isPlayerDead)
-        //{
-        //    PlayerDeath();  
-        //}
-
-        //if (!isPlayerDead)
         {
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
@@ -146,54 +117,4 @@ public class PlayerController : MonoBehaviour
     
     }
 
-    //private void OnControllerColliderHit(ControllerColliderHit hit)
-    //{
-    //    if(hit.gameObject.CompareTag("Sea"))
-    //    {
-    //        isPlayerDead = true;
-    //        isPlayerDeadSea = true;
-    //    }
-    //}
-
-    //void PlayerDeath()
-    //{
-    //    if(isPlayerDeadSea && SeaTriggerOnce == false)
-    //    {
-    //        SeaTriggerOnce = true;
-    //        animator.SetTrigger("Death");
-    //        Debug.Log(isPlaying(animator, "Death"));
-    //    }
-    //    else if(isPlayerDead && isPlayerDeadSea == false)
-    //    {
-    //        animator.SetTrigger("Death");
-    //        Debug.Log(isPlaying(animator, "Death"));
-    //    }
-    //}
-
-    //bool isPlaying(Animator anim, string stateName)
-    //{
-    //    if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
-    //            anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-    //        return true;
-    //    else
-    //        return false;
-    //}
-
-    IEnumerator WaitForSec(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-    }
-
-    //void PlayerRespawn()
-    //{
-    //    controller.enabled = false;
-    //    controller.transform.position = playerSpawnPosition;
-    //    controller.enabled = true;
-
-    //    isPlayerDead = false;
-    //    isPlayerDeadSea = false;
-    //    SeaTriggerOnce = false;
-
-    //    animator.ResetTrigger("Death");
-    //}
 }
