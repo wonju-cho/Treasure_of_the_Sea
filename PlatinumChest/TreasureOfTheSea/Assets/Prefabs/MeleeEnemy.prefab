@@ -140,6 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35e9c03d2ff8224e8ae6f148f986560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loots:
+  - item: {fileID: 11400000, guid: 9f40af77d32464a4b98c8a246e66eeba, type: 2}
+    dropRate: 0.01
   HP: 100
   animator: {fileID: 2645274137297001737}
 --- !u!136 &6319557803369237706

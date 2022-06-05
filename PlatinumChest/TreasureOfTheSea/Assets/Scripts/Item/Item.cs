@@ -2,24 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public abstract class Item
+public class Item: ScriptableObject
 {
-    protected ItemType _itemType;
-    public ItemType itemType
-    {
-        get { return _itemType; }
-    }
+    [SerializeField] string name;
+    [SerializeField] string description;
+    [SerializeField] Sprite icon;
 
-}
-
-
-public enum ItemType
-{
-    FRUIT,
-    BRANCH,
-
-    STONE,
-
-    CLOTHES
+    public string Name => name;
+    public string Description => description;
+    public Sprite Icon => icon;
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyManage : MonoBehaviour
 {
+    public Loot[] loots;
+
     public int HP = 100;
     public Animator animator;
 
@@ -29,5 +31,20 @@ public class EnemyManage : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
+        DropItem();
+    }
+
+    public void DropItem()
+    {
+        foreach (Loot loot in loots)
+        {
+            float spawnPercentage = Random.Range(-0.01f, 100f);
+
+            if (spawnPercentage <= loot.dropRate)
+            {
+                Instantiate(loot.item, transform.position, Quaternion.identity);
+            }
+        }
+
     }
 }

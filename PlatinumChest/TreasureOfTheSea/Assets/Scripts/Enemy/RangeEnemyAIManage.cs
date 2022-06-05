@@ -2,8 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class Loot
+{
+    public Item item;
+    [Range(0.01f, 100f)]
+
+    public float dropRate;
+    //public int minQuantity;
+    //public int maxQuantity;
+}
+
 public class RangeEnemyAIManage : MonoBehaviour
 {
+    public Loot[] loots;
+
     public int HP = 100;
     public Animator animator;
 
@@ -38,5 +51,21 @@ public class RangeEnemyAIManage : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
+        DropItem();
     }
+
+    public void DropItem()
+    {
+        foreach(Loot loot in loots)
+        {
+            float spawnPercentage = Random.Range(-0.01f, 100f);
+
+            if(spawnPercentage <= loot.dropRate)
+            {
+                /*GameObject item = */Instantiate(loot.item, transform.position, Quaternion.identity);
+            }
+        }
+
+    }
+
 }
