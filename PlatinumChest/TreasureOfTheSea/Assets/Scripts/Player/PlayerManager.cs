@@ -23,6 +23,10 @@ public class PlayerManager : MonoBehaviour
     float playerHP = 10;
     private float currentHP;
 
+
+    public GameObject projectile;
+    public Transform projectilePoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,7 +74,11 @@ public class PlayerManager : MonoBehaviour
 
     float GetCurrentHP() { return currentHP; }
 
-    void TakeDamge(int damage) { currentHP -= damage; }
+    public void TakeDamge(int damage) 
+    {
+        Debug.Log("Player take damage: " + currentHP);
+        currentHP -= damage; 
+    }
 
     void HealthBarFill()
     {
@@ -126,6 +134,14 @@ public class PlayerManager : MonoBehaviour
 
         isPlayerDead = false;
         triggerOnce = false;
+
+    }
+
+    public void Shoot()
+    {
+        Rigidbody rb = Instantiate(projectile, projectilePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
+        rb.AddForce(transform.up * 7f, ForceMode.Impulse);
 
     }
 }

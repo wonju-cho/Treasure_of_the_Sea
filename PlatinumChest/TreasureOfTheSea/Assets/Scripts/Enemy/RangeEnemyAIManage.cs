@@ -42,7 +42,7 @@ public class RangeEnemyAIManage : MonoBehaviour
     {
         Rigidbody rb =  Instantiate(projectile, projectilePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
-        rb.AddForce(transform.up * 7f, ForceMode.Impulse);
+        rb.AddForce(transform.up * 5f, ForceMode.Impulse);
 
 
     }
