@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Organic
   Description: Organic material that can craft a tool.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 8cc50792926ce244b974ac90fbcc6289, type: 3}
   maxStackSize: 99
