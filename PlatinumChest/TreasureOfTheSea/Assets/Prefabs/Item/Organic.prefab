@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   itemData: {fileID: 11400000, guid: 1bd7a263ee4d0f2429ca91621936caaa, type: 2}
+  texture: {fileID: 129990, guid: f89cb707cc080fe4f93109b17f751eb0, type: 3}
 --- !u!1001 &4326696165490932178
 PrefabInstance:
   m_ObjectHideFlags: 0
