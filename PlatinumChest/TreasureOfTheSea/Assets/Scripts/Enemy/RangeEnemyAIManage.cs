@@ -7,7 +7,6 @@ public class Loot
 {
     public Item item;
     [Range(0.01f, 100f)]
-
     public float dropRate;
     //public int minQuantity;
     //public int maxQuantity;
@@ -44,6 +43,7 @@ public class RangeEnemyAIManage : MonoBehaviour
         Rigidbody rb =  Instantiate(projectile, projectilePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
         rb.AddForce(transform.up * 7f, ForceMode.Impulse);
+
 
     }
 
