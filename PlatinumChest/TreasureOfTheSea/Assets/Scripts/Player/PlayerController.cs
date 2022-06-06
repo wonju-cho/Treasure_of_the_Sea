@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isJumping;
     private bool isGrounded;
+
     
     private void Start()
     {
@@ -57,6 +58,15 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 jumpButtonPressedTime = Time.time;
+            }
+
+            //player shoot
+            if (Input.GetButtonDown("Fire1") && isGrounded)
+            {
+                if (animator.GetBool("IsShooting") == false)
+                {
+                    animator.SetBool("IsShooting", true);
+                }
             }
 
             if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
@@ -117,4 +127,5 @@ public class PlayerController : MonoBehaviour
     
     }
 
+    
 }
