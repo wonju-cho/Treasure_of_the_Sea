@@ -40,7 +40,7 @@ public class InventorySlot
         return RoomLeftInStack(amountToAdd);
     }
 
-    public bool RoomLeftInStack(int amountToAdd)
+    public bool RoomLeftInStack(int amountToAdd) // check if there is room that can add item
     {
         if (stackSize + amountToAdd <= itemData.maxStackSize)
             return true;

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Cotton
   m_EditorClassIdentifier: 
   displayName: Cotton
-  Description: Cotton material can craft a tool.
+  Description: Cotton material that can craft a tool.
   icon: {fileID: 0}
   maxStackSize: 99
