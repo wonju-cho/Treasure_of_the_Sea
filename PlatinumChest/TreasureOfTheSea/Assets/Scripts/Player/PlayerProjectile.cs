@@ -4,25 +4,38 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
 {
-    public GameObject impactEffect;
+    //public GameObject impactEffect;
     public float radius = 1;
     public int damageAmount = 15;
 
+
+    private void Update()
+    {
+        Destroy(this.gameObject, 5f);
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject impact = Instantiate(impactEffect, transform.position, Quaternion.identity);
-        Destroy(impact, 2);
+        //GameObject impact = Instantiate(impactEffect, transform.position, Quaternion.identity);
+        //Destroy(impact, 2);
 
-        if(collision.collider.tag == "Enemy")
+        Debug.Log("Collision detection: " + collision.gameObject.name);
+
+        if (collision.collider.tag == "MeleeEnemy")
         {
-            Debug.Log("collision detected: enemy");
-
+            collision.collider.GetComponent<EnemyManage>().TakeDamage(20); 
+            Destroy(this.gameObject);
         }
-        else
+        else if(collision.collider.tag == "RangeEnemy")
         {
-            Debug.Log("collision detected: wall or something");
+            collision.collider.GetComponent<RangeEnemyAIManage>().TakeDamage(20);
+            Destroy(this.gameObject);
+        }
+        else if(collision.collider.tag == "Plane")
+        {
+            Destroy(this.gameObject);
         }
 
-        Destroy(gameObject);
     }
 }

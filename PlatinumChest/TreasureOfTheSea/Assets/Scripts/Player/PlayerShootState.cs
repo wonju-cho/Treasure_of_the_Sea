@@ -15,7 +15,6 @@ public class PlayerShootState : StateMachineBehaviour
     {
         if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
         {
-            Debug.Log("Shoot animation state exit");
             animator.SetBool("IsShooting", false);
         }
     }

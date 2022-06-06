@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public GameObject impactEffect;
+    //public GameObject impactEffect;
     public float radius = 1;
     public int damageAmount = 15;
 
@@ -12,16 +12,20 @@ public class Projectile : MonoBehaviour
     {
         //add audio effect
         //FindObjectOfType<AudioManager>().Play("");
-        GameObject impact = Instantiate(impactEffect, transform.position, Quaternion.identity);
-        Destroy(impact, 2);
+        //GameObject impact = Instantiate(impactEffect, transform.position, Quaternion.identity);
+        //Destroy(impact, 2);
 
         if(collision.collider.tag == "Player")
         {
-            Debug.Log("collision detected: player");
+            Debug.Log("collision detection with player");
+            collision.collider.GetComponent<PlayerManager>().TakeDamge(10);
+            Destroy(this.gameObject);
+            //Debug.Log("collision detected: player");
         }
-        else
+        else if(collision.collider.tag == "Plane")
         {
-            Debug.Log("collision detected: wall");
+            Destroy(this.gameObject);
+            //Debug.Log("collision detected: wall");
         }
         //Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
@@ -33,6 +37,5 @@ public class Projectile : MonoBehaviour
         //        //playermanager.takedamage();
         //    }
         //}
-        Destroy(gameObject);
     }
 }

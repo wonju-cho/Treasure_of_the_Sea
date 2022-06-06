@@ -74,7 +74,11 @@ public class PlayerManager : MonoBehaviour
 
     float GetCurrentHP() { return currentHP; }
 
-    void TakeDamge(int damage) { currentHP -= damage; }
+    public void TakeDamge(int damage) 
+    {
+        Debug.Log("Player take damage: " + currentHP);
+        currentHP -= damage; 
+    }
 
     void HealthBarFill()
     {
@@ -135,7 +139,6 @@ public class PlayerManager : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("Called Shoot function");
         Rigidbody rb = Instantiate(projectile, projectilePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
         rb.AddForce(transform.up * 7f, ForceMode.Impulse);
