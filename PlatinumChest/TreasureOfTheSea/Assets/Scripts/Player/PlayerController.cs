@@ -62,6 +62,14 @@ public class PlayerController : MonoBehaviour
                 jumpButtonPressedTime = Time.time;
             }
 
+            if (Input.GetButtonDown("Fire1") && isGrounded)
+            {
+                if (animator.GetBool("IsShooting") == false)
+                {
+                    animator.SetBool("IsShooting", true);
+                }
+            }
+
             if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
             {
                 controller.stepOffset = originalStepOffset;

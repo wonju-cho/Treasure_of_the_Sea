@@ -154,6 +154,7 @@ public class PlayerManager : MonoBehaviour
 
     public void Shoot()
     {
+        Debug.Log("player shoot");
         Rigidbody rb = Instantiate(projectile, projectilePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
         rb.AddForce(transform.up * 7f, ForceMode.Impulse);
