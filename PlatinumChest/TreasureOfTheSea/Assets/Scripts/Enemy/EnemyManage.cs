@@ -9,6 +9,13 @@ public class EnemyManage : MonoBehaviour
     public int HP = 100;
     public Animator animator;
 
+    [SerializeField] Transform[] wayPoints;
+
+    public Transform[] GetWayPoints()
+    {
+        return wayPoints;
+    }
+
     //Add this function to player's slingshot
     public void TakeDamage(int damageAmount)
     {

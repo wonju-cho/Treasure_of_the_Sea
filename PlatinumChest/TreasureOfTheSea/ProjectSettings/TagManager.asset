@@ -10,6 +10,7 @@ TagManager:
   - MeleeEnemy
   - RangeEnemy
   - Plane
+  - InteractableObject
   layers:
   - Default
   - TransparentFX

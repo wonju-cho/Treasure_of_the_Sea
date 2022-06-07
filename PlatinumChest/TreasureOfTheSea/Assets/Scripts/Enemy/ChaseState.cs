@@ -26,14 +26,14 @@ public class ChaseState : StateMachineBehaviour
 
         agent.SetDestination(player.position);
 
-        ////stop chasing
-        //if(distance > stopChasingRange)
-        //{
-        //    animator.SetBool("isChasing", false);
-        //}
+        //stop chasing
+        if (distance > stopChasingRange)
+        {
+            animator.SetBool("isChasing", false);
+        }
 
         //stop and attack when the enemy close to the player
-        if(distance < attackRange)
+        if (distance < attackRange)
         {
             animator.SetBool("isAttacking", true);
         }

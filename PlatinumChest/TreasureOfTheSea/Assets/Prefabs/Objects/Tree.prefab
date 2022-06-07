@@ -43,10 +43,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.8206295
+  m_Height: 8.095566
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.47689044, y: 3.547783, z: 0.15626097}
 --- !u!114 &1408299891167409329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tree
   hitCount: 4
-  item: {fileID: 11400000, guid: 9f40af77d32464a4b98c8a246e66eeba, type: 2}
+  loots: []
 --- !u!1001 &7149602515749845154
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,9 +19,6 @@ public class PlayerProjectile : MonoBehaviour
     {
         //GameObject impact = Instantiate(impactEffect, transform.position, Quaternion.identity);
         //Destroy(impact, 2);
-
-        Debug.Log("Collision detection: " + collision.gameObject.name);
-
         if (collision.collider.tag == "MeleeEnemy")
         {
             collision.collider.GetComponent<EnemyManage>().TakeDamage(20); 
@@ -34,6 +31,11 @@ public class PlayerProjectile : MonoBehaviour
         }
         else if(collision.collider.tag == "Plane")
         {
+            Destroy(this.gameObject);
+        }
+        else if(collision.collider.tag == "InteractableObject")
+        {
+            collision.collider.GetComponent<InteractObject>().TakeDamage();
             Destroy(this.gameObject);
         }
 

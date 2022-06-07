@@ -22,6 +22,13 @@ public class RangeEnemyAIManage : MonoBehaviour
     public GameObject projectile;
     public Transform projectilePoint; // have to change from enemy transform to weapon transform.
 
+    [SerializeField] Transform[] wayPoints;
+
+    public Transform[] GetWayPoints()
+    {
+        return wayPoints;   
+    }
+
     public void TakeDamage(int damageAmount)
     {
         HP -= damageAmount;
