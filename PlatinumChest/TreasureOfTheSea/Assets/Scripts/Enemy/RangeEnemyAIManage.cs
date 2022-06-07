@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Loot
 {
-    public Item item;
+    public GameObject item;
     [Range(0.01f, 100f)]
     public float dropRate;
     //public int minQuantity;

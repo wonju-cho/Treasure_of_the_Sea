@@ -61,7 +61,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tree
   hitCount: 4
-  loots: []
+  loots:
+  - item: {fileID: 4613897257730562928, guid: b3949cf5157ab204bbc28209ffef8bc7, type: 3}
+    dropRate: 53.1
+  - item: {fileID: 793910412201168641, guid: 78cdc779376504049b12603ccb813424, type: 3}
+    dropRate: 52.6
 --- !u!1001 &7149602515749845154
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -60,7 +60,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Rock
   hitCount: 3
-  loots: []
+  loots:
+  - item: {fileID: 4590457073531325977, guid: c05febeed49552646a512b54ceb3be41, type: 3}
+    dropRate: 53.9
+  - item: {fileID: 4590457073531325977, guid: c05febeed49552646a512b54ceb3be41, type: 3}
+    dropRate: 53.9
 --- !u!114 &2022588379938427610
 MonoBehaviour:
   m_ObjectHideFlags: 0

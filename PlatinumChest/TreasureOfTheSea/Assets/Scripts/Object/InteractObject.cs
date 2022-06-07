@@ -31,12 +31,12 @@ public class InteractObject : MonoBehaviour
 
     public void DropItemWhenPlayerHit()
     {
-        //Instantiate(loots[0].item, transform.position, Quaternion.identity);
+        Instantiate(loots[0].item, transform.position, Quaternion.identity);
     }
 
     public void DropItemWhenObjectDestroy()
     {
-        //Instantiate(loots[1].item, transform.position, Quaternion.identity);
+        Instantiate(loots[1].item, transform.position, Quaternion.identity);
     }
 
 }
