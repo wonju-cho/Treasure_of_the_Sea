@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
     private CharacterController controller;
     private PlayerController playerController;
 
+    [Tooltip("Need to add the healthbar of the playerUI prefab")]
     public Image HealthBar;
 
     private bool isPlayerDead = false;
@@ -18,6 +19,10 @@ public class PlayerManager : MonoBehaviour
     private float fillSpeed = 2f;
 
     Vector3 playerSpawnPosition;
+
+
+    public GameObject InventoryUI;
+    private bool isInventoryDisplayed = false;
 
     [SerializeField]
     float playerHP = 10;
@@ -47,6 +52,16 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isInventoryDisplayed)
+            InventoryUI.SetActive(true);
+        else
+            InventoryUI.SetActive(false);
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            isInventoryDisplayed = isInventoryDisplayed ? false : true;
+        }
+
 
         if (Input.GetKeyDown(KeyCode.F1) && isPlayerDead)
         {
@@ -54,7 +69,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         //test health bar ui
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentHP--;
         }
