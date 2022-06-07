@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
     private CharacterController controller;
     private PlayerController playerController;
 
+    [Tooltip("Need to add the healthbar of the playerUI prefab")]
     public Image HealthBar;
 
     private bool isPlayerDead = false;
@@ -64,7 +65,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         //test health bar ui
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentHP--;
         }

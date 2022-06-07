@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StaticInventoryDisplay : InventoryDisplay
 {
+    [Tooltip("Need to add player object")]
     [SerializeField] private InventoryHolder inventoryHolder;
     [SerializeField] private InventorySlot_UI[] slots;
 

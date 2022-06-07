@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +18,10 @@ public class PlayerController : MonoBehaviour
 
     private bool isJumping;
     private bool isGrounded;
+
+    [Tooltip("Need to add a main camera object")]
+    [SerializeField]
+    private Transform cameraTransform;
     
     private void Start()
     {
@@ -45,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
             Vector3 direction = new Vector3(horizontal, 0f, vertical);
             float directionMagnitude = Mathf.Clamp01(direction.magnitude) * moveSpeed;
+
+            direction = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * direction;
             direction.Normalize();
 
             ySpeed += Physics.gravity.y * Time.deltaTime; //gravity = -9.81
@@ -115,6 +118,18 @@ public class PlayerController : MonoBehaviour
             }
         }
     
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
 }
