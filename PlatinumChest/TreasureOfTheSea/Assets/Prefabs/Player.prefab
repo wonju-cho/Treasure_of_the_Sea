@@ -290,7 +290,8 @@ MonoBehaviour:
   rotationSpeed: 6
   jumpSpeed: 5
   jumpButtonGracePeriod: 0.2
-  cameraTransform: {fileID: 0}
+  InventoryUI: {fileID: 0}
+  CameraPositoin: {fileID: 0}
 --- !u!143 &5380464276882523233
 CharacterController:
   m_ObjectHideFlags: 0
@@ -323,7 +324,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6421454075827109771}
   HealthBar: {fileID: 0}
-  InventoryUI: {fileID: 0}
   playerHP: 100
   projectile: {fileID: 6563283528253829690, guid: 4aca66028b4a16c41af57dcf274f9848, type: 3}
   projectilePoint: {fileID: 5649757518849863163}
@@ -1084,7 +1084,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8567371631050123206}
-  m_LocalRotation: {x: 0.17350298, y: 0.000000008448778, z: -0.0000000014884635, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: -0.000000008472708, z: 0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 0, y: 4, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

@@ -20,14 +20,9 @@ public class PlayerManager : MonoBehaviour
 
     Vector3 playerSpawnPosition;
 
-
-    public GameObject InventoryUI;
-    private bool isInventoryDisplayed = false;
-
     [SerializeField]
     float playerHP = 10;
     private float currentHP;
-
 
     public GameObject projectile;
     public Transform projectilePoint;
@@ -52,16 +47,6 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInventoryDisplayed)
-            InventoryUI.SetActive(true);
-        else
-            InventoryUI.SetActive(false);
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            isInventoryDisplayed = isInventoryDisplayed ? false : true;
-        }
-
 
         if (Input.GetKeyDown(KeyCode.F1) && isPlayerDead)
         {
@@ -105,7 +90,6 @@ public class PlayerManager : MonoBehaviour
         if (hit.gameObject.CompareTag("Sea"))
         {
             isPlayerDead = true;
-            //isPlayerDeadSea = true;
         }
     }
 
@@ -158,6 +142,5 @@ public class PlayerManager : MonoBehaviour
         Rigidbody rb = Instantiate(projectile, projectilePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
         rb.AddForce(transform.up * 7f, ForceMode.Impulse);
-
     }
 }

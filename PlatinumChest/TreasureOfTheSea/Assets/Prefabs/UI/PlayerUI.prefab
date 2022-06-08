@@ -194,7 +194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8383477194100345292
 RectTransform:
   m_ObjectHideFlags: 0
@@ -557,6 +557,7 @@ GameObject:
   - component: {fileID: 8745439821156766452}
   - component: {fileID: 3678142304222537112}
   - component: {fileID: 444926554621974840}
+  - component: {fileID: 591604862534510523}
   m_Layer: 5
   m_Name: PlayerHotbar
   m_TagString: Untagged
@@ -582,9 +583,9 @@ RectTransform:
   m_Father: {fileID: 5088753630195260577}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 144}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -396}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7554967223932834145
@@ -608,14 +609,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 0.5707547, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 07d91d9460b9e0c47b239fe98e5e0395, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -684,6 +685,21 @@ MonoBehaviour:
   - {fileID: 1786222622442171344}
   - {fileID: 5366085815322438115}
   - {fileID: 2686694974262284859}
+--- !u!114 &591604862534510523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8034242742157681337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51f15f60490f02489a22c54f5085555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  TargetPosition: {fileID: 0}
+  offset: {x: 0, y: 2.6, z: 0}
 --- !u!1 &8147601674552075149
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +845,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventorySlot_UI (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 138377832843016973, guid: 66cd1851b7c173e4789b6969816d0d58, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7080651244486533625, guid: 66cd1851b7c173e4789b6969816d0d58, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -941,6 +961,10 @@ PrefabInstance:
     - target: {fileID: 138377832843016973, guid: 66cd1851b7c173e4789b6969816d0d58, type: 3}
       propertyPath: m_Name
       value: InventorySlot_UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 138377832843016973, guid: 66cd1851b7c173e4789b6969816d0d58, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7080651244486533625, guid: 66cd1851b7c173e4789b6969816d0d58, type: 3}
       propertyPath: m_Pivot.x
@@ -1055,6 +1079,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventorySlot_UI (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 138377832843016973, guid: 66cd1851b7c173e4789b6969816d0d58, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7080651244486533625, guid: 66cd1851b7c173e4789b6969816d0d58, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1167,6 +1195,10 @@ PrefabInstance:
     - target: {fileID: 138377832843016973, guid: 66cd1851b7c173e4789b6969816d0d58, type: 3}
       propertyPath: m_Name
       value: InventorySlot_UI (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 138377832843016973, guid: 66cd1851b7c173e4789b6969816d0d58, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7080651244486533625, guid: 66cd1851b7c173e4789b6969816d0d58, type: 3}
       propertyPath: m_Pivot.x
