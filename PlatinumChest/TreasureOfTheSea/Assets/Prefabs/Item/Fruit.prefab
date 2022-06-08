@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8594590652063896565}
-  - component: {fileID: 6499917521470012667}
   - component: {fileID: 7911769191209353953}
+  - component: {fileID: 2992767657869012657}
+  - component: {fileID: 71051370528154392}
   m_Layer: 0
   m_Name: Fruit
   m_TagString: Untagged
@@ -33,19 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &6499917521470012667
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4613897257730562928}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7911769191209353953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +48,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   itemData: {fileID: 11400000, guid: 0bbe9e4d3f1a78a40997fd27cabcf0c2, type: 2}
+--- !u!54 &2992767657869012657
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613897257730562928}
+  serializedVersion: 2
+  m_Mass: 5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!136 &71051370528154392
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613897257730562928}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.24729896
+  m_Height: 0.4945979
+  m_Direction: 1
+  m_Center: {x: -0.00088730454, y: -0.020118028, z: 0.03247699}
 --- !u!1001 &7993444595453714053
 PrefabInstance:
   m_ObjectHideFlags: 0

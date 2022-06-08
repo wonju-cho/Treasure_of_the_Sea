@@ -2,31 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
+
 public class ItemPickUp : MonoBehaviour
 {
     public float PickUpRadius = 1f;
     public InventoryItemData itemData;
 
-    private SphereCollider myCollider;
+    private CapsuleCollider myCollider;
+    private Rigidbody rigidBody;
 
     private void Awake()
     {
-        myCollider = GetComponent<SphereCollider>();
-        myCollider.isTrigger = true;
-        myCollider.radius = PickUpRadius;
+        myCollider = GetComponent<CapsuleCollider>();
+        rigidBody = GetComponent<Rigidbody>();
+
+        myCollider.isTrigger = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        var inventory = other.transform.GetComponent<InventoryHolder>();
-
-        if (!inventory)
-            return;
-
-        if(inventory.InventorySystem.AddToInventory(itemData, 1))
+        if(other.tag == "Player")
         {
-            Destroy(this.gameObject);
+            var inventory = other.transform.GetComponent<InventoryHolder>();
+
+            if (!inventory)
+                return;
+
+            if (inventory.InventorySystem.AddToInventory(itemData, 1))
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("detect collision item with " + collision.gameObject.name);
+        Collider collider = collision.collider;
+        if (collider.tag == "Player")
+        {
+            InventoryHolder inventory = collision.collider.transform.GetComponent<InventoryHolder>();
+            
+            if(!inventory)
+            {
+                return;
+            }
+
+            if(inventory.InventorySystem.AddToInventory(itemData, 1))
+            {
+                Destroy(this.gameObject);
+            }
+        }
+        else if(collider.tag == "Plane")
+        {
+            Destroy(gameObject.GetComponent<Rigidbody>());
+            myCollider.isTrigger = true;
+        }
+    }
+
+    
 }

@@ -43,14 +43,23 @@ public class EnemyManage : MonoBehaviour
 
     public void DropItem()
     {
+        bool dropSuccess = false;
+
         foreach (Loot loot in loots)
         {
             float spawnPercentage = Random.Range(-0.01f, 100f);
 
             if (spawnPercentage <= loot.dropRate)
             {
+                dropSuccess = true;
                 Instantiate(loot.item, transform.position, Quaternion.identity);
+                break;
             }
+        }
+
+        if(dropSuccess == false)
+        {
+            Instantiate(loots[0].item, transform.position, Quaternion.identity);
         }
 
     }

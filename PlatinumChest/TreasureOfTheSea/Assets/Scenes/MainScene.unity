@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -162,7 +162,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48181281}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -508,15 +508,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3491702284476824875, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.2
+      value: -21.21
       objectReference: {fileID: 0}
     - target: {fileID: 3491702284476824875, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.93
+      value: 4.11
       objectReference: {fileID: 0}
     - target: {fileID: 3491702284476824875, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.388822
+      value: -0.65
       objectReference: {fileID: 0}
     - target: {fileID: 3491702284476824875, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalRotation.w
@@ -554,6 +554,22 @@ PrefabInstance:
       propertyPath: InventoryUI
       value: 
       objectReference: {fileID: 481292965}
+    - target: {fileID: 8089779214041560312, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.0000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089779214041560312, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.173503
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089779214041560312, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000001694542
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089779214041560312, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0000000029853595
+      objectReference: {fileID: 0}
     - target: {fileID: 9005421510962808441, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: cameraTransform
       value: 
@@ -768,7 +784,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466155087}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1145,7 +1161,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672721480}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1580,7 +1596,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816378692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2054,8 +2070,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.2, y: 2.93, z: -0.6111784}
+  m_LocalRotation: {x: 0.173503, y: -0.00000001694542, z: 0.0000000029853595, w: 0.98483336}
+  m_LocalPosition: {x: -21.21, y: 8.110001, z: -11.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2217,6 +2233,10 @@ PrefabInstance:
     - target: {fileID: 151938, guid: 44a93fec55b694342847efc8ce1a73da, type: 3}
       propertyPath: m_Name
       value: Terrain_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 151938, guid: 44a93fec55b694342847efc8ce1a73da, type: 3}
+      propertyPath: m_TagString
+      value: Plane
       objectReference: {fileID: 0}
     - target: {fileID: 151938, guid: 44a93fec55b694342847efc8ce1a73da, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2455,6 +2475,10 @@ PrefabInstance:
       value: Terrain_02
       objectReference: {fileID: 0}
     - target: {fileID: 151938, guid: 44a93fec55b694342847efc8ce1a73da, type: 3}
+      propertyPath: m_TagString
+      value: Plane
+      objectReference: {fileID: 0}
+    - target: {fileID: 151938, guid: 44a93fec55b694342847efc8ce1a73da, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -2528,6 +2552,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
+      propertyPath: loots.Array.data[0].item
+      value: 
+      objectReference: {fileID: 793910412201168641, guid: 78cdc779376504049b12603ccb813424, type: 3}
+    - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
+      propertyPath: loots.Array.data[1].item
+      value: 
+      objectReference: {fileID: 4613897257730562928, guid: b3949cf5157ab204bbc28209ffef8bc7, type: 3}
+    - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
+      propertyPath: loots.Array.data[0].dropRate
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
+      propertyPath: loots.Array.data[1].dropRate
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 1978631254124554130, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: m_Name
       value: Tree
@@ -2625,7 +2665,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523628950}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2781,7 +2821,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774231226}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2901,7 +2941,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811672415}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3241,7 +3281,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127845758}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
