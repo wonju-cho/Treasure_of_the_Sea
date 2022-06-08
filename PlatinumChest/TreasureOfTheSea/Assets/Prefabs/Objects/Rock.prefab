@@ -30,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6858601963651353201}
+  - {fileID: 6787857631256833309}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -62,9 +63,38 @@ MonoBehaviour:
   hitCount: 3
   loots:
   - item: {fileID: 4590457073531325977, guid: c05febeed49552646a512b54ceb3be41, type: 3}
-    dropRate: 53.9
-  - item: {fileID: 4590457073531325977, guid: c05febeed49552646a512b54ceb3be41, type: 3}
-    dropRate: 53.9
+    dropRate: 100
+  dropItemPosition: {fileID: 6787857631256833309}
+--- !u!1 &7355291834313744387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6787857631256833309}
+  m_Layer: 0
+  m_Name: dropItemPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6787857631256833309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355291834313744387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.89, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5246537975541574156}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2022588379938427610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,6 +110,7 @@ MonoBehaviour:
   name: Rock
   hitCount: 3
   loots: []
+  dropItemPosition: {fileID: 0}
 --- !u!1001 &1778950220959634726
 PrefabInstance:
   m_ObjectHideFlags: 0
