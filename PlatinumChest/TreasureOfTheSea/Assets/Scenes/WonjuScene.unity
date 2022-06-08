@@ -708,7 +708,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872684556}
-  m_LocalRotation: {x: 0.17350298, y: 0.00000000847271, z: -0.0000000014926795, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: -0.000000008472708, z: 0.0000000014926792, w: 0.98483336}
   m_LocalPosition: {x: 9.72561, y: 4.869999, z: 9.664459}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1167,11 +1167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8089779214041560312, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000000847271
+      value: -0.000000008472708
       objectReference: {fileID: 0}
     - target: {fileID: 8089779214041560312, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000014926795
+      value: 0.0000000014926792
       objectReference: {fileID: 0}
     - target: {fileID: 8110439624504311747, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1286,7 +1286,7 @@ GameObject:
   - component: {fileID: 1313145566}
   m_Layer: 0
   m_Name: FirstArea
-  m_TagString: Untagged
+  m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

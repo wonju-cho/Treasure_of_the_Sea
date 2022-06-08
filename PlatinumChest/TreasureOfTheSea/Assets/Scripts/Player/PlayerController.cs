@@ -1,4 +1,5 @@
 using UnityEngine;
+//using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
     private bool isGrounded;
 
+    [Tooltip("Need to add playerhotbar object")]
     public GameObject InventoryUI;
     private bool isInventoryDisplayed = false;
     
@@ -39,8 +41,6 @@ public class PlayerController : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         if (isInventoryDisplayed)
@@ -143,16 +143,16 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void OnApplicationFocus(bool focus)
-    {
-        if (focus)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-    }
+    //private void OnApplicationFocus(bool focus)
+    //{
+    //    if (focus)
+    //    {
+    //        Cursor.lockState = CursorLockMode.Locked;
+    //    }
+    //    else
+    //    {
+    //        Cursor.lockState = CursorLockMode.None;
+    //    }
+    //}
 
 }
