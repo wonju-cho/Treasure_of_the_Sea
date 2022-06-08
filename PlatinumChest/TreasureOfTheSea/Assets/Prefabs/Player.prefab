@@ -291,7 +291,6 @@ MonoBehaviour:
   jumpSpeed: 5
   jumpButtonGracePeriod: 0.2
   InventoryUI: {fileID: 0}
-  CameraPositoin: {fileID: 0}
 --- !u!143 &5380464276882523233
 CharacterController:
   m_ObjectHideFlags: 0
@@ -808,7 +807,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4209500032912665238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.523, z: 0}
+  m_LocalPosition: {x: 0, y: 1.58, z: 0.214}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3491702284476824875}
@@ -1084,7 +1083,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8567371631050123206}
-  m_LocalRotation: {x: 0.17350298, y: -0.000000008472708, z: 0.0000000014926792, w: 0.98483336}
+  m_LocalRotation: {x: 0.17350298, y: 0.00000000847271, z: -0.0000000014926795, w: 0.98483336}
   m_LocalPosition: {x: 0, y: 4, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1121,7 +1120,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7773196, y: 1}
+    m_SensorSize: {x: 1.7768053, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

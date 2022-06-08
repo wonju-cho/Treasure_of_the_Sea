@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -564,12 +564,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8089779214041560312, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001694542
+      value: 0.000000016945416
       objectReference: {fileID: 0}
     - target: {fileID: 8089779214041560312, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000029853595
+      value: -0.000000002985359
       objectReference: {fileID: 0}
+    - target: {fileID: 9005421510962808441, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
+      propertyPath: InventoryUI
+      value: 
+      objectReference: {fileID: 481292965}
     - target: {fileID: 9005421510962808441, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: cameraTransform
       value: 
@@ -1431,6 +1435,10 @@ PrefabInstance:
       propertyPath: inventoryHolder
       value: 
       objectReference: {fileID: 542464131}
+    - target: {fileID: 591604862534510523, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
+      propertyPath: TargetPosition
+      value: 
+      objectReference: {fileID: 1424789550}
     - target: {fileID: 1340311097589812138, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1797,7 +1805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7640073670039885426, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
       propertyPath: loots.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7640073670039885426, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
       propertyPath: wayPoints.Array.size
@@ -1835,6 +1843,14 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[7]
       value: 
       objectReference: {fileID: 1811672416}
+    - target: {fileID: 7640073670039885426, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
+      propertyPath: loots.Array.data[0].item
+      value: 
+      objectReference: {fileID: 4590457073531325977, guid: c05febeed49552646a512b54ceb3be41, type: 3}
+    - target: {fileID: 7640073670039885426, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
+      propertyPath: loots.Array.data[0].dropRate
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
 --- !u!1 &932316271
@@ -2070,7 +2086,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.173503, y: -0.00000001694542, z: 0.0000000029853595, w: 0.98483336}
+  m_LocalRotation: {x: 0.173503, y: 0.000000016945416, z: -0.000000002985359, w: 0.98483336}
   m_LocalPosition: {x: -21.21, y: 8.110001, z: -11.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2544,6 +2560,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4524469272891044, guid: fd08503763d4b8c448e8f1b3bffdff5d, type: 3}
   m_PrefabInstance: {fileID: 738975722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1424789550 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3491702284476824875, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
+  m_PrefabInstance: {fileID: 397260451}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1459462293
 PrefabInstance:
@@ -3113,6 +3134,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1016077986}
     - target: {fileID: 5558245271691774825, guid: 3e60cdd5136b8cc4b86ec6e2b5781f9c, type: 3}
+      propertyPath: loots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558245271691774825, guid: 3e60cdd5136b8cc4b86ec6e2b5781f9c, type: 3}
       propertyPath: wayPoints.Array.size
       value: 8
       objectReference: {fileID: 0}
@@ -3148,6 +3173,14 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[7]
       value: 
       objectReference: {fileID: 639623139}
+    - target: {fileID: 5558245271691774825, guid: 3e60cdd5136b8cc4b86ec6e2b5781f9c, type: 3}
+      propertyPath: loots.Array.data[0].item
+      value: 
+      objectReference: {fileID: 793910412201168641, guid: 78cdc779376504049b12603ccb813424, type: 3}
+    - target: {fileID: 5558245271691774825, guid: 3e60cdd5136b8cc4b86ec6e2b5781f9c, type: 3}
+      propertyPath: loots.Array.data[0].dropRate
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 9109207412341359945, guid: 3e60cdd5136b8cc4b86ec6e2b5781f9c, type: 3}
       propertyPath: m_Name
       value: RangeEnemy
