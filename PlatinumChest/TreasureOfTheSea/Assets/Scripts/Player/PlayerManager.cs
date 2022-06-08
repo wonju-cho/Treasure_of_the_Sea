@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 //death, combat 
 
@@ -26,6 +24,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject projectile;
     public Transform projectilePoint;
+
 
     // Start is called before the first frame update
     void Start()
