@@ -6,6 +6,7 @@ public class AttackState : StateMachineBehaviour
 {
     Transform player;
     [SerializeField] float stopAttackRange;
+    [SerializeField] float attackAmount;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -20,7 +21,7 @@ public class AttackState : StateMachineBehaviour
         animator.transform.LookAt(look);
 
         //todo : attack 
-
+        
 
         float distance = Vector3.Distance(player.position, animator.transform.position);
         if (distance > stopAttackRange)
@@ -28,10 +29,10 @@ public class AttackState : StateMachineBehaviour
             animator.SetBool("isAttacking", false);
         }
 
-        //if(stateInfo.normalizedTime > 1f)
-        //{
-        //    animator.SetBool("isAttacking", false);
-        //}
+        if (stateInfo.normalizedTime > 1f)
+        {
+            animator.SetBool("isAttacking", false);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

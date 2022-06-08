@@ -26,7 +26,7 @@ public class PlayerProjectile : MonoBehaviour
         }
         else if(collision.collider.tag == "RangeEnemy")
         {
-            collision.collider.GetComponent<RangeEnemyAIManage>().TakeDamage(20);
+            collision.collider.GetComponent<RangeEnemyAIManage>().TakeDamage(30);
             Destroy(this.gameObject);
         }
         else if(collision.collider.tag == "Plane")
