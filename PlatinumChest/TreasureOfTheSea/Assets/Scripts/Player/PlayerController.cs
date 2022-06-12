@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-        
+
         Vector3 direction = new Vector3(horizontal, 0f, vertical);
         float directionMagnitude = Mathf.Clamp01(direction.magnitude) * moveSpeed;
         
@@ -143,16 +143,16 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    //private void OnApplicationFocus(bool focus)
-    //{
-    //    if (focus)
-    //    {
-    //        Cursor.lockState = CursorLockMode.Locked;
-    //    }
-    //    else
-    //    {
-    //        Cursor.lockState = CursorLockMode.None;
-    //    }
-    //}
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
 
 }
