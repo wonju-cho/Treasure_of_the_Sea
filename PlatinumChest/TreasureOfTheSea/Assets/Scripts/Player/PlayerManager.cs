@@ -25,10 +25,16 @@ public class PlayerManager : MonoBehaviour
     public GameObject projectile;
     public Transform projectilePoint;
 
+    public GameObject crossHairUI;
+
+    Camera mainCamera;
+    Vector3 worldPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = Camera.main;
+
         currentHP = playerHP;
         playerSpawnPosition = transform.position;
 
@@ -69,6 +75,22 @@ public class PlayerManager : MonoBehaviour
         }
         
         HealthBarFill();
+
+        if (Input.GetButtonDown("Fire1") && controller.isGrounded)
+        {
+            if (animator.GetBool("IsShooting") == false)
+            {
+                animator.SetBool("IsShooting", true);
+            }
+
+        //    Vector3 mousePos = Input.mousePosition;
+        //    mousePos.z = mainCamera.nearClipPlane;
+        //    worldPosition = mainCamera.ScreenToWorldPoint(mousePos);
+        //    crossHairUI.transform.position = worldPosition;
+        //    crossHairUI.SetActive(true);
+        //}
+        //else { crossHairUI.SetActive(false);
+        }
     }
 
     float GetCurrentHP() { return currentHP; }
@@ -88,7 +110,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Sea"))
         {
-            isPlayerDead = true;
+            currentHP = 0;
         }
     }
 

@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed = 6f;
     public float jumpSpeed = 2f;
     public float jumpButtonGracePeriod;
+    public float roationSpeed = 3f;
+    float turnSmoothVelocity;
 
     private float ySpeed;
     private float originalStepOffset; //to resolve the character glitch when jumping while colliding object
@@ -57,15 +59,23 @@ public class PlayerController : MonoBehaviour
             isInventoryDisplayed = isInventoryDisplayed ? false : true;
         }
         
+
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical);
         float directionMagnitude = Mathf.Clamp01(direction.magnitude) * moveSpeed;
-        
+       
         direction = Quaternion.AngleAxis(mainCamera.transform.rotation.eulerAngles.y, Vector3.up) * direction;
         direction.Normalize();
-        
+
+        {
+            //transform.Translate(Vector3.forward.normalized * roationSpeed);
+            //transform.eulerAngles = new Vector3(transform.eulerAngles.x, mainCamera.transform.eulerAngles.y, transform.eulerAngles.z);
+            //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, Camera.main.transform.localEulerAngles.y, transform.localEulerAngles.z);
+        }
+
         ySpeed += Physics.gravity.y * Time.deltaTime; //gravity = -9.81
         
         if (controller.isGrounded)
@@ -78,13 +88,13 @@ public class PlayerController : MonoBehaviour
             jumpButtonPressedTime = Time.time;
         }
         
-        if (Input.GetButtonDown("Fire1") && isGrounded)
-        {
-            if (animator.GetBool("IsShooting") == false)
-            {
-                animator.SetBool("IsShooting", true);
-            }
-        }
+        //if (Input.GetButtonDown("Fire1") && isGrounded)
+        //{
+        //    if (animator.GetBool("IsShooting") == false)
+        //    {
+        //        animator.SetBool("IsShooting", true);
+        //    }
+        //}
         
         if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
         {
