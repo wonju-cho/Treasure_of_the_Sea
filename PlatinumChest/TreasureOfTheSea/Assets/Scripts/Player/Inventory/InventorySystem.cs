@@ -64,4 +64,10 @@ public class InventorySystem
         return freeSlot == null ? false : true;
     }
     
+    public InventorySlot GetInventorySlot(string name)
+    {
+        InventorySlot findSlot = InventorySlots.Find(i => i.ItemData.name == name);
+        return findSlot;
+    }
+
 }
