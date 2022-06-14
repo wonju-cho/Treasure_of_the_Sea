@@ -13,7 +13,8 @@ public class InventorySystem
     public int InventorySize => InventorySlots.Count;
 
     public UnityAction<InventorySlot> OnInventorySlotChanged;
-    
+
+
     public InventorySystem(int size)
     {
         inventorySlots = new List<InventorySlot>(size);
@@ -50,6 +51,12 @@ public class InventorySystem
         return false;
     }
 
+    //public void RemoveFromInventory(InventorySlot slot, int amountToRemove)
+    //{
+    //    slot.RemoveFromStack(amountToRemove);
+    //    OnInventorySlotChanged?.Invoke(slot);
+    //}
+
     public bool ContainsItem(InventoryItemData itemToAdd, out List<InventorySlot> inventorySlot)
     {
         inventorySlot = InventorySlots.Where(i => i.ItemData == itemToAdd).ToList();
@@ -68,6 +75,16 @@ public class InventorySystem
     {
         InventorySlot findSlot = InventorySlots.Find(i => i.ItemData.name == name);
         return findSlot;
+    }
+
+    public bool IsExistSlot(string name)
+    {
+        InventorySlot findSlot = InventorySlots.Find(i => i.ItemData.name == name);
+
+        if (findSlot == null)
+            return false;
+        else
+            return true;
     }
 
 }

@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4f31e3b7164b84dae912c99904e29d, type: 3}
   m_Name: QuestGoal
   m_EditorClassIdentifier: 
-  name: Rock
+  requiredName: Rock
   completed: 0
   requiredAmount: 2
   currentAmount: 0
-  goalCompleted:
-    m_PersistentCalls:
-      m_Calls: []

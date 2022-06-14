@@ -14,6 +14,10 @@ public class Quest : MonoBehaviour
     public List<QuestGoal> Goals;
 
     public GameObject middle;
+
+    public List<InventorySlot_UI> UISlots;
+
+
     public void Start()
     {
         Initialize();
@@ -23,6 +27,10 @@ public class Quest : MonoBehaviour
     public void Initialize()
     {
         completed = false;
+        for (int i = 0; i < Goals.Count; i++)
+        {
+            Goals[i].Initialize();
+        }
         questCompleted = new QuestCompletedEvent();
     }
     protected void Evaulate()
@@ -30,10 +38,11 @@ public class Quest : MonoBehaviour
         Debug.Log("Enter in the evaulate function");
         for(int i = 0; i < Goals.Count; i++)
         {
-            InventorySlot test = inventoryHolder.InventorySystem.GetInventorySlot(Goals[i].name);
-            if (test != null)
+            if (inventoryHolder.InventorySystem.IsExistSlot(Goals[i].requiredName))
             {
+                InventorySlot test = inventoryHolder.InventorySystem.GetInventorySlot(Goals[i].requiredName);
                 Goals[i].currentAmount = test.StackSize;
+                
                 int check = Goals[i].currentAmount;
                 if (check >= Goals[i].requiredAmount)
                 {
@@ -53,6 +62,21 @@ public class Quest : MonoBehaviour
             Debug.Log("Complte quest");
             questCompleted.Invoke(this);
             questCompleted.RemoveAllListeners();
+
+            for(int i = 0; i < Goals.Count; i++)
+            {
+                InventorySlot test = inventoryHolder.InventorySystem.GetInventorySlot(Goals[i].requiredName);
+                test.RemoveFromStack(Goals[i].requiredAmount);
+                //inventoryHolder.InventorySystem.OnInventorySlotChanged?.Invoke(test);
+                //test.UpdateInventorySlot();
+                //inventoryHolder.InventorySystem.RemoveFromInvetory(test, Goals[i].requiredAmount);
+            }
+            for (int i = 0; i < UISlots.Count; i++)
+            {
+                UISlots[i].UpdateUISlot();
+                
+            }
+
             middle.SetActive(true);
         }
     }
