@@ -97,8 +97,13 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamge(int damage) 
     {
-        Debug.Log("Player take damage: " + currentHP);
+        //Debug.Log("Player take damage: " + currentHP);
         currentHP -= damage; 
+        if(currentHP > 0)
+        {
+            animator.ResetTrigger("GetDamage");
+            animator.SetTrigger("GetDamage");
+        }
     }
 
     void HealthBarFill()

@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Hit direction" + rb.velocity);
+        //Debug.Log("Hit direction" + rb.velocity);
         if (!disableRotation)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
