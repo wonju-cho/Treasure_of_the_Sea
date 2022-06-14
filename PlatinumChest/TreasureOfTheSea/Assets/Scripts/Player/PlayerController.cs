@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
             InventoryUI.SetActive(false);
         }
         
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             isInventoryDisplayed = isInventoryDisplayed ? false : true;
         }

@@ -6,8 +6,7 @@ public class QuestTrigger : MonoBehaviour
 
     private bool interactCheck = false;
 
-    //public GameObject QuestUI;
-    //private bool once = false;
+    public GameObject QuestUI;
 
     private bool questCheck = false;
 
@@ -15,19 +14,20 @@ public class QuestTrigger : MonoBehaviour
     private void Awake()
     {
         notificationMarkTrigger.SetActive(false);
-        //QuestUI.SetActive(false);
+        QuestUI.SetActive(false);
     }
 
     private void Update()
     {
         if(interactCheck && Input.GetKeyDown(KeyCode.E) && questCheck == false)
         {
-            //QuestUI.SetActive(true);
+            QuestUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             questCheck = quest.CheckGoals();
             if (questCheck)
             {
                 Destroy(notificationMarkTrigger);
+                Destroy(QuestUI);
             }
         }
 
@@ -48,6 +48,7 @@ public class QuestTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && questCheck == false)
         {
+            QuestUI.SetActive(false);
             notificationMarkTrigger.SetActive(false);
             interactCheck = false;
         }

@@ -1276,4 +1276,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notificationMarkTrigger: {fileID: 7690851380697243190}
+  QuestUI: {fileID: 4596603400682093359, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
   quest: {fileID: 7759063730653176084}

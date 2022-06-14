@@ -347,6 +347,83 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &544429074
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 621088510583732301, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: TargetPosition
+      value: 
+      objectReference: {fileID: 1912645035}
+    - target: {fileID: 805781836099214375, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: offset.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 805781836099214375, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: TargetPosition
+      value: 
+      objectReference: {fileID: 1912645035}
+    - target: {fileID: 2467662006438862372, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467662006438862372, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467662006438862372, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467662006438862372, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467662006438862372, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467662006438862372, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467662006438862372, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467662006438862372, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467662006438862372, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467662006438862372, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467662006438862372, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596603400682093359, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: m_Name
+      value: QuestUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630011222212209803, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: offset.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630011222212209803, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+      propertyPath: TargetPosition
+      value: 
+      objectReference: {fileID: 1912645035}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
 --- !u!1001 &559761142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -469,6 +546,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3976848852551689312, guid: 78cdc779376504049b12603ccb813424, type: 3}
   m_PrefabInstance: {fileID: 572673699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &609492866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4596603400682093359, guid: c95b901b3c1df2d47964da27349c0c68, type: 3}
+  m_PrefabInstance: {fileID: 544429074}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &673595340 stripped
 GameObject:
@@ -1242,6 +1324,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5693830332889411413, guid: 4db14c5ec8febff48b3afbb1c375c4b0, type: 3}
+      propertyPath: QuestUI
+      value: 
+      objectReference: {fileID: 609492866}
     - target: {fileID: 7197558090076848036, guid: 4db14c5ec8febff48b3afbb1c375c4b0, type: 3}
       propertyPath: m_Name
       value: Bridge
@@ -2298,6 +2384,11 @@ PrefabInstance:
       objectReference: {fileID: 1592434079}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
+--- !u!4 &1912645035 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7200525354815501803, guid: 4db14c5ec8febff48b3afbb1c375c4b0, type: 3}
+  m_PrefabInstance: {fileID: 1565322292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1968133459
 GameObject:
   m_ObjectHideFlags: 0
