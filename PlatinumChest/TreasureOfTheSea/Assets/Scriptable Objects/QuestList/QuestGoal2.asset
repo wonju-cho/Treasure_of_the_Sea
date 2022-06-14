@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: QuestGoal2
   m_EditorClassIdentifier: 
   requiredName: Organic
-  completed: 0
+  completed: 1
   requiredAmount: 3
-  currentAmount: 0
+  currentAmount: 4
