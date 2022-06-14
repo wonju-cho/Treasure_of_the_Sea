@@ -29,7 +29,6 @@ public class MarkTrigger : MonoBehaviour
             {
                 Destroy(notificationMarkTrigger);
             }
-            //once = true;
         }
 
         //if (!interactCheck)
