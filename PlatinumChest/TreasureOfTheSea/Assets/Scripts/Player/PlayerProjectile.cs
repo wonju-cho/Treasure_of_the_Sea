@@ -43,12 +43,12 @@ public class PlayerProjectile : MonoBehaviour
         //Destroy(impact, 2);
         if (collision.collider.tag == "MeleeEnemy")
         {
-            collision.collider.GetComponent<EnemyManage>().TakeDamage(20); 
+            collision.collider.GetComponent<EnemyManage>().TakeDamage(damageAmount); 
             Destroy(this.gameObject);
         }
         else if(collision.collider.tag == "RangeEnemy")
         {
-            collision.collider.GetComponent<RangeEnemyAIManage>().TakeDamage(30);
+            collision.collider.GetComponent<RangeEnemyAIManage>().TakeDamage(damageAmount);
             Destroy(this.gameObject);
         }
         else if(collision.collider.tag == "Plane")

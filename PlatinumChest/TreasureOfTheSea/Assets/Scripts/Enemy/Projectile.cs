@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour
 
         if(collision.collider.tag == "Player")
         {
-            collision.collider.GetComponent<PlayerManager>().TakeDamge(10);
+            collision.collider.GetComponent<PlayerManager>().TakeDamge(damageAmount);
             Destroy(this.gameObject);
         }
         else if(collision.collider.tag == "Plane")
