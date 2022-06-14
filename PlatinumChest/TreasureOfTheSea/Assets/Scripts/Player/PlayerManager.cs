@@ -97,8 +97,13 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamge(int damage) 
     {
-        Debug.Log("Player take damage: " + currentHP);
+        //Debug.Log("Player take damage: " + currentHP);
         currentHP -= damage; 
+        if(currentHP > 0)
+        {
+            animator.ResetTrigger("GetDamage");
+            animator.SetTrigger("GetDamage");
+        }
     }
 
     void HealthBarFill()
@@ -157,11 +162,12 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    public void Shoot()
+    public void Shoot(/*vector3 hitpoint*/)
     {
-        Debug.Log("player shoot");
         Rigidbody rb = Instantiate(projectile, projectilePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
-        rb.AddForce(transform.up * 7f, ForceMode.Impulse);
+        //rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
+        //rb.AddForce(transform.up * 7f, ForceMode.Impulse);
+        Vector3 dir = transform.forward;
+        rb.AddForce(dir*20f, ForceMode.VelocityChange);
     }
 }

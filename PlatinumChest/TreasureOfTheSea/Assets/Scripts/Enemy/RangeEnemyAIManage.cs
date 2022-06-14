@@ -48,8 +48,17 @@ public class RangeEnemyAIManage : MonoBehaviour
     public void Shoot()
     {
         Rigidbody rb =  Instantiate(projectile, projectilePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Vector3 hit_dir = player.transform.position - transform.position;
+        hit_dir = Vector3.Normalize(hit_dir);
+
+        rb.AddForce(hit_dir * 25f, ForceMode.Impulse);
         rb.AddForce(transform.up * 5f, ForceMode.Impulse);
+
+
+        //rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
+        //rb.AddForce(transform.up * 5f, ForceMode.Impulse);
 
 
     }

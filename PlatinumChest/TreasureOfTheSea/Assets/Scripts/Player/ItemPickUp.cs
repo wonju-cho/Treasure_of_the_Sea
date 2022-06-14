@@ -36,7 +36,7 @@ public class ItemPickUp : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("detect collision item with " + collision.gameObject.name);
+        //Debug.Log("detect collision item with " + collision.gameObject.name);
         Collider collider = collision.collider;
         if (collider.tag == "Player")
         {

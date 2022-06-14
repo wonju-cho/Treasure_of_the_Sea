@@ -5,8 +5,26 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     //public GameObject impactEffect;
-    public float radius = 1;
     public int damageAmount = 15;
+    Rigidbody rb;
+    BoxCollider bx;
+    bool disableRotation = false;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        bx = GetComponent<BoxCollider>();
+    }
+
+    private void Update()
+    {
+        //Debug.Log("Hit direction" + rb.velocity);
+        if (!disableRotation)
+        {
+            transform.rotation = Quaternion.LookRotation(rb.velocity);
+        }
+    }
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -15,17 +33,22 @@ public class Projectile : MonoBehaviour
         //GameObject impact = Instantiate(impactEffect, transform.position, Quaternion.identity);
         //Destroy(impact, 2);
 
+        if(collision.collider.tag != "RangeEnemy")
+        {
+            Debug.Log("detect with" + collision.collider.name);
+            disableRotation = true;
+            rb.isKinematic = true;
+            bx.isTrigger = true;
+        }
+
         if(collision.collider.tag == "Player")
         {
-            Debug.Log("collision detection with player");
-            collision.collider.GetComponent<PlayerManager>().TakeDamge(10);
+            collision.collider.GetComponent<PlayerManager>().TakeDamge(damageAmount);
             Destroy(this.gameObject);
-            //Debug.Log("collision detected: player");
         }
         else if(collision.collider.tag == "Plane")
         {
             Destroy(this.gameObject);
-            //Debug.Log("collision detected: wall");
         }
         //Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
