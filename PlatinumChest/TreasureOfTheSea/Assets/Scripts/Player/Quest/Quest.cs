@@ -7,7 +7,7 @@ public class Quest : MonoBehaviour
 {    
     public InventoryHolder inventoryHolder;
 
-    public QuestCompletedEvent questCompleted;
+    //public QuestCompletedEvent questCompleted;
 
     public bool completed;
 
@@ -31,7 +31,7 @@ public class Quest : MonoBehaviour
         {
             Goals[i].Initialize();
         }
-        questCompleted = new QuestCompletedEvent();
+        //questCompleted = new QuestCompletedEvent();
     }
     protected void Evaulate()
     {
@@ -60,8 +60,8 @@ public class Quest : MonoBehaviour
         if(completed)
         {
             Debug.Log("Complte quest");
-            questCompleted.Invoke(this);
-            questCompleted.RemoveAllListeners();
+            //questCompleted.Invoke(this);
+            //questCompleted.RemoveAllListeners();
 
             for(int i = 0; i < Goals.Count; i++)
             {

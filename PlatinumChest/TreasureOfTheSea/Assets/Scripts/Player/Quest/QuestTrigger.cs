@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MarkTrigger : MonoBehaviour
+public class QuestTrigger : MonoBehaviour
 {
     public GameObject notificationMarkTrigger;
 

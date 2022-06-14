@@ -30,7 +30,7 @@ Transform:
   - {fileID: 5168879611315900427}
   - {fileID: 1848967898632738438}
   m_Father: {fileID: 7197558090076848038}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1595611364705408185
 GameObject:
@@ -160,7 +160,7 @@ RectTransform:
   m_Children:
   - {fileID: 5722146407183721549}
   m_Father: {fileID: 7197558090076848038}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -745,14 +745,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7197558090076848036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.774091, y: 0.79780364, z: 2.6319194}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7197558089448983536}
   - {fileID: 7197558088833740340}
-  - {fileID: 1052856156085332773}
-  - {fileID: 6803169547306099159}
   - {fileID: 2694433022681489596}
+  - {fileID: 6803169547306099159}
+  - {fileID: 1052856156085332773}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8fcf7f9baa44041a0ed388b46f08a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryHolder: {fileID: 0}
+  inventoryHolder: {fileID: 8031926366379289086, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
   completed: 0
   Goals: []
   middle: {fileID: 7197558088833740331}
@@ -1194,7 +1194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8885007631950998339}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.85, y: 1.7, z: 0.04}
+  m_LocalPosition: {x: -15.85, y: 1.7, z: 0.04000002}
   m_LocalScale: {x: 2.0932, y: 5.1101327, z: 3.5129292}
   m_Children: []
   m_Father: {fileID: 7197558090076848038}
@@ -1276,4 +1276,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notificationMarkTrigger: {fileID: 7690851380697243190}
-  quest: {fileID: 0}
+  quest: {fileID: 7759063730653176084}
