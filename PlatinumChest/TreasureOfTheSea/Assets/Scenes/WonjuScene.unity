@@ -1938,11 +1938,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2469253054844593250, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 0.8469992
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2469253054844593250, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.760669
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2737880055247310834, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2130,11 +2130,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5642152370152075678, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 0.8469992
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5642152370152075678, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.760669
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 5642741666778700519, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: HealthBar
@@ -2266,11 +2266,11 @@ PrefabInstance:
       objectReference: {fileID: 1816259439}
     - target: {fileID: 8871693441359926436, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 0.8469992
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8871693441359926436, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.760669
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 8952968566798061606, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_LocalPosition.y

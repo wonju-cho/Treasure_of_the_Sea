@@ -1,7 +1,7 @@
+//death, combat 
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-//death, combat 
 
 public class PlayerManager : MonoBehaviour
 {

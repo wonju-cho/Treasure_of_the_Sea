@@ -52,7 +52,7 @@ public class Quest : MonoBehaviour
         }
     }
 
-    public void CheckGoals()
+    public bool CheckGoals()
     {
         Debug.Log("Enter in the Check Goals function");
         Evaulate();
@@ -67,18 +67,17 @@ public class Quest : MonoBehaviour
             {
                 InventorySlot test = inventoryHolder.InventorySystem.GetInventorySlot(Goals[i].requiredName);
                 test.RemoveFromStack(Goals[i].requiredAmount);
-                //inventoryHolder.InventorySystem.OnInventorySlotChanged?.Invoke(test);
-                //test.UpdateInventorySlot();
-                //inventoryHolder.InventorySystem.RemoveFromInvetory(test, Goals[i].requiredAmount);
             }
+
             for (int i = 0; i < UISlots.Count; i++)
             {
-                UISlots[i].UpdateUISlot();
-                
+                UISlots[i].UpdateUISlot();                
             }
 
             middle.SetActive(true);
+            return true;
         }
+        return false;
     }
 }
 

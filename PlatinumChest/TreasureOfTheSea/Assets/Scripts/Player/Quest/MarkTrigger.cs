@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class MarkTrigger : MonoBehaviour
 {
@@ -10,7 +7,9 @@ public class MarkTrigger : MonoBehaviour
     private bool interactCheck = false;
 
     //public GameObject QuestUI;
-    private bool once = false;
+    //private bool once = false;
+
+    private bool questCheck = false;
 
     public Quest quest;
     private void Awake()
@@ -21,13 +20,16 @@ public class MarkTrigger : MonoBehaviour
 
     private void Update()
     {
-        if(interactCheck && Input.GetKeyDown(KeyCode.E) && once == false)
+        if(interactCheck && Input.GetKeyDown(KeyCode.E) && questCheck == false)
         {
             //QuestUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
-            quest.CheckGoals();
-            Destroy(notificationMarkTrigger);
-            once = true;
+            questCheck = quest.CheckGoals();
+            if (questCheck)
+            {
+                Destroy(notificationMarkTrigger);
+            }
+            //once = true;
         }
 
         //if (!interactCheck)
@@ -36,7 +38,7 @@ public class MarkTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && once == false)
+        if (other.gameObject.CompareTag("Player") && questCheck == false)
         {
             notificationMarkTrigger.SetActive(true);
             interactCheck = true;
@@ -45,7 +47,7 @@ public class MarkTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && once == false)
+        if (other.gameObject.CompareTag("Player") && questCheck == false)
         {
             notificationMarkTrigger.SetActive(false);
             interactCheck = false;

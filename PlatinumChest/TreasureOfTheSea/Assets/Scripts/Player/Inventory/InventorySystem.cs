@@ -79,7 +79,12 @@ public class InventorySystem
 
     public bool IsExistSlot(string name)
     {
-        InventorySlot findSlot = InventorySlots.Find(i => i.ItemData.name == name);
+        InventorySlot findSlot = InventorySlots.Find(i => i.ItemData != null && i.ItemData.name == name);
+
+        //for(int i= 0; i < InventorySlots.Count; i++)
+        //{
+        //    if(InventorySlots[i].ItemData == null)
+        //}
 
         if (findSlot == null)
             return false;
