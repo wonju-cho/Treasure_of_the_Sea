@@ -40,4 +40,8 @@ public class StaticInventoryDisplay : InventoryDisplay
             slots[i].Init(inventorySystem.InventorySlots[i]);
         }
     }
+
+    //public InventorySlot_UI[] GetAllSlots() { return slots; }
+
+    //public int GetInventorySize() { return slots.Length; }
 }

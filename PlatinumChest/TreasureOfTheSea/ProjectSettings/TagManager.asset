@@ -11,6 +11,7 @@ TagManager:
   - RangeEnemy
   - Plane
   - InteractableObject
+  - InventoryDisplay
   layers:
   - Default
   - TransparentFX

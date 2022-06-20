@@ -1077,7 +1077,7 @@ GameObject:
   - component: {fileID: 591604862534510523}
   m_Layer: 5
   m_Name: PlayerHotbar
-  m_TagString: Untagged
+  m_TagString: InventoryDisplay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

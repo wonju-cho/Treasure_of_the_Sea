@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
+using UnityEngine.UI;
+using TMPro;
 
 public class Quest : MonoBehaviour
 {    
@@ -16,6 +18,8 @@ public class Quest : MonoBehaviour
     public GameObject middle;
 
     public List<InventorySlot_UI> UISlots;
+    
+    public List<QuestSlot_UI> questSlots;
 
 
     public void Start()
@@ -30,6 +34,12 @@ public class Quest : MonoBehaviour
         for (int i = 0; i < Goals.Count; i++)
         {
             Goals[i].Initialize();
+        }
+
+        for(int i = 0; i < Goals.Count; i++)
+        {
+            questSlots[i].SetSprite(Goals[i].icon);
+            questSlots[i].SetTMP(Goals[i].requiredAmount.ToString());
         }
         //questCompleted = new QuestCompletedEvent();
     }

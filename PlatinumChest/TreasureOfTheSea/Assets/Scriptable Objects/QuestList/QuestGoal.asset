@@ -16,3 +16,4 @@ MonoBehaviour:
   completed: 0
   requiredAmount: 2
   currentAmount: 0
+  icon: {fileID: 21300000, guid: 1c928a529cc94944884a6ddfc96d3b12, type: 3}

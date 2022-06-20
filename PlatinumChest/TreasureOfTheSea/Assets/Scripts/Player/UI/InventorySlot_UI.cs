@@ -39,7 +39,6 @@ public class InventorySlot_UI : MonoBehaviour
             if (slot.StackSize > 1)
             {
                 itemCount.text = slot.StackSize.ToString();
-                
             }
             else if(slot.StackSize == 0)
             {

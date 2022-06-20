@@ -4,13 +4,14 @@ public class QuestTrigger : MonoBehaviour
 {
     public GameObject notificationMarkTrigger;
 
-    private bool interactCheck = false;
-
     public GameObject QuestUI;
 
     private bool questCheck = false;
 
     public Quest quest;
+
+    bool isInteract = false;
+
     private void Awake()
     {
         notificationMarkTrigger.SetActive(false);
@@ -19,7 +20,7 @@ public class QuestTrigger : MonoBehaviour
 
     private void Update()
     {
-        if(interactCheck && Input.GetKeyDown(KeyCode.E) && questCheck == false)
+        if(isInteract == true && Input.GetKeyDown(KeyCode.E) && questCheck == false)
         {
             QuestUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
@@ -31,16 +32,14 @@ public class QuestTrigger : MonoBehaviour
             }
         }
 
-        //if (!interactCheck)
-        //    QuestUI.SetActive(false);
-
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && questCheck == false)
         {
             notificationMarkTrigger.SetActive(true);
-            interactCheck = true;
+            isInteract = true;
         }
     }
 
@@ -50,7 +49,7 @@ public class QuestTrigger : MonoBehaviour
         {
             QuestUI.SetActive(false);
             notificationMarkTrigger.SetActive(false);
-            interactCheck = false;
+            isInteract = false;
         }
     }
 }

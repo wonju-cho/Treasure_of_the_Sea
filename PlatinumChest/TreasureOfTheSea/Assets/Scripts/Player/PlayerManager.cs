@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject projectile;
     public Transform projectilePoint;
 
-    public GameObject crossHairUI;
+    //public GameObject crossHairUI;
 
     Camera mainCamera;
     Vector3 worldPosition;

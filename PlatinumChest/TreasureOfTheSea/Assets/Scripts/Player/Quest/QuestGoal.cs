@@ -16,6 +16,7 @@ public class QuestGoal : ScriptableObject
     public bool completed;
     public int requiredAmount;
     public int currentAmount;
+    public Sprite icon;
 
     public virtual void Initialize()
     {
