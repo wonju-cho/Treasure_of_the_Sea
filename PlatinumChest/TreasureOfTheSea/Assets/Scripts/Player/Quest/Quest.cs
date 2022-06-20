@@ -48,15 +48,17 @@ public class Quest : MonoBehaviour
     protected void Evaulate()
     {
         Debug.Log("Enter in the evaulate function");
+        bool isEmptyInventory = true;
         for(int i = 0; i < Goals.Count; i++)
         {
             if (inventoryHolder.InventorySystem.IsExistSlot(Goals[i].requiredName))
             {
+                isEmptyInventory = false;
                 InventorySlot test = inventoryHolder.InventorySystem.GetInventorySlot(Goals[i].requiredName);
                 Goals[i].currentAmount = test.StackSize;
                 
                 int check = Goals[i].currentAmount;
-               
+
                 if (check >= Goals[i].requiredAmount)
                 {
                     questSlots[i].EnableCheckImage();
@@ -65,6 +67,8 @@ public class Quest : MonoBehaviour
                 }
             }
         }
+        if(isEmptyInventory)
+            questUI.SetActive(true);
     }
 
     public bool CheckGoals()

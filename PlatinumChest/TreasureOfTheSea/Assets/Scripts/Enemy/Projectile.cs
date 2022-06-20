@@ -37,6 +37,7 @@ public class Projectile : MonoBehaviour
         {
             Debug.Log("detect with" + collision.collider.name);
             disableRotation = true;
+            disableRotation = true;
             rb.isKinematic = true;
             bx.isTrigger = true;
         }
