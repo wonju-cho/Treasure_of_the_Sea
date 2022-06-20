@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
-using UnityEngine.UI;
-using TMPro;
 
 public class Quest : MonoBehaviour
 {    
@@ -63,8 +61,9 @@ public class Quest : MonoBehaviour
                 {
                     questSlots[i].EnableCheckImage();
                     Goals[i].Complete();
-                    questUI.SetActive(true);
+                    //questUI.SetActive(true);
                 }
+                questUI.SetActive(true);
             }
         }
         if(isEmptyInventory)
