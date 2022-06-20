@@ -21,11 +21,13 @@ public class Quest : MonoBehaviour
     
     public List<QuestSlot_UI> questSlots;
 
+    public GameObject questUI;
 
     public void Start()
     {
         Initialize();
         middle.SetActive(false);
+        questUI.SetActive(false);
     }
 
     public void Initialize()
@@ -54,9 +56,12 @@ public class Quest : MonoBehaviour
                 Goals[i].currentAmount = test.StackSize;
                 
                 int check = Goals[i].currentAmount;
+               
                 if (check >= Goals[i].requiredAmount)
                 {
+                    questSlots[i].EnableCheckImage();
                     Goals[i].Complete();
+                    questUI.SetActive(true);
                 }
             }
         }
@@ -85,6 +90,7 @@ public class Quest : MonoBehaviour
             }
 
             middle.SetActive(true);
+            Destroy(questUI);
             return true;
         }
         return false;

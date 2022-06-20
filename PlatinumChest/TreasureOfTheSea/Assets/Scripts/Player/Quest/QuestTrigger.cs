@@ -15,20 +15,17 @@ public class QuestTrigger : MonoBehaviour
     private void Awake()
     {
         notificationMarkTrigger.SetActive(false);
-        QuestUI.SetActive(false);
     }
 
     private void Update()
     {
         if(isInteract == true && Input.GetKeyDown(KeyCode.E) && questCheck == false)
         {
-            QuestUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             questCheck = quest.CheckGoals();
             if (questCheck)
             {
                 Destroy(notificationMarkTrigger);
-                Destroy(QuestUI);
             }
         }
 

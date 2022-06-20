@@ -790,6 +790,7 @@ MonoBehaviour:
   questSlots:
   - {fileID: 7370553102980847}
   - {fileID: 8477736613448167219}
+  questUI: {fileID: 8360681998686465386}
 --- !u!1 &7197998985710754557
 GameObject:
   m_ObjectHideFlags: 0
