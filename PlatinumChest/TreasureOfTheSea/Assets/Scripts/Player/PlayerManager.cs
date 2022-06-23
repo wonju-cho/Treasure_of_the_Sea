@@ -5,6 +5,21 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class AnimationStrings
+    {
+        public string aim = "Aim";
+        public string pull = "PullString";
+        public string fire = "Fire";
+
+        public string aim_input = "Fire1";
+        public string fire_input = "Fire2";
+    }
+    [SerializeField]
+    public AnimationStrings animStrings;
+
+    bool is_aiming;
+
     public Animator animator;
     private CharacterController controller;
     private PlayerController playerController;
@@ -76,12 +91,21 @@ public class PlayerManager : MonoBehaviour
         
         HealthBarFill();
 
+        is_aiming = Input.GetButton(animStrings.aim_input);
+        CharacterAim(is_aiming);
+
+        if(is_aiming)
+        {
+            CharacterPullString(Input.GetButton(animStrings.fire_input));
+        }
+        
+
         if (Input.GetButtonDown("Fire1") && controller.isGrounded)
         {
-            if (animator.GetBool("IsShooting") == false)
-            {
-                animator.SetBool("IsShooting", true);
-            }
+            //if (animator.GetBool("IsShooting") == false)
+            //{
+            //    animator.SetBool("IsShooting", true);
+            //}
 
         //    Vector3 mousePos = Input.mousePosition;
         //    mousePos.z = mainCamera.nearClipPlane;
@@ -90,6 +114,32 @@ public class PlayerManager : MonoBehaviour
         //    crossHairUI.SetActive(true);
         //}
         //else { crossHairUI.SetActive(false);
+        }
+
+
+    }
+
+    public void CharacterAim(bool aiming)
+    {
+        animator.SetBool(animStrings.aim, aiming);
+
+    }
+
+    public void CharacterPullString(bool pulling)
+    {
+        animator.SetBool(animStrings.pull, pulling);
+    }
+
+    public void CharacterFire()
+    {
+        animator.SetTrigger(animStrings.fire);
+    }
+
+    private void AimShoot()
+    {
+        if(animator.GetBool("IsShooting") == false)
+        {
+            animator.SetBool("IsShooting", true);
         }
     }
 
