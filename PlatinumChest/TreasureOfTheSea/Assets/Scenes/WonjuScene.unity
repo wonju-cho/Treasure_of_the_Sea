@@ -329,6 +329,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crafting
       objectReference: {fileID: 0}
+    - target: {fileID: 7270477459453656378, guid: 8a3a1b6d762acba47ae75eddc0d19a8f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7704021805839043508, guid: 8a3a1b6d762acba47ae75eddc0d19a8f, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 9107170523252132018, guid: 8a3a1b6d762acba47ae75eddc0d19a8f, type: 3}
       propertyPath: m_RootOrder
       value: 3
