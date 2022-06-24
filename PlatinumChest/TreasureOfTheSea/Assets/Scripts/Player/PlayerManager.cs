@@ -27,6 +27,11 @@ public class PlayerManager : MonoBehaviour
 
     //public GameObject crossHairUI;
 
+    //for testing the arrow
+    private InventoryHolder inventoryHolder;
+
+    public InventoryItemData arrowTest;
+
     Camera mainCamera;
     Vector3 worldPosition;
 
@@ -40,12 +45,16 @@ public class PlayerManager : MonoBehaviour
 
         controller = GetComponent<CharacterController>();
         playerController = GetComponent<PlayerController>();
+        inventoryHolder = GetComponent<InventoryHolder>();
 
         if (!controller)
             Debug.Log("There is no controller in the PlayerManager script");
 
         if (!HealthBar)
             Debug.Log("There is no healthbar in the playermanger script");
+
+        if (!inventoryHolder)
+            Debug.Log("There is no inventory holder in player manager script");
 
     }
 
@@ -56,6 +65,11 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1) && isPlayerDead)
         {
             PlayerRespawn();
+        }
+
+        if(Input.GetKeyDown(KeyCode.F10))
+        {
+            inventoryHolder.InventorySystem.AddToInventory(arrowTest, 1);
         }
 
         //test health bar ui
