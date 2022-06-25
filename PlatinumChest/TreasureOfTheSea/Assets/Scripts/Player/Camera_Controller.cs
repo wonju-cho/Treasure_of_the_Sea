@@ -48,11 +48,15 @@ public class Camera_Controller : MonoBehaviour
     RaycastHit hit;
 
     Camera mainCam;
+    Camera UICam;
 
     // Start is called before the first frame update
     void Start()
     {
         mainCam = Camera.main;
+        UICam = mainCam.GetComponentInChildren<Camera>();
+
+
         center = transform.GetChild(0);
         InitialCamPos = mainCam.transform.localPosition;
         FindPlayer();
@@ -72,7 +76,7 @@ public class Camera_Controller : MonoBehaviour
 
         RotateCamera();
         ZoomCamera();
-        HandleCamCollision();
+        //HandleCamCollision();
     }
 
     private void LateUpdate()
@@ -104,7 +108,7 @@ public class Camera_Controller : MonoBehaviour
         //mouse y => rotating along x axis
         //so have to get each of rotation from different axis,, Tlqkf,,
 
-        cameraX_rotation += Input.GetAxis(inputSettings.mouseY) * cameraSettings.MouseY_Sensitivity;
+        cameraX_rotation -= Input.GetAxis(inputSettings.mouseY) * cameraSettings.MouseY_Sensitivity;
         cameraY_rotation += Input.GetAxis(inputSettings.mouseX) * cameraSettings.MouseX_Sensitivity;
 
         //for not overlapping the rotation value
@@ -124,13 +128,13 @@ public class Camera_Controller : MonoBehaviour
     {
         if(Input.GetButton(inputSettings.AimingInput))
         {
-            Debug.Log("zoom in");
             mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, cameraSettings.zoomFieldOfView, cameraSettings.zoomSpeed * Time.deltaTime);
-
+            UICam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, cameraSettings.zoomFieldOfView, cameraSettings.zoomSpeed * Time.deltaTime);
         }
         else
         {
             mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, cameraSettings.originalFieldOfView, cameraSettings.zoomSpeed * Time.deltaTime);
+            UICam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, cameraSettings.originalFieldOfView, cameraSettings.zoomSpeed * Time.deltaTime);
         }
     }
 

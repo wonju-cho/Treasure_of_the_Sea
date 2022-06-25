@@ -45,6 +45,9 @@ public class PlayerManager : MonoBehaviour
     Camera mainCamera;
     Vector3 worldPosition;
 
+    public bool testAim;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -91,12 +94,24 @@ public class PlayerManager : MonoBehaviour
         
         HealthBarFill();
 
+
+
         is_aiming = Input.GetButton(animStrings.aim_input);
+
+        if (testAim)
+            is_aiming = true;
+
+
         CharacterAim(is_aiming);
 
         if(is_aiming)
         {
+            playerController.Aim();
             CharacterPullString(Input.GetButton(animStrings.fire_input));
+        }
+        else
+        {
+            playerController.bowScript.ReMoveCrossHair();
         }
         
 
@@ -117,6 +132,14 @@ public class PlayerManager : MonoBehaviour
         }
 
 
+    }
+
+    private void LateUpdate()
+    {
+        if (testAim)
+        {
+            playerController.RotateCharacterSpine();
+        }
     }
 
     public void CharacterAim(bool aiming)

@@ -2,6 +2,32 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Camera & Character Syncing")]
+    public float lookDistance = 5;
+    public float lookSpeed = 5;
+    Transform camCenter;
+
+    [Header("Input Settings")]
+    public string forwardInput = "Vertical";
+    public string leftInput = "Horizontal"; 
+    public string aim_input = "Fire1";
+    public string fire_input = "Fire2";
+
+    [Header("Aiming Settings")]
+    RaycastHit hit;
+    public LayerMask aimLayers;
+    Ray ray;
+
+    [Header("Spine Settings")]
+    public Transform spine;
+    public Vector3 spineOffset;
+
+    [Header("Head Rotation Settings")]
+    public float lookAtPoint = 2.8f;
+
+
+
+    [Header("Character Controller")]
     private CharacterController controller;
     public Animator animator;
 
@@ -26,6 +52,7 @@ public class PlayerController : MonoBehaviour
     private bool isInventoryDisplayed = false;
     
     private Camera mainCamera;
+    public Bow bowScript;
 
     private void Start()
     {
@@ -40,6 +67,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("There is no animator in the PlayerMovement script");
 
         mainCamera = Camera.main;
+        camCenter = mainCamera.transform.parent;
     }
 
     void Update()
@@ -57,7 +85,11 @@ public class PlayerController : MonoBehaviour
         {
             isInventoryDisplayed = isInventoryDisplayed ? false : true;
         }
-        
+
+        if(Input.GetAxis(forwardInput)!= 0 || Input.GetAxis(leftInput) !=0)
+        {
+            //RotateToCamView();
+        }
 
 
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -86,14 +118,6 @@ public class PlayerController : MonoBehaviour
         {
             jumpButtonPressedTime = Time.time;
         }
-        
-        //if (Input.GetButtonDown("Fire1") && isGrounded)
-        //{
-        //    if (animator.GetBool("IsShooting") == false)
-        //    {
-        //        animator.SetBool("IsShooting", true);
-        //    }
-        //}
         
         if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
         {
@@ -152,6 +176,8 @@ public class PlayerController : MonoBehaviour
         
     }
 
+   
+
     private void OnApplicationFocus(bool focus)
     {
         if (focus)
@@ -164,4 +190,52 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Aim()
+    {
+        Vector3 camPosition = mainCamera.transform.position;
+        Vector3 direction = mainCamera.transform.forward;
+
+        ray = new Ray(camPosition, direction);
+        
+
+        if(Physics.Raycast(ray, out hit, 500f, aimLayers))
+        {
+            Debug.DrawLine(ray.origin, hit.point, Color.green);
+            bowScript.ShowCrosshair(hit.point);
+        }
+        else
+        {
+            bowScript.ReMoveCrossHair();
+        }
+
+    }
+    private void LateUpdate()
+    {
+        if (Input.GetButton(aim_input))
+        {
+            RotateCharacterSpine();
+        }
+    }
+    public void RotateCharacterSpine()
+    {
+        spine.LookAt(ray.GetPoint(50));
+
+        spine.Rotate(spineOffset);
+    }
+
+    void RotateToCamView()
+    {
+        Vector3 camCenterPos = camCenter.position;
+
+        Vector3 lookPoint = camCenterPos + camCenter.forward * lookDistance;
+        Vector3 direction = lookPoint - transform.position;
+
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+
+        lookRotation.x = 0;
+        lookRotation.z = 0;
+
+        Quaternion final = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * lookSpeed);
+        transform.rotation = final;
+    }
 }

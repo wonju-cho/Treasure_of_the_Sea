@@ -15,8 +15,6 @@ public class MaceWeapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
-
         if (other.tag == "Player")
         {
             if(ownerObject.GetComponent<Animator>().GetBool("isAttacking") == true)

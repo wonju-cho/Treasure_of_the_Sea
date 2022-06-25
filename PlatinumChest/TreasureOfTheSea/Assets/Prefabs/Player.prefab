@@ -180,6 +180,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5fa1b087fd3de74fbfd42b6da2d4c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookDistance: 5
+  lookSpeed: 5
+  forwardInput: Vertical
+  leftInput: Horizontal
+  aim_input: Fire1
+  fire_input: Fire2
+  aimLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  spine: {fileID: 419548297676829124}
+  spineOffset: {x: 180, y: 170, z: 87}
+  lookAtPoint: 2.8
   animator: {fileID: 6421454075827109771}
   moveSpeed: 6
   rotationSpeed: 6
@@ -187,6 +199,7 @@ MonoBehaviour:
   jumpButtonGracePeriod: 0.2
   roationSpeed: 3
   InventoryUI: {fileID: 0}
+  bowScript: {fileID: 1024359583095178180}
 --- !u!143 &5380464276882523233
 CharacterController:
   m_ObjectHideFlags: 0
@@ -217,12 +230,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c667f79839b35a4b9440c52d2f92116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animStrings:
+    aim: Aim
+    pull: PullString
+    fire: Fire
+    aim_input: Fire1
+    fire_input: Fire2
   animator: {fileID: 6421454075827109771}
   HealthBar: {fileID: 0}
   playerHP: 100
   projectile: {fileID: 6563283528253829690, guid: 4aca66028b4a16c41af57dcf274f9848, type: 3}
   projectilePoint: {fileID: 5649757518849863163}
-  crossHairUI: {fileID: 0}
+  testAim: 0
 --- !u!95 &6421454075827109771
 Animator:
   serializedVersion: 3
@@ -1247,6 +1266,32 @@ MonoBehaviour:
     m_Bits: 0
   IgnoreTag: 
   CameraRadius: 0.2
+--- !u!114 &1024359583095178180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8000239885964729713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068947a760198814eb22e8e3de8ce049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bowSettings:
+    arrowCount: 0
+    arrowPos: {fileID: 0}
+    arrowObject: {fileID: 0}
+    EquipPos: {fileID: 0}
+    UnEquipPos: {fileID: 0}
+    UnEquipParent: {fileID: 0}
+    EquipParent: {fileID: 0}
+    bowString: {fileID: 0}
+    stringInitalPos: {fileID: 0}
+    stringHandPullPos: {fileID: 0}
+    stringInitialParent: {fileID: 0}
+  crossHairObject: {fileID: 736476989116246418, guid: 9c49d9ac9c291ca4fab141b7f5f63d22, type: 3}
+  currentCrossHair: {fileID: 0}
 --- !u!1 &8496949086597502485
 GameObject:
   m_ObjectHideFlags: 3
@@ -1873,14 +1918,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
---- !u!4 &4290251543329554759 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
-  m_PrefabInstance: {fileID: 2917408806481784718}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2285443819203515827 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4020360767693765181, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+  m_PrefabInstance: {fileID: 2917408806481784718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &419548297676829124 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3291637844586847818, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+  m_PrefabInstance: {fileID: 2917408806481784718}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4290251543329554759 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
   m_PrefabInstance: {fileID: 2917408806481784718}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8000239885964770847
@@ -1977,3 +2027,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5438968, guid: c223b5254ae0cec4180d5af774d0d2b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c223b5254ae0cec4180d5af774d0d2b3, type: 3}
+--- !u!1 &8000239885964729713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 107374, guid: c223b5254ae0cec4180d5af774d0d2b3, type: 3}
+  m_PrefabInstance: {fileID: 8000239885964770847}
+  m_PrefabAsset: {fileID: 0}
