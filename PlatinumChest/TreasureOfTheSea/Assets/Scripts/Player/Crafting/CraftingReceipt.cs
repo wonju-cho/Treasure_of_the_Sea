@@ -19,7 +19,6 @@ public class CraftingReceipt : ScriptableObject
     //public List<ItemAmount> results;
     public InventoryItemData resultItem;
 
-
     public bool CanCraft(InventoryHolder inventoryHolder)
     {
         for (int i = 0; i < materials.Count; i++)

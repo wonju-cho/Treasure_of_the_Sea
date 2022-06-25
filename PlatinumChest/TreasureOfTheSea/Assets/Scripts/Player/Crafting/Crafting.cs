@@ -12,9 +12,9 @@ public class Crafting : MonoBehaviour
     public bool isCraftingActive = false;
 
     //private List<InventorySlot_UI> uiSlots;
-    public InventoryHolder inventoryHolder;
-    public InventorySlot_UI[] uiSlots;
-    public StaticInventoryDisplay staticInventoryDisplay;
+    private InventoryHolder inventoryHolder;
+    private InventorySlot_UI[] uiSlots;
+    private StaticInventoryDisplay staticInventoryDisplay;
 
     // Start is called before the first frame update
     void Start()
