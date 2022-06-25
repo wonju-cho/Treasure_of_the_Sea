@@ -15,11 +15,49 @@ public struct ItemAmount
 public class CraftingReceipt : ScriptableObject
 {
     public List<ItemAmount> materials;
-    public List<ItemAmount> results;
 
-    public bool CanCraft()
+    //public List<ItemAmount> results;
+    public InventoryItemData resultItem;
+
+
+    public bool CanCraft(InventoryHolder inventoryHolder)
     {
+        for (int i = 0; i < materials.Count; i++)
+        {
+            bool check = false;
+            check = inventoryHolder.InventorySystem.IsExistSlot(materials[i].item.displayName);
+            if (check)
+            {
+                InventorySlot inventorySlot = inventoryHolder.InventorySystem.GetInventorySlot(materials[i].item.displayName);
+
+                if(inventorySlot.StackSize < materials[i].amount)
+                {
+                    return false;
+                }                
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         return true;
+    }
+
+    public void Craft(InventoryHolder inventoryHolder)
+    {
+        if(CanCraft(inventoryHolder))
+        {
+            inventoryHolder.InventorySystem.AddToInventory(resultItem, 1);
+            
+            for(int i = 0; i < materials.Count; i++)
+            {
+                InventorySlot test = inventoryHolder.InventorySystem.GetInventorySlot(materials[i].item.displayName);
+
+                test.RemoveFromStack(materials[i].amount);
+            }
+
+        }
     }
 
 }

@@ -424,6 +424,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   craftingUI: {fileID: 5034290822841481917}
   craftingSignifier: {fileID: 2586965594568242670}
+  craftingRecipt: {fileID: 11400000, guid: 294c67eae12be874794efc8f4a32a6b1, type: 2}
+  isNearTheCrafting: 0
   isCraftingActive: 0
 --- !u!65 &7270477459453656378
 BoxCollider:
@@ -727,6 +729,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2362891106164933679, guid: fe83cc318728f724092b9672c35545c1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 11454b70dc1a10647a8755f1a4258883, type: 3}
+    - target: {fileID: 3204142804109461681, guid: fe83cc318728f724092b9672c35545c1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8cc50792926ce244b974ac90fbcc6289, type: 3}
+    - target: {fileID: 5220884207019352808, guid: fe83cc318728f724092b9672c35545c1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1c928a529cc94944884a6ddfc96d3b12, type: 3}
     - target: {fileID: 6046239469675910817, guid: fe83cc318728f724092b9672c35545c1, type: 3}
       propertyPath: m_Name
       value: CraftingSlot

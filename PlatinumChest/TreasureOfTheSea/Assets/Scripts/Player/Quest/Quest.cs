@@ -5,27 +5,39 @@ using System.Linq;
 
 public class Quest : MonoBehaviour
 {    
-    public InventoryHolder inventoryHolder;
-
     //public QuestCompletedEvent questCompleted;
 
     public bool completed;
 
     public List<QuestGoal> Goals;
-
-    public GameObject middle;
-
-    public List<InventorySlot_UI> UISlots;
-    
     public List<QuestSlot_UI> questSlots;
-
+    public GameObject middle;
     public GameObject questUI;
+
+    private InventoryHolder inventoryHolder;
+    private StaticInventoryDisplay staticInventoryDisplay;
+    private InventorySlot_UI[] UISlots;
+
 
     public void Start()
     {
         Initialize();
         middle.SetActive(false);
         questUI.SetActive(false);
+
+        inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
+        staticInventoryDisplay = GameObject.FindWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
+        UISlots = staticInventoryDisplay.GetAllSlots();
+
+        if (!inventoryHolder)
+            Debug.Log("There is no inventoryHolder in the quest script");
+
+        if (!staticInventoryDisplay)
+            Debug.Log("There is no static inventory display in the quest script");
+
+        if (UISlots.Length < 1)
+            Debug.Log("UI slots are not initialized in the quest script");
+
     }
 
     public void Initialize()
@@ -87,7 +99,7 @@ public class Quest : MonoBehaviour
                 test.RemoveFromStack(Goals[i].requiredAmount);
             }
 
-            for (int i = 0; i < UISlots.Count; i++)
+            for (int i = 0; i < UISlots.Length; i++)
             {
                 UISlots[i].UpdateUISlot();                
             }
