@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07aa4161e8e6343438b1bc40e946fb93, type: 3}
-  m_Name: Cotton
+  m_Script: {fileID: 11500000, guid: 8b3b670eea5bd3e4d8ff490a0ac4a27a, type: 3}
+  m_Name: PlankReceipt
   m_EditorClassIdentifier: 
-  displayName: Cotton
-  icon: {fileID: 21300000, guid: 9966ddc2f9dff344ba2a3f3aedc9692b, type: 3}
-  maxStackSize: 99
+  materials:
+  - item: {fileID: 11400000, guid: 1bd7a263ee4d0f2429ca91621936caaa, type: 2}
+    amount: 2
+  resultItem: {fileID: 11400000, guid: 5492935c4bbd3854aac71f30469fde88, type: 2}

@@ -427,6 +427,11 @@ MonoBehaviour:
   craftingRecipt: {fileID: 11400000, guid: 294c67eae12be874794efc8f4a32a6b1, type: 2}
   isNearTheCrafting: 0
   isCraftingActive: 0
+  craftingReceipts:
+  - {fileID: 11400000, guid: 294c67eae12be874794efc8f4a32a6b1, type: 2}
+  - {fileID: 11400000, guid: c2b20907efa1c6544b787d75e2ff2756, type: 2}
+  - {fileID: 11400000, guid: ee625db7007c2484cbcf4236a84bd59e, type: 2}
+  - {fileID: 11400000, guid: c14a24f5c7934584399028641ac19405, type: 2}
 --- !u!65 &7270477459453656378
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
 
     //for testing the arrow
     private InventoryHolder inventoryHolder;
-
+    public InventoryItemData cottonTest;
     public InventoryItemData arrowTest;
 
     Camera mainCamera;
@@ -61,15 +61,11 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TestingItems();
 
         if (Input.GetKeyDown(KeyCode.F1) && isPlayerDead)
         {
             PlayerRespawn();
-        }
-
-        if(Input.GetKeyDown(KeyCode.F10))
-        {
-            inventoryHolder.InventorySystem.AddToInventory(arrowTest, 1);
         }
 
         //test health bar ui
@@ -117,6 +113,19 @@ public class PlayerManager : MonoBehaviour
         {
             animator.ResetTrigger("GetDamage");
             animator.SetTrigger("GetDamage");
+        }
+    }
+
+    void TestingItems()
+    {
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            inventoryHolder.InventorySystem.AddToInventory(cottonTest, 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            inventoryHolder.InventorySystem.AddToInventory(arrowTest, 1);
         }
     }
 

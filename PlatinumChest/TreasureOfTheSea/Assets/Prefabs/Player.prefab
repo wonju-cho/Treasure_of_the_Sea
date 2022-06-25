@@ -222,7 +222,8 @@ MonoBehaviour:
   playerHP: 100
   projectile: {fileID: 6563283528253829690, guid: 4aca66028b4a16c41af57dcf274f9848, type: 3}
   projectilePoint: {fileID: 5649757518849863163}
-  crossHairUI: {fileID: 0}
+  cottonTest: {fileID: 11400000, guid: 5dbc55597a68dac4dac2fb78220799dc, type: 2}
+  arrowTest: {fileID: 11400000, guid: feb72af53b7c3004693dfaf51a7c97a2, type: 2}
 --- !u!95 &6421454075827109771
 Animator:
   serializedVersion: 3
@@ -634,7 +635,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7781955, y: 1}
+    m_SensorSize: {x: 1.7787056, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
