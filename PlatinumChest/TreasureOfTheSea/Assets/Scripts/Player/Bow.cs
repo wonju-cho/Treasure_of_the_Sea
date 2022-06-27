@@ -10,7 +10,9 @@ public class Bow : MonoBehaviour
         [Header("Arrow Settings")]
         public float arrowCount;
         public Transform arrowPos;
-        public GameObject arrowObject;
+        public Transform arrowEquipParent;
+        public float arrowForce;
+        public Rigidbody arrowObject;
 
         [Header("Bow Equip & UnEquip Settings")]
         public Transform EquipPos;
@@ -34,6 +36,7 @@ public class Bow : MonoBehaviour
     public GameObject crossHairObject;
     public GameObject currentCrossHair;
 
+    Rigidbody currentArrow;
 
     bool canPullString = false;
     bool canFireArrow = false;
@@ -48,7 +51,31 @@ public class Bow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void PullString()
+    {
+        //bowSettings.bowString.transform.position = bowSettings.stringHandPullPos.position;
+        //bowSettings.bowString.transform.parent = bowSettings.stringHandPullPos;
+    }
+
+    public void ReleaseString()
+    {
+        //bowSettings.bowString.transform.position = bowSettings.stringInitalPos.position;
+        //bowSettings.bowString.transform.parent = bowSettings.stringInitialParent;
+    }
+
+    public void PickArrow()
+    {
+        bowSettings.arrowPos.gameObject.SetActive(true);
+        //currentArrow = Instantiate(bowSettings.arrowObject, bowSettings.arrowPos.position, bowSettings.arrowPos.rotation) as GameObject;
+
+    }
+
+    public void DisableArrow()
+    {
+        bowSettings.arrowPos.gameObject.SetActive(false);
     }
 
     public void ShowCrosshair(Vector3 crosshairPos)
@@ -80,5 +107,14 @@ public class Bow : MonoBehaviour
         this.transform.position = bowSettings.EquipPos.position;
         this.transform.rotation = bowSettings.EquipPos.rotation;
         this.transform.parent = bowSettings.EquipParent;
+    }
+
+    public void Fire(Vector3 hitPoint)
+    {
+        Vector3 dir = hitPoint - bowSettings.arrowPos.position;
+
+        currentArrow = Instantiate(bowSettings.arrowObject, bowSettings.arrowPos.position, bowSettings.arrowPos.rotation) as Rigidbody;
+        currentArrow.AddForce(dir * bowSettings.arrowForce, ForceMode.VelocityChange);
+        //currentArrow.transform.rotation = Quaternion.LookRotation(currentArrow.velocity)
     }
 }

@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     public AnimationStrings animStrings;
 
-    bool is_aiming;
+    bool is_aiming = false;
 
     public Animator animator;
     private CharacterController controller;
@@ -46,7 +46,7 @@ public class PlayerManager : MonoBehaviour
     Vector3 worldPosition;
 
     public bool testAim;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -96,7 +96,7 @@ public class PlayerManager : MonoBehaviour
 
 
 
-        is_aiming = Input.GetButton(animStrings.aim_input);
+        //is_aiming = Input.GetButton(animStrings.aim_input);
 
         if (testAim)
             is_aiming = true;
@@ -107,13 +107,31 @@ public class PlayerManager : MonoBehaviour
         if(is_aiming)
         {
             playerController.Aim();
-            CharacterPullString(Input.GetButton(animStrings.fire_input));
+            //CharacterPullString(Input.GetButton(animStrings.fire_input));
+
+            if(Input.GetButtonUp(animStrings.aim_input))
+            {
+                Debug.Log("Get button up: fire"); 
+                CharacterFire();
+                if(playerController.hitDetected == true)
+                {
+                    playerController.bowScript.Fire(playerController.hit.point);
+                }
+                else
+                {
+                    playerController.bowScript.Fire(playerController.ray.GetPoint(300));
+                }
+            }
         }
         else
         {
+
             playerController.bowScript.ReMoveCrossHair();
+            playerController.bowScript.DisableArrow();
+            playerController.bowScript.ReleaseString();
         }
-        
+
+        is_aiming = Input.GetButton(animStrings.aim_input);
 
         if (Input.GetButtonDown("Fire1") && controller.isGrounded)
         {

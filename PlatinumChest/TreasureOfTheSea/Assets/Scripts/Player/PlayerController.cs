@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
     public string fire_input = "Fire2";
 
     [Header("Aiming Settings")]
-    RaycastHit hit;
+    public RaycastHit hit;
     public LayerMask aimLayers;
-    Ray ray;
+    public Ray ray;
 
     [Header("Spine Settings")]
     public Transform spine;
@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
     
     private Camera mainCamera;
     public Bow bowScript;
+
+    public bool hitDetected;
 
     private void Start()
     {
@@ -190,6 +192,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PullArrow()
+    {
+        bowScript.PullString();
+    }
+
+    public void EnableArrow()
+    {
+        bowScript.PickArrow();
+    }
+
+    public void DisableArrow()
+    {
+        bowScript.DisableArrow();
+    }
+
+    public void ReleaseArrow()
+    {
+        bowScript.ReleaseString();
+    }
+
     public void Aim()
     {
         Vector3 camPosition = mainCamera.transform.position;
@@ -200,11 +222,13 @@ public class PlayerController : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit, 500f, aimLayers))
         {
+            hitDetected = true;
             Debug.DrawLine(ray.origin, hit.point, Color.green);
             bowScript.ShowCrosshair(hit.point);
         }
         else
         {
+            hitDetected = false;
             bowScript.ReMoveCrossHair();
         }
 

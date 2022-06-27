@@ -18,8 +18,10 @@ public class PlayerProjectile : MonoBehaviour
 
     private void Update()
     {
+        //transform.rotation = Quaternion.LookRotation(rb.velocity);
+        
 
-        //Debug.Log("Hit direction" + rb.velocity);
+        Debug.Log("Hit direction" + rb.velocity);
         if (!disableRotation)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
