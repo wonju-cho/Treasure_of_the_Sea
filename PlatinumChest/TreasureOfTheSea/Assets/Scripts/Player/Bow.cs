@@ -115,6 +115,5 @@ public class Bow : MonoBehaviour
 
         currentArrow = Instantiate(bowSettings.arrowObject, bowSettings.arrowPos.position, bowSettings.arrowPos.rotation) as Rigidbody;
         currentArrow.AddForce(dir * bowSettings.arrowForce, ForceMode.VelocityChange);
-        //currentArrow.transform.rotation = Quaternion.LookRotation(currentArrow.velocity)
     }
 }

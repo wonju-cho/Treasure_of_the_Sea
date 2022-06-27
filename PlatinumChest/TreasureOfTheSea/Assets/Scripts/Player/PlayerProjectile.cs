@@ -20,8 +20,6 @@ public class PlayerProjectile : MonoBehaviour
     {
         //transform.rotation = Quaternion.LookRotation(rb.velocity);
         
-
-        Debug.Log("Hit direction" + rb.velocity);
         if (!disableRotation)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
@@ -32,7 +30,7 @@ public class PlayerProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("detect collision: " + collision.collider.name);
+        Debug.Log("detect collision: " + collision.collider.name);
 
         if(collision.collider.tag != "Player")
         {
