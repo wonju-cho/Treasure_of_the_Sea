@@ -15,4 +15,6 @@ public class InventoryHolder : MonoBehaviour
     {
         inventorySystem = new InventorySystem(inventorySize);
     }
+
+    public int GetInventorySize() { return inventorySize; }
 }

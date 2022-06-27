@@ -42,6 +42,11 @@ public class PlayerManager : MonoBehaviour
 
     //public GameObject crossHairUI;
 
+    //for testing the arrow
+    private InventoryHolder inventoryHolder;
+    public InventoryItemData cottonTest;
+    public InventoryItemData arrowTest;
+
     Camera mainCamera;
     Vector3 worldPosition;
 
@@ -58,6 +63,7 @@ public class PlayerManager : MonoBehaviour
 
         controller = GetComponent<CharacterController>();
         playerController = GetComponent<PlayerController>();
+        inventoryHolder = GetComponent<InventoryHolder>();
 
         if (!controller)
             Debug.Log("There is no controller in the PlayerManager script");
@@ -65,11 +71,15 @@ public class PlayerManager : MonoBehaviour
         if (!HealthBar)
             Debug.Log("There is no healthbar in the playermanger script");
 
+        if (!inventoryHolder)
+            Debug.Log("There is no inventory holder in player manager script");
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        TestingItems();
 
         if (Input.GetKeyDown(KeyCode.F1) && isPlayerDead)
         {
@@ -194,6 +204,19 @@ public class PlayerManager : MonoBehaviour
         {
             animator.ResetTrigger("GetDamage");
             animator.SetTrigger("GetDamage");
+        }
+    }
+
+    void TestingItems()
+    {
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            inventoryHolder.InventorySystem.AddToInventory(cottonTest, 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            inventoryHolder.InventorySystem.AddToInventory(arrowTest, 1);
         }
     }
 

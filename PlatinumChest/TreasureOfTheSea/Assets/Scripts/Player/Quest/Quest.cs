@@ -2,32 +2,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
-using UnityEngine.UI;
-using TMPro;
 
 public class Quest : MonoBehaviour
 {    
-    public InventoryHolder inventoryHolder;
-
     //public QuestCompletedEvent questCompleted;
 
     public bool completed;
 
     public List<QuestGoal> Goals;
-
-    public GameObject middle;
-
-    public List<InventorySlot_UI> UISlots;
-    
     public List<QuestSlot_UI> questSlots;
-
+    public GameObject middle;
     public GameObject questUI;
+
+    private InventoryHolder inventoryHolder;
+    private StaticInventoryDisplay staticInventoryDisplay;
+    private InventorySlot_UI[] UISlots;
+
 
     public void Start()
     {
         Initialize();
         middle.SetActive(false);
         questUI.SetActive(false);
+
+        inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
+        staticInventoryDisplay = GameObject.FindWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
+        UISlots = staticInventoryDisplay.GetAllSlots();
+
+        if (!inventoryHolder)
+            Debug.Log("There is no inventoryHolder in the quest script");
+
+        if (!staticInventoryDisplay)
+            Debug.Log("There is no static inventory display in the quest script");
+
+        if (UISlots.Length < 1)
+            Debug.Log("UI slots are not initialized in the quest script");
+
     }
 
     public void Initialize()
@@ -48,23 +58,28 @@ public class Quest : MonoBehaviour
     protected void Evaulate()
     {
         Debug.Log("Enter in the evaulate function");
+        bool isEmptyInventory = true;
         for(int i = 0; i < Goals.Count; i++)
         {
             if (inventoryHolder.InventorySystem.IsExistSlot(Goals[i].requiredName))
             {
+                isEmptyInventory = false;
                 InventorySlot test = inventoryHolder.InventorySystem.GetInventorySlot(Goals[i].requiredName);
                 Goals[i].currentAmount = test.StackSize;
                 
                 int check = Goals[i].currentAmount;
-               
+
                 if (check >= Goals[i].requiredAmount)
                 {
                     questSlots[i].EnableCheckImage();
                     Goals[i].Complete();
-                    questUI.SetActive(true);
+                    //questUI.SetActive(true);
                 }
+                questUI.SetActive(true);
             }
         }
+        if(isEmptyInventory)
+            questUI.SetActive(true);
     }
 
     public bool CheckGoals()
@@ -84,7 +99,7 @@ public class Quest : MonoBehaviour
                 test.RemoveFromStack(Goals[i].requiredAmount);
             }
 
-            for (int i = 0; i < UISlots.Count; i++)
+            for (int i = 0; i < UISlots.Length; i++)
             {
                 UISlots[i].UpdateUISlot();                
             }
