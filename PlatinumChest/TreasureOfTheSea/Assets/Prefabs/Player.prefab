@@ -189,8 +189,8 @@ MonoBehaviour:
   aimLayers:
     serializedVersion: 2
     m_Bits: 1
-  spine: {fileID: 419548297676829124}
-  spineOffset: {x: 180, y: 170, z: 87}
+  spine: {fileID: 7362886800476355078}
+  spineOffset: {x: 179.8, y: 170.6, z: 87.2}
   lookAtPoint: 2.8
   animator: {fileID: 6421454075827109771}
   moveSpeed: 6
@@ -244,6 +244,7 @@ MonoBehaviour:
   projectilePoint: {fileID: 5649757518849863163}
   cottonTest: {fileID: 11400000, guid: 5dbc55597a68dac4dac2fb78220799dc, type: 2}
   arrowTest: {fileID: 11400000, guid: feb72af53b7c3004693dfaf51a7c97a2, type: 2}
+  testAim: 0
 --- !u!95 &6421454075827109771
 Animator:
   serializedVersion: 3
@@ -1324,7 +1325,7 @@ MonoBehaviour:
     stringInitalPos: {fileID: 0}
     stringHandPullPos: {fileID: 0}
     stringInitialParent: {fileID: 0}
-  crossHairObject: {fileID: 736476989116246418, guid: 9c49d9ac9c291ca4fab141b7f5f63d22, type: 3}
+  crossHairObject: {fileID: 1709577852984602659, guid: 9c49d9ac9c291ca4fab141b7f5f63d22, type: 3}
   currentCrossHair: {fileID: 0}
 --- !u!1 &8496949086597502485
 GameObject:
@@ -2095,9 +2096,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4020360767693765181, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
   m_PrefabInstance: {fileID: 2917408806481784718}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &419548297676829124 stripped
+--- !u!4 &7362886800476355078 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3291637844586847818, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5643728669886076296, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
   m_PrefabInstance: {fileID: 2917408806481784718}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8000239885964770847
