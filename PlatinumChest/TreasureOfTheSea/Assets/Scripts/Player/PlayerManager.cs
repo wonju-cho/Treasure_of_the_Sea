@@ -121,8 +121,8 @@ public class PlayerManager : MonoBehaviour
 
             if(Input.GetButtonUp(animStrings.aim_input))
             {
-                Debug.Log("Get button up: fire"); 
                 CharacterFire();
+                Debug.Log("fire");
                 if(playerController.hitDetected == true)
                 {
                     playerController.bowScript.Fire(playerController.hit.point);
