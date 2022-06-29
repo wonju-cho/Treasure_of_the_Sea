@@ -95,14 +95,14 @@ public class Bow : MonoBehaviour
             Destroy(currentCrossHair);
     }
 
-    void UnEquipWeapon()
+    public void UnEquipWeapon()
     {
         this.transform.position = bowSettings.UnEquipPos.position;
         this.transform.rotation = bowSettings.UnEquipPos.rotation;
         this.transform.parent = bowSettings.UnEquipParent;
     }
 
-    void EquipWeapon()
+    public void EquipWeapon()
     {
         this.transform.position = bowSettings.EquipPos.position;
         this.transform.rotation = bowSettings.EquipPos.rotation;
@@ -111,6 +111,7 @@ public class Bow : MonoBehaviour
 
     public void Fire(Vector3 hitPoint)
     {
+        Debug.Log("fire arrow");
         Vector3 dir = hitPoint - bowSettings.arrowPos.position;
 
         currentArrow = Instantiate(bowSettings.arrowObject, bowSettings.arrowPos.position, bowSettings.arrowPos.rotation) as Rigidbody;

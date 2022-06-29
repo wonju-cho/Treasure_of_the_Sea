@@ -117,7 +117,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    accuratePlacement: 1
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -2212,7 +2212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2645274137297001742, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.83
+      value: -10.04
       objectReference: {fileID: 0}
     - target: {fileID: 2645274137297001742, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2297,6 +2297,14 @@ PrefabInstance:
     - target: {fileID: 7640073670039885426, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
       propertyPath: loots.Array.data[0].dropRate
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921368520131098087, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8921368520131098087, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

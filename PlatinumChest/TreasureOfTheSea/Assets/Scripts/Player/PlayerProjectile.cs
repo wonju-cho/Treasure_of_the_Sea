@@ -9,6 +9,8 @@ public class PlayerProjectile : MonoBehaviour
     Rigidbody rb;
     BoxCollider bx;
     bool disableRotation = false;
+    public float destroyTime = 5f;
+
 
     private void Start()
     {
@@ -18,14 +20,13 @@ public class PlayerProjectile : MonoBehaviour
 
     private void Update()
     {
-        //transform.rotation = Quaternion.LookRotation(rb.velocity);
         
         if (!disableRotation)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
-        Destroy(this.gameObject, 5f);
 
+        Destroy(this.gameObject, destroyTime);
     }
 
     private void OnCollisionEnter(Collision collision)

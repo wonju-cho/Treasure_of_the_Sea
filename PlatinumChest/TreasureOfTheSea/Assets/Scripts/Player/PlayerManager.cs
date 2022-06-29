@@ -117,12 +117,12 @@ public class PlayerManager : MonoBehaviour
         if(is_aiming)
         {
             playerController.Aim();
+            playerController.bowScript.EquipWeapon();
             //CharacterPullString(Input.GetButton(animStrings.fire_input));
 
             if(Input.GetButtonUp(animStrings.aim_input))
             {
                 CharacterFire();
-                Debug.Log("fire");
                 if(playerController.hitDetected == true)
                 {
                     playerController.bowScript.Fire(playerController.hit.point);
@@ -135,7 +135,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-
+            playerController.bowScript.UnEquipWeapon();
             playerController.bowScript.ReMoveCrossHair();
             playerController.bowScript.DisableArrow();
             playerController.bowScript.ReleaseString();

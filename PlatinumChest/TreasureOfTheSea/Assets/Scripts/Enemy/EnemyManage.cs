@@ -14,7 +14,7 @@ public class EnemyManage : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("melee enemy collision: " + collision.collider.name);
+        //Debug.Log("melee enemy collision: " + collision.collider.name);
     }
 
     public Transform[] GetWayPoints()
