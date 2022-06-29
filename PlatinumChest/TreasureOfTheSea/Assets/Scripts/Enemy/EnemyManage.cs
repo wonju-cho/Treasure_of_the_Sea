@@ -11,6 +11,12 @@ public class EnemyManage : MonoBehaviour
 
     [SerializeField] Transform[] wayPoints;
 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log("melee enemy collision: " + collision.collider.name);
+    }
+
     public Transform[] GetWayPoints()
     {
         return wayPoints;
