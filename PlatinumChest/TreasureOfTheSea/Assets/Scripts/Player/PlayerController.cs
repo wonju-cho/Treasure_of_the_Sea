@@ -55,11 +55,13 @@ public class PlayerController : MonoBehaviour
     public Bow bowScript;
 
     public bool hitDetected;
+    //public GameObject inventoryImage;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-        
+        //inventoryImage.SetActive(false);
+
         originalStepOffset = controller.stepOffset;
 
         if (!controller)
@@ -77,18 +79,20 @@ public class PlayerController : MonoBehaviour
         if (isInventoryDisplayed)
         {
             InventoryUI.SetActive(true);
+            //inventoryImage.SetActive(true);
         }
         else
         {
             InventoryUI.SetActive(false);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            isInventoryDisplayed = isInventoryDisplayed ? false : true;
+            //inventoryImage.SetActive(false);
         }
 
-        if(Input.GetAxis(forwardInput)!= 0 || Input.GetAxis(leftInput) !=0)
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            isInventoryDisplayed = isInventoryDisplayed ? false : true;            
+        }
+
+        if (Input.GetAxis(forwardInput)!= 0 || Input.GetAxis(leftInput) !=0)
         {
             //RotateToCamView();
         }

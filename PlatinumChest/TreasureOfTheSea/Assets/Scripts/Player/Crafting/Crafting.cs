@@ -22,10 +22,13 @@ public class Crafting : MonoBehaviour
     private PlayerManager pm;
     private PlayerController pc;
     private Camera_Controller cm;
+    
+    public GameObject craftingText;
 
     // Start is called before the first frame update
     void Start()
     {
+        craftingText.SetActive(false);
         craftingUI.SetActive(false);
         craftingSignifier.SetActive(false);
 
@@ -115,23 +118,25 @@ public class Crafting : MonoBehaviour
     {
         if (isCraftingActive)
         {
-            Cursor.visible = true;
-            bow.ReMoveCrossHair();
-            bow.DisableCrossHair();
-            bow.enabled = false;
-            pm.enabled = false;
-            cm.enabled = false;
-            pc.enabled = false;
+            //Cursor.visible = true;
+            //bow.ReMoveCrossHair();
+            //bow.DisableCrossHair();
+            //bow.enabled = false;
+            //pm.enabled = false;
+            //cm.enabled = false;
+            //pc.enabled = false;
+            craftingText.SetActive(true);
             craftingUI.SetActive(true);
             craftingSignifier.SetActive(false);
         }
         else
         {
+            craftingText.SetActive(false);
             craftingUI.SetActive(false);
-            bow.enabled = true;
-            bow.EnableCrossHair();
-            pm.enabled = true;
-            cm.enabled = true;
+            //bow.enabled = true;
+            //bow.EnableCrossHair();
+            //pm.enabled = true;
+            //cm.enabled = true;
         }
 
         if (isNearTheCrafting && isCraftingActive)
