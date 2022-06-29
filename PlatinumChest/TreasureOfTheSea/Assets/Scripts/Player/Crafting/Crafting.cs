@@ -18,6 +18,10 @@ public class Crafting : MonoBehaviour
     public List<CraftingReceipt> craftingReceipts;
 
     private int craftingReceiptSize = -1;
+    private Bow bow;
+    private PlayerManager pm;
+    private PlayerController pc;
+    private Camera_Controller cm;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +33,11 @@ public class Crafting : MonoBehaviour
         staticInventoryDisplay = GameObject.FindGameObjectWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
         uiSlots = staticInventoryDisplay.GetAllSlots();
         craftingReceiptSize = craftingReceipts.Count;
+        bow = GameObject.FindWithTag("Bow").GetComponent<Bow>();
+        pc = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        pm = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
+        cm = GameObject.FindWithTag("CameraHolder").GetComponent<Camera_Controller>();
+
 
         if (!inventoryHolder)
             Debug.Log("There is no inventory holder in the crafting script");
@@ -38,6 +47,18 @@ public class Crafting : MonoBehaviour
 
         if (uiSlots.Length < 1)
             Debug.Log("UI slots are not initialized in the crafting script");
+
+        if (!bow)
+            Debug.Log("There is no bow in the crafting script");
+
+        if (!pm)
+            Debug.Log("There is no player manager in the crafting script");
+
+        if (!cm)
+            Debug.Log("There is no camera controller in the crafting script");
+
+        if (!pc)
+            Debug.Log("There is no player controller in the crafting script");
     }
 
     // Update is called once per frame
@@ -78,11 +99,8 @@ public class Crafting : MonoBehaviour
 
     void CraftTool(CraftingReceipt cr)
     {
-        //if(cr.CanCraft(inventoryHolder))
-        //{
-            cr.Craft(inventoryHolder);
-            UpdateUISlots();
-        //}
+        cr.Craft(inventoryHolder);
+        UpdateUISlots();        
     }
 
     void UpdateUISlots()
@@ -97,12 +115,23 @@ public class Crafting : MonoBehaviour
     {
         if (isCraftingActive)
         {
+            Cursor.visible = true;
+            bow.ReMoveCrossHair();
+            bow.DisableCrossHair();
+            bow.enabled = false;
+            pm.enabled = false;
+            cm.enabled = false;
+            pc.enabled = false;
             craftingUI.SetActive(true);
             craftingSignifier.SetActive(false);
         }
         else
         {
             craftingUI.SetActive(false);
+            bow.enabled = true;
+            bow.EnableCrossHair();
+            pm.enabled = true;
+            cm.enabled = true;
         }
 
         if (isNearTheCrafting && isCraftingActive)
@@ -144,5 +173,10 @@ public class Crafting : MonoBehaviour
         {
             isNearTheCrafting = false;
         }
+    }
+
+    public void ExitCrafting() 
+    { 
+        isCraftingActive = false; 
     }
 }

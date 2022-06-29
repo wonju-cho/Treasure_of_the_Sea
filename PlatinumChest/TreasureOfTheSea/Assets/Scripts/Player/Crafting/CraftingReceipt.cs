@@ -59,4 +59,21 @@ public class CraftingReceipt : ScriptableObject
         }
     }
 
+    public void Craft(InventoryHolder inventoryHolder, int amount)
+    {
+        if (CanCraft(inventoryHolder))
+        {
+            inventoryHolder.InventorySystem.AddToInventory(resultItem, amount);
+
+            for (int i = 0; i < materials.Count; i++)
+            {
+                InventorySlot test = inventoryHolder.InventorySystem.GetInventorySlot(materials[i].item.displayName);
+
+                //test
+                test.RemoveFromStack(materials[i].amount * amount);
+            }
+
+        }
+    }
+
 }
