@@ -13,9 +13,10 @@ public class Crafting : MonoBehaviour
     public GameObject craftingSignifier;
     public List<CraftingReceipt> craftingReceipts;
     private int craftingReceiptSize = -1;
-    public bool isNearTheCrafting = false;
-    public bool isCraftingActive = false;
-    
+    private bool isNearTheCrafting = false;
+    private bool isCraftingActive = false;
+    private FollowWorld playerHotbar;
+
     private Bow bow;
     private PlayerManager pm;
     private PlayerController pc;
@@ -27,6 +28,7 @@ public class Crafting : MonoBehaviour
         craftingUI.SetActive(false);
         craftingSignifier.SetActive(false);
 
+        playerHotbar = GameObject.FindWithTag("InventoryDisplay").GetComponent<FollowWorld>();
         inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
         staticInventoryDisplay = GameObject.FindGameObjectWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
         bow = GameObject.FindWithTag("Bow").GetComponent<Bow>();
@@ -57,6 +59,10 @@ public class Crafting : MonoBehaviour
 
         if (!pc)
             Debug.Log("There is no player controller in the crafting script");
+
+        if (!playerHotbar)
+            Debug.Log("There is no follow world of inventory hot bar in the crafting slot_ui script");
+
     }
 
     // Update is called once per frame
@@ -78,6 +84,7 @@ public class Crafting : MonoBehaviour
         UpdateUISlots();        
     }
 
+
     void UpdateUISlots()
     {
         for (int i = 0; i < uiSlots.Length; i++)
@@ -97,6 +104,8 @@ public class Crafting : MonoBehaviour
             pc.enabled = false;
             pm.enabled = false;
             bow.enabled = false;
+            playerHotbar.enabled = false;
+            playerHotbar.transform.position = new Vector3(0, -396, 0);
         }
         else
         {
@@ -104,6 +113,7 @@ public class Crafting : MonoBehaviour
             pc.enabled = true;
             pm.enabled = true;
             bow.enabled = true;
+            playerHotbar.enabled = true;
         }
 
         if (isNearTheCrafting && isCraftingActive)

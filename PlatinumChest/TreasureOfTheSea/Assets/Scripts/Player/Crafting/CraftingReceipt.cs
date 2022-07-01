@@ -15,8 +15,6 @@ public struct ItemAmount
 public class CraftingReceipt : ScriptableObject
 {
     public List<ItemAmount> materials;
-
-    //public List<ItemAmount> results;
     public InventoryItemData resultItem;
 
     public bool CanCraft(InventoryHolder inventoryHolder)

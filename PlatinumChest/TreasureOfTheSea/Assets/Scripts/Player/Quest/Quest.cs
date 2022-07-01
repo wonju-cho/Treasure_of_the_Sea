@@ -5,8 +5,6 @@ using System.Linq;
 
 public class Quest : MonoBehaviour
 {    
-    //public QuestCompletedEvent questCompleted;
-
     public bool completed;
 
     public List<QuestGoal> Goals;
@@ -17,7 +15,6 @@ public class Quest : MonoBehaviour
     private InventoryHolder inventoryHolder;
     private StaticInventoryDisplay staticInventoryDisplay;
     private InventorySlot_UI[] UISlots;
-
 
     public void Start()
     {
@@ -73,7 +70,6 @@ public class Quest : MonoBehaviour
                 {
                     questSlots[i].EnableCheckImage();
                     Goals[i].Complete();
-                    //questUI.SetActive(true);
                 }
                 questUI.SetActive(true);
             }
@@ -84,14 +80,10 @@ public class Quest : MonoBehaviour
 
     public bool CheckGoals()
     {
-        Debug.Log("Enter in the Check Goals function");
         Evaulate();
         completed = Goals.All(g => g.completed);
         if(completed)
         {
-            Debug.Log("Complte quest");
-            //questCompleted.Invoke(this);
-            //questCompleted.RemoveAllListeners();
 
             for(int i = 0; i < Goals.Count; i++)
             {
@@ -111,5 +103,3 @@ public class Quest : MonoBehaviour
         return false;
     }
 }
-
-public class QuestCompletedEvent : UnityEvent<Quest> { }
