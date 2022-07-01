@@ -19,28 +19,29 @@ public class Crafting : MonoBehaviour
 
     private int craftingReceiptSize = -1;
     private Bow bow;
+    //GameObject bow;
     private PlayerManager pm;
     private PlayerController pc;
     private Camera_Controller cm;
-    
-    public GameObject craftingText;
+    public GameObject crossHair;
 
     // Start is called before the first frame update
     void Start()
     {
-        craftingText.SetActive(false);
         craftingUI.SetActive(false);
         craftingSignifier.SetActive(false);
 
         inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
         staticInventoryDisplay = GameObject.FindGameObjectWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
-        uiSlots = staticInventoryDisplay.GetAllSlots();
-        craftingReceiptSize = craftingReceipts.Count;
         bow = GameObject.FindWithTag("Bow").GetComponent<Bow>();
+        //bow = GameObject.FindWithTag("Bow");
+        //bow.GetComponent<Bow>();
+
         pc = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         pm = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
         cm = GameObject.FindWithTag("CameraHolder").GetComponent<Camera_Controller>();
-
+        uiSlots = staticInventoryDisplay.GetAllSlots();
+        craftingReceiptSize = craftingReceipts.Count;
 
         if (!inventoryHolder)
             Debug.Log("There is no inventory holder in the crafting script");
@@ -118,25 +119,30 @@ public class Crafting : MonoBehaviour
     {
         if (isCraftingActive)
         {
-            //Cursor.visible = true;
-            //bow.ReMoveCrossHair();
-            //bow.DisableCrossHair();
-            //bow.enabled = false;
-            //pm.enabled = false;
-            //cm.enabled = false;
-            //pc.enabled = false;
-            craftingText.SetActive(true);
+            Cursor.visible = true;
             craftingUI.SetActive(true);
             craftingSignifier.SetActive(false);
+            pm.enabled = false;
+            pc.enabled = false;
+            bow.enabled = false;
+            if(bow.currentCrossHair)
+            {
+                crossHair = bow.currentCrossHair;
+                Debug.Log(crossHair.transform.position);
+            }
+            Debug.Log(Input.mousePosition);
+            //bow.SetActive(false);
+            //bow.ReMoveCrossHair();
+            //bow.DisableCrossHair();
         }
         else
         {
-            craftingText.SetActive(false);
             craftingUI.SetActive(false);
-            //bow.enabled = true;
+            //bow.SetActive(true);
+            pc.enabled = true;
+            pm.enabled = true;
+            bow.enabled = true;
             //bow.EnableCrossHair();
-            //pm.enabled = true;
-            //cm.enabled = true;
         }
 
         if (isNearTheCrafting && isCraftingActive)
@@ -181,7 +187,10 @@ public class Crafting : MonoBehaviour
     }
 
     public void ExitCrafting() 
-    { 
+    {
+        Debug.Log("Exit crafting");
         isCraftingActive = false; 
     }
+
+    public bool getCraftingActivated() { return isCraftingActive; }
 }

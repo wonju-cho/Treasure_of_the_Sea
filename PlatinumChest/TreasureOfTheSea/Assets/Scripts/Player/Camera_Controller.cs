@@ -38,6 +38,8 @@ public class Camera_Controller : MonoBehaviour
     [SerializeField]
     public CameraInputSettings inputSettings;
 
+    private Crafting crafting;
+
     Transform center;
     Transform target;
 
@@ -55,7 +57,7 @@ public class Camera_Controller : MonoBehaviour
     {
         mainCam = Camera.main;
         UICam = mainCam.GetComponentInChildren<Camera>();
-
+        crafting = GameObject.FindWithTag("Crafting").GetComponent<Crafting>();
 
         center = transform.GetChild(0);
         InitialCamPos = mainCam.transform.localPosition;
@@ -74,8 +76,11 @@ public class Camera_Controller : MonoBehaviour
         if (!Application.isPlaying)
             return;
 
-        RotateCamera();
-        ZoomCamera();
+        if (!crafting.getCraftingActivated())
+        {
+            RotateCamera();
+            ZoomCamera();
+        }
         //HandleCamCollision();
     }
 
@@ -99,11 +104,11 @@ public class Camera_Controller : MonoBehaviour
     {
         Vector3 moveVector = Vector3.Lerp(transform.position, target.transform.position, cameraSettings.moveSpeed * Time.deltaTime);
         transform.position = moveVector;
-
     }
 
     void RotateCamera()
     {
+
         //mouse x -> rotating along y axis
         //mouse y => rotating along x axis
         //so have to get each of rotation from different axis,, Tlqkf,,
@@ -121,12 +126,13 @@ public class Camera_Controller : MonoBehaviour
         Vector3 rotatingAngle = new Vector3(cameraX_rotation, cameraY_rotation, 0);
         Quaternion rotation = Quaternion.Slerp(center.transform.localRotation, Quaternion.Euler(rotatingAngle), cameraSettings.rotationSpeed * Time.deltaTime);
         center.transform.localRotation = rotation;
+        
     }
 
 
     void ZoomCamera()
     {
-        if(Input.GetButton(inputSettings.AimingInput))
+        if (Input.GetButton(inputSettings.AimingInput))
         {
             mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, cameraSettings.zoomFieldOfView, cameraSettings.zoomSpeed * Time.deltaTime);
             UICam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, cameraSettings.zoomFieldOfView, cameraSettings.zoomSpeed * Time.deltaTime);

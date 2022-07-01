@@ -51,7 +51,8 @@ public class PlayerManager : MonoBehaviour
     Vector3 worldPosition;
 
     public bool testAim;
-    
+
+    Crafting crafting;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +65,7 @@ public class PlayerManager : MonoBehaviour
         controller = GetComponent<CharacterController>();
         playerController = GetComponent<PlayerController>();
         inventoryHolder = GetComponent<InventoryHolder>();
+        crafting = GameObject.FindWithTag("Crafting").GetComponent<Crafting>();
 
         if (!controller)
             Debug.Log("There is no controller in the PlayerManager script");
@@ -86,12 +88,6 @@ public class PlayerManager : MonoBehaviour
             PlayerRespawn();
         }
 
-        //test health bar ui
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            currentHP--;
-        }
-
         if (currentHP <= 0)
         {
             isPlayerDead = true;
@@ -101,16 +97,13 @@ public class PlayerManager : MonoBehaviour
         {
             PlayerDeath();
         }
-        
+
         HealthBarFill();
-
-
 
         //is_aiming = Input.GetButton(animStrings.aim_input);
 
         if (testAim)
             is_aiming = true;
-
 
         CharacterAim(is_aiming);
 
@@ -172,8 +165,10 @@ public class PlayerManager : MonoBehaviour
 
     public void CharacterAim(bool aiming)
     {
-        animator.SetBool(animStrings.aim, aiming);
-
+        if(!crafting.getCraftingActivated())
+        {
+            animator.SetBool(animStrings.aim, aiming);
+        }
     }
 
     public void CharacterPullString(bool pulling)

@@ -57,12 +57,15 @@ public class PlayerController : MonoBehaviour
     public bool hitDetected;
     //public GameObject inventoryImage;
 
+    private Crafting crafting;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         //inventoryImage.SetActive(false);
 
         originalStepOffset = controller.stepOffset;
+        crafting = GameObject.FindWithTag("Crafting").GetComponent<Crafting>();
 
         if (!controller)
             Debug.Log("There is no controller in the PlayerMovement script");
@@ -106,12 +109,6 @@ public class PlayerController : MonoBehaviour
        
         direction = Quaternion.AngleAxis(mainCamera.transform.rotation.eulerAngles.y, Vector3.up) * direction;
         direction.Normalize();
-
-        {
-            //transform.Translate(Vector3.forward.normalized * roationSpeed);
-            //transform.eulerAngles = new Vector3(transform.eulerAngles.x, mainCamera.transform.eulerAngles.y, transform.eulerAngles.z);
-            //transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, Camera.main.transform.localEulerAngles.y, transform.localEulerAngles.z);
-        }
 
         ySpeed += Physics.gravity.y * Time.deltaTime; //gravity = -9.81
         
@@ -223,8 +220,7 @@ public class PlayerController : MonoBehaviour
 
         ray = new Ray(camPosition, direction);
         
-
-        if(Physics.Raycast(ray, out hit, 500f, aimLayers))
+        if (Physics.Raycast(ray, out hit, 500f, aimLayers))
         {
             hitDetected = true;
             Debug.DrawLine(ray.origin, hit.point, Color.green);
@@ -235,8 +231,9 @@ public class PlayerController : MonoBehaviour
             hitDetected = false;
             bowScript.ReMoveCrossHair();
         }
-
+        
     }
+
     private void LateUpdate()
     {
         if (Input.GetButton(aim_input))
