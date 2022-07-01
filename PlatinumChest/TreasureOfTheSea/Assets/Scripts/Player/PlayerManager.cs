@@ -52,7 +52,8 @@ public class PlayerManager : MonoBehaviour
 
     public bool testAim;
 
-    private int NumOfTriggerPot;
+    private int NumOfSkull = 0;
+    private int NumOfSkullInWorld;
     
 
     // Start is called before the first frame update
@@ -67,7 +68,8 @@ public class PlayerManager : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         inventoryHolder = GetComponent<InventoryHolder>();
 
-        NumOfTriggerPot = GameObject.FindGameObjectsWithTag("Pot").Length;
+        NumOfSkull = 0;
+        NumOfSkullInWorld = GameObject.FindGameObjectsWithTag("Chest").Length;
 
         if (!controller)
             Debug.Log("There is no controller in the PlayerManager script");
@@ -287,5 +289,20 @@ public class PlayerManager : MonoBehaviour
         //rb.AddForce(transform.up * 7f, ForceMode.Impulse);
         Vector3 dir = transform.forward;
         rb.AddForce(dir*20f, ForceMode.VelocityChange);
+    }
+
+    public void GetSkull()
+    {
+        NumOfSkull++;
+    }
+
+    public bool CheckPlayerHasEverySkull()
+    {
+        if(NumOfSkull >= NumOfSkullInWorld)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
