@@ -61,6 +61,12 @@ public class PlayerProjectile : MonoBehaviour
             collision.collider.GetComponent<InteractObject>().TakeDamage();
             Destroy(this.gameObject);
         }
+        else if(collision.collider.tag == "Pot")
+        {
+            collision.collider.GetComponent<TriggerPot>().DestroyPot();
+            Destroy(this.gameObject);
+
+        }
 
     }
 }

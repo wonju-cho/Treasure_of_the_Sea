@@ -51,6 +51,8 @@ public class PlayerManager : MonoBehaviour
     Vector3 worldPosition;
 
     public bool testAim;
+
+    private int NumOfTriggerPot;
     
 
     // Start is called before the first frame update
@@ -64,6 +66,8 @@ public class PlayerManager : MonoBehaviour
         controller = GetComponent<CharacterController>();
         playerController = GetComponent<PlayerController>();
         inventoryHolder = GetComponent<InventoryHolder>();
+
+        NumOfTriggerPot = GameObject.FindGameObjectsWithTag("Pot").Length;
 
         if (!controller)
             Debug.Log("There is no controller in the PlayerManager script");

@@ -25,8 +25,6 @@ public class Bow : MonoBehaviour
         public Transform stringInitalPos;
         public Transform stringHandPullPos;
         public Transform stringInitialParent;
-
-
     }
 
     [SerializeField]
