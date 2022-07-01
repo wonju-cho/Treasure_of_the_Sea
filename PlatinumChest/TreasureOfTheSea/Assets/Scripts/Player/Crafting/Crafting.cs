@@ -120,6 +120,7 @@ public class Crafting : MonoBehaviour
         if (isCraftingActive)
         {
             Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             craftingUI.SetActive(true);
             craftingSignifier.SetActive(false);
             pm.enabled = false;
