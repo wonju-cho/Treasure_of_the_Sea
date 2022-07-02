@@ -2277,7 +2277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2645274137297001736, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2645274137297001736, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
       propertyPath: m_TagString
@@ -2330,6 +2330,10 @@ PrefabInstance:
     - target: {fileID: 5027601152801428453, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
       propertyPath: damageAmount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640073670039885426, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
+      propertyPath: isInBossIsland
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7640073670039885426, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
       propertyPath: loots.Array.size
@@ -3194,15 +3198,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1749996183342078806, guid: da639c48c93b2a6449dae4aebf43046c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.41
+      value: -8.87
       objectReference: {fileID: 0}
     - target: {fileID: 1749996183342078806, guid: da639c48c93b2a6449dae4aebf43046c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.92
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 1749996183342078806, guid: da639c48c93b2a6449dae4aebf43046c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.8
+      value: 25.22
       objectReference: {fileID: 0}
     - target: {fileID: 1749996183342078806, guid: da639c48c93b2a6449dae4aebf43046c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3637,6 +3641,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6563283528253829690, guid: f6a8c361f53e70f449199f68e2b4ad3b, type: 3}
     - target: {fileID: 5558245271691774825, guid: 3e60cdd5136b8cc4b86ec6e2b5781f9c, type: 3}
+      propertyPath: isInBossIsland
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558245271691774825, guid: 3e60cdd5136b8cc4b86ec6e2b5781f9c, type: 3}
       propertyPath: projectilePoint
       value: 
       objectReference: {fileID: 1016077986}
@@ -3691,6 +3699,10 @@ PrefabInstance:
     - target: {fileID: 9109207412341359945, guid: 3e60cdd5136b8cc4b86ec6e2b5781f9c, type: 3}
       propertyPath: m_Name
       value: RangeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109207412341359945, guid: 3e60cdd5136b8cc4b86ec6e2b5781f9c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9109207412341359945, guid: 3e60cdd5136b8cc4b86ec6e2b5781f9c, type: 3}
       propertyPath: m_TagString
