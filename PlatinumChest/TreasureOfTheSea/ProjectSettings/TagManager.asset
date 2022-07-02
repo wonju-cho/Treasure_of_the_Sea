@@ -15,6 +15,9 @@ TagManager:
   - Bow
   - CameraHolder
   - Crafting
+  - Pot
+  - Chest
+  - CowSkull
   layers:
   - Default
   - TransparentFX

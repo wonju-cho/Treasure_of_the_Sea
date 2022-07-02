@@ -31,7 +31,7 @@ public class PlayerProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("detect collision: " + collision.collider.name);
+        //Debug.Log("detect collision: " + collision.collider.name);
 
         if(collision.collider.tag != "Player")
         {
@@ -59,6 +59,17 @@ public class PlayerProjectile : MonoBehaviour
         else if(collision.collider.tag == "InteractableObject")
         {
             collision.collider.GetComponent<InteractObject>().TakeDamage();
+            Destroy(this.gameObject);
+        }
+        else if(collision.collider.tag == "Pot")
+        {
+            collision.collider.GetComponent<TriggerPot>().DestroyPot();
+            Destroy(this.gameObject);
+
+        }
+        else if(collision.collider.tag == "Chest")
+        {
+            collision.collider.GetComponent<TriggerChest>().OpenChest();
             Destroy(this.gameObject);
         }
 

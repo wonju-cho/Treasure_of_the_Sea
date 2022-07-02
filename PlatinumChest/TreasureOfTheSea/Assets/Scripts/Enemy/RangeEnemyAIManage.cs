@@ -14,15 +14,25 @@ public class Loot
 
 public class RangeEnemyAIManage : MonoBehaviour
 {
-    public Loot[] loots;
 
+    [Header("Range Enemy Settings")]
+    public Loot[] loots;
     public int HP = 100;
     public Animator animator;
+    public bool isInBossIsland;
+    
 
     public GameObject projectile;
     public Transform projectilePoint; // have to change from enemy transform to weapon transform.
 
     [SerializeField] Transform[] wayPoints;
+
+    private int enemyHP;
+
+    private void Start()
+    {
+        enemyHP = HP;
+    }
 
     public Transform[] GetWayPoints()
     {
@@ -31,13 +41,38 @@ public class RangeEnemyAIManage : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        HP -= damageAmount;
+        enemyHP -= damageAmount;
 
-        if(HP <= 0)
+        if(enemyHP <= 0)
         {
+            
             animator.SetTrigger("Death");
-            GetComponent<CapsuleCollider>().enabled = false;
-            StartCoroutine(DelayedDead(animator.GetCurrentAnimatorStateInfo(0).length));
+
+            if(isInBossIsland == true)
+            {
+                if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CheckPlayerHasEverySkull())
+                {
+                    //die
+                    GetComponent<CapsuleCollider>().enabled = false;
+                    StartCoroutine(DelayedDead(animator.GetCurrentAnimatorStateInfo(0).length));
+
+                    isInBossIsland = false;
+                    return;
+                }
+
+                //rebirth
+                StartCoroutine(DelayedAnimation(animator.GetCurrentAnimatorStateInfo(0).length));
+                animator.SetTrigger("Rebirth");
+                enemyHP = HP;
+
+            }
+            else
+            {
+                //die
+                GetComponent<CapsuleCollider>().enabled = false;
+                StartCoroutine(DelayedDead(animator.GetCurrentAnimatorStateInfo(0).length));
+            }
+            
         }
         else
         {
@@ -61,6 +96,11 @@ public class RangeEnemyAIManage : MonoBehaviour
         //rb.AddForce(transform.up * 5f, ForceMode.Impulse);
 
 
+    }
+
+    IEnumerator DelayedAnimation(float delay = 0)
+    {
+        yield return new WaitForSeconds(delay);
     }
 
     IEnumerator DelayedDead(float delay = 0)

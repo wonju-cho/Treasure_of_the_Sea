@@ -25,8 +25,6 @@ public class Bow : MonoBehaviour
         public Transform stringInitalPos;
         public Transform stringHandPullPos;
         public Transform stringInitialParent;
-
-
     }
 
     [SerializeField]
@@ -111,7 +109,7 @@ public class Bow : MonoBehaviour
 
     public void Fire(Vector3 hitPoint)
     {
-        Debug.Log("fire arrow");
+        //Debug.Log("fire arrow");
         Vector3 dir = hitPoint - bowSettings.arrowPos.position;
 
         currentArrow = Instantiate(bowSettings.arrowObject, bowSettings.arrowPos.position, bowSettings.arrowPos.rotation) as Rigidbody;

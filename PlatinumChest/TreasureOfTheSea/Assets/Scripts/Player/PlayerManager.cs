@@ -53,6 +53,9 @@ public class PlayerManager : MonoBehaviour
     public bool testAim;
 
     Crafting crafting;
+    private int NumOfSkull = 0;
+    private int NumOfSkullInWorld;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +69,9 @@ public class PlayerManager : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         inventoryHolder = GetComponent<InventoryHolder>();
         crafting = GameObject.FindWithTag("Crafting").GetComponent<Crafting>();
+
+        NumOfSkull = 0;
+        NumOfSkullInWorld = GameObject.FindGameObjectsWithTag("Chest").Length;
 
         if (!controller)
             Debug.Log("There is no controller in the PlayerManager script");
@@ -278,5 +284,20 @@ public class PlayerManager : MonoBehaviour
         //rb.AddForce(transform.up * 7f, ForceMode.Impulse);
         Vector3 dir = transform.forward;
         rb.AddForce(dir*20f, ForceMode.VelocityChange);
+    }
+
+    public void GetSkull()
+    {
+        NumOfSkull++;
+    }
+
+    public bool CheckPlayerHasEverySkull()
+    {
+        if(NumOfSkull >= NumOfSkullInWorld)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
