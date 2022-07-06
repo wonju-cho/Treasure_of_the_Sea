@@ -50,16 +50,9 @@ public class InventorySystem
         return false;
     }
 
-    //public void RemoveFromInventory(InventorySlot slot, int amountToRemove)
-    //{
-    //    slot.RemoveFromStack(amountToRemove);
-    //    OnInventorySlotChanged?.Invoke(slot);
-    //}
-
     public bool ContainsItem(InventoryItemData itemToAdd, out List<InventorySlot> inventorySlot)
     {
         inventorySlot = InventorySlots.Where(i => i.ItemData == itemToAdd).ToList();
-        //InventorySlots.First(slots => slots.ItemData.maxStackSize > 5);
 
         return inventorySlot == null ? false : true;
     }

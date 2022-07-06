@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
+
 public class CraftingSlot_UI : MonoBehaviour
 {
     public List<GameObject> materialSprites;
@@ -11,7 +10,6 @@ public class CraftingSlot_UI : MonoBehaviour
     private InventoryHolder inventoryHolder;
     private StaticInventoryDisplay staticInventoryDisplay;
 
-    // Start is called before the first frame update
     void Start()
     {
         Initialize();
@@ -53,7 +51,6 @@ public class CraftingSlot_UI : MonoBehaviour
 
     public void CheckUISlots(string receiptName)
     {
-        Debug.Log("Check UI slots event");
         CraftingReceipt cr = craftingReceipts.Find(i => i.resultItem.displayName == receiptName);
 
         for (int i = 0; i < cr.materials.Count; i++)

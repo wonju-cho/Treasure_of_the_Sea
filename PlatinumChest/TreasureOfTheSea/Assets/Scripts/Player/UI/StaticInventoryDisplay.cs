@@ -12,7 +12,7 @@ public class StaticInventoryDisplay : InventoryDisplay
     {
         base.Start();
 
-        if(inventoryHolder != null)
+        if (inventoryHolder != null)
         {
             inventorySystem = inventoryHolder.InventorySystem;
             inventorySystem.OnInventorySlotChanged += UpdateSlot;
@@ -34,7 +34,7 @@ public class StaticInventoryDisplay : InventoryDisplay
             Debug.Log($"Inventory slots out of sync of {this.gameObject}");
         }
 
-        for(int i = 0; i < inventorySystem.InventorySize; i++)
+        for (int i = 0; i < inventorySystem.InventorySize; i++)
         {
             slotDictionary.Add(slots[i], inventorySystem.InventorySlots[i]);
             slots[i].Init(inventorySystem.InventorySlots[i]);
@@ -43,5 +43,4 @@ public class StaticInventoryDisplay : InventoryDisplay
 
     public InventorySlot_UI[] GetAllSlots() { return slots; }
 
-    //public int GetInventorySize() { return slots.Length; }
 }

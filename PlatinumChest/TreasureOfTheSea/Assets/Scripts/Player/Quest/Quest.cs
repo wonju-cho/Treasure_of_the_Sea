@@ -50,8 +50,8 @@ public class Quest : MonoBehaviour
             questSlots[i].SetSprite(Goals[i].icon);
             questSlots[i].SetTMP(Goals[i].requiredAmount.ToString());
         }
-        //questCompleted = new QuestCompletedEvent();
     }
+
     protected void Evaulate()
     {
         Debug.Log("Enter in the evaulate function");
@@ -74,9 +74,11 @@ public class Quest : MonoBehaviour
                 questUI.SetActive(true);
             }
         }
+
         if(isEmptyInventory)
             questUI.SetActive(true);
     }
+
 
     public bool CheckGoals()
     {
