@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public abstract class InventoryDisplay : MonoBehaviour
 {
@@ -11,13 +10,11 @@ public abstract class InventoryDisplay : MonoBehaviour
 
     public InventorySystem InventorySystem => inventorySystem;
     public Dictionary<InventorySlot_UI, InventorySlot> SlotDictionary => slotDictionary;
-
-    public abstract void AssignSlot(InventorySystem invToDisplay);
-
     protected virtual void Start()
     {
 
     }
+    public abstract void AssignSlot(InventorySystem invToDisplay);
 
     protected virtual void UpdateSlot(InventorySlot updatedSlot)
     {

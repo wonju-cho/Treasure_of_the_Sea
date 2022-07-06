@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
+
 public class CraftingSlot_UI : MonoBehaviour
 {
     public List<GameObject> materialSprites;
@@ -11,7 +10,6 @@ public class CraftingSlot_UI : MonoBehaviour
     private InventoryHolder inventoryHolder;
     private StaticInventoryDisplay staticInventoryDisplay;
 
-    // Start is called before the first frame update
     void Start()
     {
         Initialize();
@@ -64,6 +62,14 @@ public class CraftingSlot_UI : MonoBehaviour
                 {
                     checkMarks[i].SetActive(true);
                 }
+                else
+                {
+                    checkMarks[i].SetActive(false);
+                }
+            }
+            else
+            {
+                checkMarks[i].SetActive(false);
             }
         }
     }

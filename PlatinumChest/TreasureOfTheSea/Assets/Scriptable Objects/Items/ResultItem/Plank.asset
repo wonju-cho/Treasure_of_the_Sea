@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Plank
   m_EditorClassIdentifier: 
   displayName: Plank
-  icon: {fileID: 21300000, guid: 84e977cae77705d4692cb22e057f09e7, type: 3}
+  icon: {fileID: 21300000, guid: c6924fd87e17bc44c9f9a90e0633a60e, type: 3}
   maxStackSize: 99

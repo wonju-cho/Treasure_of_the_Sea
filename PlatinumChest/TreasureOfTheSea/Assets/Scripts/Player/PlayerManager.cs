@@ -40,8 +40,6 @@ public class PlayerManager : MonoBehaviour
     public GameObject projectile;
     public Transform projectilePoint;
 
-    //public GameObject crossHairUI;
-
     //for testing the arrow
     private InventoryHolder inventoryHolder;
     public InventoryItemData cottonTest;

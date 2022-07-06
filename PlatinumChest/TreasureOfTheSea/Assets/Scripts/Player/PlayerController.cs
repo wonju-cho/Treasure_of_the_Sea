@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour
     [Header("Head Rotation Settings")]
     public float lookAtPoint = 2.8f;
 
-
-
     [Header("Character Controller")]
     private CharacterController controller;
     public Animator animator;
@@ -55,7 +53,6 @@ public class PlayerController : MonoBehaviour
     public Bow bowScript;
 
     public bool hitDetected;
-    //public GameObject inventoryImage;
 
     private Crafting crafting;
 
