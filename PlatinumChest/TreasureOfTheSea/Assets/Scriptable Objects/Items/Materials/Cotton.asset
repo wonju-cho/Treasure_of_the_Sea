@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Cotton
   m_EditorClassIdentifier: 
   displayName: Cotton
-  icon: {fileID: 21300000, guid: 9966ddc2f9dff344ba2a3f3aedc9692b, type: 3}
+  icon: {fileID: 21300000, guid: 7435d93fedc5de84e8f343ef0923802a, type: 3}
   maxStackSize: 99
