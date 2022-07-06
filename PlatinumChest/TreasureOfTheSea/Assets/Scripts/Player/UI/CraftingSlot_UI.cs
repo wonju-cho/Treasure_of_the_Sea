@@ -53,6 +53,7 @@ public class CraftingSlot_UI : MonoBehaviour
 
     public void CheckUISlots(string receiptName)
     {
+        Debug.Log("Check UI slots event");
         CraftingReceipt cr = craftingReceipts.Find(i => i.resultItem.displayName == receiptName);
 
         for (int i = 0; i < cr.materials.Count; i++)
@@ -64,6 +65,14 @@ public class CraftingSlot_UI : MonoBehaviour
                 {
                     checkMarks[i].SetActive(true);
                 }
+                else
+                {
+                    checkMarks[i].SetActive(false);
+                }
+            }
+            else
+            {
+                checkMarks[i].SetActive(false);
             }
         }
     }
