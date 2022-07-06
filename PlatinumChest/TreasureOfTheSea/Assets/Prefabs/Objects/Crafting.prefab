@@ -1891,7 +1891,19 @@ PrefabInstance:
     - target: {fileID: 1980424601620800852, guid: fe83cc318728f724092b9672c35545c1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9966ddc2f9dff344ba2a3f3aedc9692b, type: 3}
+      objectReference: {fileID: 21300000, guid: 7435d93fedc5de84e8f343ef0923802a, type: 3}
+    - target: {fileID: 1980424601620800852, guid: fe83cc318728f724092b9672c35545c1, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1980424601620800852, guid: fe83cc318728f724092b9672c35545c1, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1980424601620800852, guid: fe83cc318728f724092b9672c35545c1, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2124080382333250401, guid: fe83cc318728f724092b9672c35545c1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

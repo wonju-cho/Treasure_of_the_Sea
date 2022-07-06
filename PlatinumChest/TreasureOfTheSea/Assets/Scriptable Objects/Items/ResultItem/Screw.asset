@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Screw
   m_EditorClassIdentifier: 
   displayName: Screw
-  icon: {fileID: 21300000, guid: cb43aea4ca288a446b2de8577551e3b0, type: 3}
+  icon: {fileID: 21300000, guid: d8d1017871db2604bad925161b86083c, type: 3}
   maxStackSize: 99
