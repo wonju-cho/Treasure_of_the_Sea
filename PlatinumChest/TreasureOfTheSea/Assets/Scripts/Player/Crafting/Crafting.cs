@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Crafting : MonoBehaviour
 {
@@ -23,7 +21,6 @@ public class Crafting : MonoBehaviour
     private PlayerManager pm;
     private PlayerController pc;
     private Camera_Controller cm;
-
 
     // Start is called before the first frame update
     void Start()
@@ -116,12 +113,12 @@ public class Crafting : MonoBehaviour
         }
         else
         {
+            Cursor.visible = false;
             craftingUI.SetActive(false);
             pc.enabled = true;
             pm.enabled = true;
             bow.enabled = true;
             playerHotbar.GetComponent<FollowWorld>().enabled = true;
-            Cursor.visible = false;
         }
 
         if (isNearTheCrafting && isCraftingActive)

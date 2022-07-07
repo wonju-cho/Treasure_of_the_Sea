@@ -2336,6 +2336,10 @@ PrefabInstance:
       propertyPath: inventorySize
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8306135820772945960, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9005421510962808441, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: spine
       value: 

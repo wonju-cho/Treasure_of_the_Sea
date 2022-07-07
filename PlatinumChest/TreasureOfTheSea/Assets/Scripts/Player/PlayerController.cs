@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         //inventoryImage.SetActive(false);
 
+        InventoryUI = GameObject.FindWithTag("InventoryDisplay");
+
         originalStepOffset = controller.stepOffset;
         crafting = GameObject.FindWithTag("Crafting").GetComponent<Crafting>();
 

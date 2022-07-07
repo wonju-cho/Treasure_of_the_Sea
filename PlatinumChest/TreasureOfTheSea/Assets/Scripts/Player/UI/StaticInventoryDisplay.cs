@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +10,8 @@ public class StaticInventoryDisplay : InventoryDisplay
     protected override void Start()
     {
         base.Start();
+
+        inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
 
         if(inventoryHolder != null)
         {
