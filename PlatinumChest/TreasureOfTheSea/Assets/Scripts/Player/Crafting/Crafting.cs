@@ -12,12 +12,12 @@ public class Crafting : MonoBehaviour
     public GameObject craftingUI;
     public GameObject craftingSignifier;
     public List<CraftingReceipt> craftingReceipts;
-    private int craftingReceiptSize = -1;
+
     private bool isNearTheCrafting = false;
     private bool isCraftingActive = false;
-    //private FollowWorld playerHotbar;
     private GameObject playerHotbar;
     public GameObject inventoryPosition;
+    public Texture2D cursorTexture;
 
     private Bow bow;
     private PlayerManager pm;
@@ -31,7 +31,6 @@ public class Crafting : MonoBehaviour
         craftingUI.SetActive(false);
         craftingSignifier.SetActive(false);
 
-        //playerHotbar = GameObject.FindWithTag("InventoryDisplay").GetComponent<FollowWorld>();
         playerHotbar = GameObject.FindWithTag("InventoryDisplay");
         inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
         staticInventoryDisplay = GameObject.FindGameObjectWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
@@ -41,7 +40,6 @@ public class Crafting : MonoBehaviour
         cm = GameObject.FindWithTag("CameraHolder").GetComponent<Camera_Controller>();
         
         uiSlots = staticInventoryDisplay.GetAllSlots();
-        craftingReceiptSize = craftingReceipts.Count;
 
         if (!inventoryHolder)
             Debug.Log("There is no inventory holder in the crafting script");
@@ -75,7 +73,6 @@ public class Crafting : MonoBehaviour
         TriggerCheck();
     }
 
-
     public void CraftingCheck(string receiptName)
     {
         CraftingReceipt cr = craftingReceipts.Find(i => i.resultItem.displayName == receiptName);
@@ -87,7 +84,6 @@ public class Crafting : MonoBehaviour
         cr.Craft(inventoryHolder);
         UpdateUISlots();        
     }
-
 
     void UpdateUISlots()
     {
@@ -103,21 +99,20 @@ public class Crafting : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
             craftingUI.SetActive(true);
             craftingSignifier.SetActive(false);
             pc.enabled = false;
             pm.enabled = false;
             bow.enabled = false;
-            //playerHotbar.enabled = false;
 
-            if(!playerHotbar.active)
+            if(!playerHotbar.activeSelf)
             {
                 playerHotbar.SetActive(true);
                 playerHotbar.GetComponent<FollowWorld>().enabled = false;
             }
 
             playerHotbar.GetComponent<RectTransform>().anchoredPosition = inventoryPosition.GetComponent<RectTransform>().anchoredPosition;
-            //playerHotbar.transform.position = inventoryPosition.transform.position;
         }
         else
         {
@@ -126,8 +121,7 @@ public class Crafting : MonoBehaviour
             pm.enabled = true;
             bow.enabled = true;
             playerHotbar.GetComponent<FollowWorld>().enabled = true;
-            //playerHotbar.enabled = true;
-            //playerHotbar.SetActive(true);
+            Cursor.visible = false;
         }
 
         if (isNearTheCrafting && isCraftingActive)
