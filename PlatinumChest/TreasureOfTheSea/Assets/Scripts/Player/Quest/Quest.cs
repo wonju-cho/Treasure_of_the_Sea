@@ -16,6 +16,8 @@ public class Quest : MonoBehaviour
     private StaticInventoryDisplay staticInventoryDisplay;
     private InventorySlot_UI[] UISlots;
 
+    public List<GameObject> questScriptTextUI;
+
     public void Start()
     {
         Initialize();
@@ -58,6 +60,7 @@ public class Quest : MonoBehaviour
         bool isEmptyInventory = true;
         for(int i = 0; i < Goals.Count; i++)
         {
+            Goals[i].called = true;
             if (inventoryHolder.InventorySystem.IsExistSlot(Goals[i].requiredName))
             {
                 isEmptyInventory = false;
@@ -71,7 +74,15 @@ public class Quest : MonoBehaviour
                     questSlots[i].EnableCheckImage();
                     Goals[i].Complete();
                 }
+                else
+                {
+                    questSlots[i].DisableCheckImage();
+                }
                 questUI.SetActive(true);
+            }
+            else
+            {
+                questSlots[i].DisableCheckImage();
             }
         }
 
@@ -84,9 +95,9 @@ public class Quest : MonoBehaviour
     {
         Evaulate();
         completed = Goals.All(g => g.completed);
+        
         if(completed)
         {
-
             for(int i = 0; i < Goals.Count; i++)
             {
                 InventorySlot test = inventoryHolder.InventorySystem.GetInventorySlot(Goals[i].requiredName);

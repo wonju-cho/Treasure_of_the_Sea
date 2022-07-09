@@ -2252,7 +2252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7640073670039885426, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
       propertyPath: isInBossIsland
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7640073670039885426, guid: d89d92743f50e1b4cb92bee1d8d34e22, type: 3}
       propertyPath: loots.Array.size
@@ -3117,15 +3117,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1749996183342078806, guid: da639c48c93b2a6449dae4aebf43046c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.87
+      value: -18.58
       objectReference: {fileID: 0}
     - target: {fileID: 1749996183342078806, guid: da639c48c93b2a6449dae4aebf43046c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.25
+      value: 2.43
       objectReference: {fileID: 0}
     - target: {fileID: 1749996183342078806, guid: da639c48c93b2a6449dae4aebf43046c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.22
+      value: 6.17
       objectReference: {fileID: 0}
     - target: {fileID: 1749996183342078806, guid: da639c48c93b2a6449dae4aebf43046c, type: 3}
       propertyPath: m_LocalRotation.w
