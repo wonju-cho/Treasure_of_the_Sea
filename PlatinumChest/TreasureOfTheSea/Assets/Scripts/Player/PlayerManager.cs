@@ -298,4 +298,13 @@ public class PlayerManager : MonoBehaviour
 
         return false;
     }
+
+    public void HealingHP(int healing)
+    {
+        currentHP += healing;
+
+        if (currentHP > 100)
+            currentHP = 100;
+
+    }
 }

@@ -12,6 +12,12 @@ public class Quest : MonoBehaviour
     public GameObject middle;
     public GameObject questUI;
 
+    [Header("Fog Settings For Bridge")]
+    public GameObject fogEffect;
+    public Transform fogTranslation;
+
+    private GameObject fogObject;
+
     private InventoryHolder inventoryHolder;
     private StaticInventoryDisplay staticInventoryDisplay;
     private InventorySlot_UI[] UISlots;
@@ -21,6 +27,8 @@ public class Quest : MonoBehaviour
         Initialize();
         middle.SetActive(false);
         questUI.SetActive(false);
+
+        fogObject = Instantiate(fogEffect, fogTranslation.position, Quaternion.identity);
 
         inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
         staticInventoryDisplay = GameObject.FindWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
@@ -100,6 +108,8 @@ public class Quest : MonoBehaviour
 
             middle.SetActive(true);
             Destroy(questUI);
+            Destroy(fogObject);
+
             return true;
         }
         return false;

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7911769191209353953}
   - component: {fileID: 2992767657869012657}
   - component: {fileID: 71051370528154392}
+  - component: {fileID: 4864515125318626898}
   m_Layer: 0
   m_Name: Fruit
   m_TagString: Untagged
@@ -78,6 +79,18 @@ CapsuleCollider:
   m_Height: 0.4945979
   m_Direction: 1
   m_Center: {x: -0.00088730454, y: -0.020118028, z: 0.03247699}
+--- !u!114 &4864515125318626898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4613897257730562928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c62a5e76f708943a4a1c59f2a18def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7993444595453714053
 PrefabInstance:
   m_ObjectHideFlags: 0
