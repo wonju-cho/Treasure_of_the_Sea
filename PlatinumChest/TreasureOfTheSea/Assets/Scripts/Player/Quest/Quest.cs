@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UI;
 using System.Linq;
+using TMPro;
 
 public class Quest : MonoBehaviour
 {    
@@ -17,6 +19,8 @@ public class Quest : MonoBehaviour
     private InventorySlot_UI[] UISlots;
 
     public List<GameObject> questScriptTextUI;
+    private GameObject[] checkScriptTexts;
+    QuestScript_UI questScriptUI;
 
     public void Start()
     {
@@ -27,6 +31,7 @@ public class Quest : MonoBehaviour
         inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
         staticInventoryDisplay = GameObject.FindWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
         UISlots = staticInventoryDisplay.GetAllSlots();
+        questScriptUI = GameObject.FindWithTag("QuestScriptUI").GetComponent<QuestScript_UI>();
 
         if (!inventoryHolder)
             Debug.Log("There is no inventoryHolder in the quest script");
@@ -58,7 +63,9 @@ public class Quest : MonoBehaviour
     {
         Debug.Log("Enter in the evaulate function");
         bool isEmptyInventory = true;
-        for(int i = 0; i < Goals.Count; i++)
+        checkScriptTexts = questScriptUI.GetAllQuestScripts();
+
+        for (int i = 0; i < Goals.Count; i++)
         {
             Goals[i].called = true;
             if (inventoryHolder.InventorySystem.IsExistSlot(Goals[i].requiredName))
@@ -73,6 +80,12 @@ public class Quest : MonoBehaviour
                 {
                     questSlots[i].EnableCheckImage();
                     Goals[i].Complete();
+
+                    if(checkScriptTexts[0] != null)
+                    {
+                        GameObject completedScript = Array.Find(checkScriptTexts, arr => arr.GetComponent<TextMeshProUGUI>() != null && arr.GetComponent<TextMeshProUGUI>().text == Goals[i].questDescription);
+                        completedScript.GetComponentInChildren<Image>().enabled = true;
+                    }
                 }
                 else
                 {
