@@ -18,6 +18,8 @@ TagManager:
   - Pot
   - Chest
   - CowSkull
+  - QuestDescription
+  - QuestScriptUI
   layers:
   - Default
   - TransparentFX
