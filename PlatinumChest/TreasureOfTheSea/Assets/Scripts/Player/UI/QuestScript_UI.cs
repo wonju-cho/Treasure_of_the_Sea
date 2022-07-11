@@ -6,12 +6,12 @@ using TMPro;
 public class QuestScript_UI : MonoBehaviour
 {
     public GameObject questScriptUI;
+    public GameObject questScriptTextPrefab;
     public bool isQuestUIOn;
+    private GameObject[] questScriptPrefabs;
     public List<QuestGoal> allQuestLists;
     public RectTransform textPosition;
     public int yOffset;
-    public GameObject questScriptTextPrefab;
-    private GameObject[] questScriptPrefabs;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +41,8 @@ public class QuestScript_UI : MonoBehaviour
             isQuestUIOn = isQuestUIOn ? false : true;
         }
     }
+
+    public bool GetIsQuestUIOn() { return isQuestUIOn; }
 
     void SetScriptActive(bool value)
     {

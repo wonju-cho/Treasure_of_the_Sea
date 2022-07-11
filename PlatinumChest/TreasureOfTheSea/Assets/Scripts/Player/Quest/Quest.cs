@@ -41,6 +41,9 @@ public class Quest : MonoBehaviour
         UISlots = staticInventoryDisplay.GetAllSlots();
         questScriptUI = GameObject.FindWithTag("QuestScriptUI").GetComponent<QuestScript_UI>();
 
+        if (questScriptUI)
+            Debug.Log("There is no quest script UI in the quets trigger.cs");
+
         if (!inventoryHolder)
             Debug.Log("There is no inventoryHolder in the quest script");
 
@@ -50,6 +53,16 @@ public class Quest : MonoBehaviour
         if (UISlots.Length < 1)
             Debug.Log("UI slots are not initialized in the quest script");
 
+        if (!questScriptUI)
+            Debug.Log("There is no quest script UI script in the quets script");
+    }
+
+    private void Update()
+    {
+        if(questScriptUI.GetIsQuestUIOn() && !completed)
+        {
+            Evaulate();
+        }
     }
 
     public void Initialize()
@@ -69,7 +82,6 @@ public class Quest : MonoBehaviour
 
     protected void Evaulate()
     {
-        Debug.Log("Enter in the evaulate function");
         bool isEmptyInventory = true;
         checkScriptTexts = questScriptUI.GetAllQuestScripts();
 
@@ -99,7 +111,11 @@ public class Quest : MonoBehaviour
                 {
                     questSlots[i].DisableCheckImage();
                 }
-                questUI.SetActive(true);
+
+                if(!questScriptUI.GetIsQuestUIOn())
+                {
+                    questUI.SetActive(true);
+                }
             }
             else
             {
@@ -107,7 +123,7 @@ public class Quest : MonoBehaviour
             }
         }
 
-        if(isEmptyInventory)
+        if(isEmptyInventory && !questScriptUI.GetIsQuestUIOn())
             questUI.SetActive(true);
     }
 

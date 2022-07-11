@@ -11,8 +11,6 @@ public class Crafting : MonoBehaviour
     public GameObject craftingSignifier;
     public List<CraftingReceipt> craftingReceipts;
 
-    private bool isNearTheCrafting = false;
-    private bool isCraftingActive = false;
     private GameObject playerHotbar;
     public GameObject inventoryPosition;
     public Texture2D cursorTexture;
@@ -21,6 +19,9 @@ public class Crafting : MonoBehaviour
     private PlayerManager pm;
     private PlayerController pc;
     private Camera_Controller cm;
+
+    private bool isNearTheCrafting = false;
+    private bool isCraftingActive = false;
 
     // Start is called before the first frame update
     void Start()

@@ -12,6 +12,7 @@ public class QuestTrigger : MonoBehaviour
 
     bool isInteract = false;
 
+
     private void Awake()
     {
         notificationMarkTrigger.SetActive(false);
