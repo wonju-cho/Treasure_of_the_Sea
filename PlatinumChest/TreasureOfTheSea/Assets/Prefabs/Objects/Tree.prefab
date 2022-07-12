@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 8533612977480199933}
   - {fileID: 6126923747226635517}
+  - {fileID: 4259069499627018368}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -68,6 +69,9 @@ MonoBehaviour:
   - item: {fileID: 793910412201168641, guid: 78cdc779376504049b12603ccb813424, type: 3}
     dropRate: 50
   dropItemPosition: {fileID: 6126923747226635517}
+  particlePosition: {fileID: 4259069499627018368}
+  particleObject: {fileID: 3807168809371329857, guid: 94d3569b869490245a9ab276abc2de91, type: 3}
+  destroyTime: 2
 --- !u!1 &3175875515585579312
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +101,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6015632226583251471}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3802660908628927728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4259069499627018368}
+  m_Layer: 0
+  m_Name: ParticlePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4259069499627018368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3802660908628927728}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.86, y: 5.42, z: 0.32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6015632226583251471}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7149602515749845154
 PrefabInstance:

@@ -9,6 +9,11 @@ public class InteractObject : MonoBehaviour
     public Loot[] loots;
 
     public Transform dropItemPosition;
+
+    [Header("Particle Settings")]
+    public Transform particlePosition;
+    public GameObject particleObject;
+    public float destroyTime;
     
     public void TakeDamage()
     {
@@ -61,7 +66,14 @@ public class InteractObject : MonoBehaviour
                 //rb_item.AddForce(dropItemPosition.up * 5f, ForceMode.VelocityChange);
                 way_drop_item = Quaternion.Euler(0, Random.Range(0, 360), 0) * dropItemPosition.forward;
                 rb_item.AddForce(way_drop_item * 5f, ForceMode.VelocityChange);
+
+                if(particleObject)
+                {
+                    GameObject particle = Instantiate(particleObject, particlePosition.position, Quaternion.identity);
+                    Destroy(particle, destroyTime);
+                }
                 
+
                 break;
             }
 

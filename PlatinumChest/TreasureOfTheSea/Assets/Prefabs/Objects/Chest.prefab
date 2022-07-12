@@ -193,12 +193,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748431515991519948}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.10014, y: 1.739, z: 21.572308}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1749805575098915930}
   - {fileID: 1749968225407538570}
   - {fileID: 7149508949210176172}
+  - {fileID: 8657263933439337026}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -258,6 +259,9 @@ MonoBehaviour:
   originalPos: {x: 0.296, y: 2, z: 0.293}
   upPos: {x: 0.296, y: 3, z: 0.293}
   upSpeed: 0.008
+  particleTransform: {fileID: 8657263933439337026}
+  particleObject: {fileID: 6201189020443996862, guid: a98e4c5d4a72dc74b9d1a45a3e991a1f, type: 3}
+  destroyTime: 5
 --- !u!65 &1077715517231338604
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -314,6 +318,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chest: {fileID: 1748431515991519948}
+--- !u!1 &7679977764639646112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8657263933439337026}
+  m_Layer: 0
+  m_Name: ParticlePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8657263933439337026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7679977764639646112}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.381, y: 0, z: 0.291}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_Children: []
+  m_Father: {fileID: 1749996183342078806}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6988147600946026093
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -20,12 +20,19 @@ public class TriggerChest : MonoBehaviour
     public Vector3 upPos;
     public float upSpeed;
 
+    [Header("Particle Settings")]
+    public Transform particleTransform;
+    public GameObject particleObject;
+    public float destroyTime;
+
     bool isOpen = false;
     bool skullGoesUp = true;
     bool isNearPlayer = false;
 
     Vector3 skullPosition;
     float rotation_x = 0;
+    bool startOnParticle = false;
+
     
     BoxCollider bx;
 
@@ -61,6 +68,12 @@ public class TriggerChest : MonoBehaviour
                             return;
                         }
 
+                        if(startOnParticle == false)
+                        {
+                            GameObject particle = Instantiate(particleObject, particleTransform.position, Quaternion.identity);
+                            Destroy(particle, destroyTime);
+                            startOnParticle = true;
+                        }
                         skullPosition.y += upSpeed;
                         skull.position = skullPosition;
                     }
