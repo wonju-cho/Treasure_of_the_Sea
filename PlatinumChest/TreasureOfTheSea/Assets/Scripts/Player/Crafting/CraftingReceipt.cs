@@ -45,7 +45,14 @@ public class CraftingReceipt : ScriptableObject
     {
         if(CanCraft(inventoryHolder))
         {
-            inventoryHolder.InventorySystem.AddToInventory(resultItem, 1);
+            if(resultItem.displayName == "Arrow")
+            {
+                inventoryHolder.InventorySystem.AddToInventory(resultItem, 5);
+            }
+            else
+            {
+                inventoryHolder.InventorySystem.AddToInventory(resultItem, 1);
+            }
             
             for(int i = 0; i < materials.Count; i++)
             {
