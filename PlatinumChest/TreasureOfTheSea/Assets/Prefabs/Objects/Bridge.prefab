@@ -30,7 +30,37 @@ Transform:
   - {fileID: 5168879611315900427}
   - {fileID: 1848967898632738438}
   m_Father: {fileID: 7197558090076848038}
-  m_RootOrder: 2
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1092646291320162876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5359921004040867466}
+  m_Layer: 0
+  m_Name: FogPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5359921004040867466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092646291320162876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7197558090076848038}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1595611364705408185
 GameObject:
@@ -161,7 +191,7 @@ RectTransform:
   - {fileID: 5722146407183721549}
   - {fileID: 2891817690559467534}
   m_Father: {fileID: 7197558090076848038}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -673,7 +703,7 @@ Transform:
   - {fileID: 7202045294926093313}
   - {fileID: 7202045295443412618}
   m_Father: {fileID: 7197558090076848038}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1063650356898062049
 BoxCollider:
@@ -718,7 +748,7 @@ Transform:
   - {fileID: 7200525355614352008}
   - {fileID: 7200525354815501803}
   m_Father: {fileID: 7197558090076848038}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7197558090076848036
 GameObject:
@@ -749,6 +779,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 5359921004040867466}
   - {fileID: 7197558089448983536}
   - {fileID: 7197558088833740340}
   - {fileID: 2694433022681489596}
@@ -782,15 +813,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8fcf7f9baa44041a0ed388b46f08a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryHolder: {fileID: 8031926366379289086, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
   completed: 0
   Goals: []
-  middle: {fileID: 7197558088833740331}
-  UISlots: []
   questSlots:
   - {fileID: 7370553102980847}
   - {fileID: 8477736613448167219}
+  middle: {fileID: 7197558088833740331}
   questUI: {fileID: 8360681998686465386}
+  fogEffect: {fileID: 4006921812346771319, guid: 863149b1ec2321b4484bde862f8f04c2, type: 3}
+  fogTranslation: {fileID: 5359921004040867466}
+  questScriptTextUI: []
 --- !u!1 &7197998985710754557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,7 +1235,7 @@ Transform:
   m_LocalScale: {x: 2.0932, y: 5.1101327, z: 3.5129292}
   m_Children: []
   m_Father: {fileID: 7197558090076848038}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &120523228126020793
 MeshFilter:
