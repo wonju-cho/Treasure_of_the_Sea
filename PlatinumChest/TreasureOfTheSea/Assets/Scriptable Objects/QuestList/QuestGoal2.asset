@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: QuestGoal2
   m_EditorClassIdentifier: 
   requiredName: Screw
-  completed: 0
-  called: 0
+  completed: 1
+  called: 1
   requiredAmount: 1
-  currentAmount: 0
+  currentAmount: 1
   icon: {fileID: 21300000, guid: d8d1017871db2604bad925161b86083c, type: 3}
-  once: 0
-  questDescription: Bring 1 screw.

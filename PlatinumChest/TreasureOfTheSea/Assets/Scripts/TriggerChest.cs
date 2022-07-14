@@ -33,9 +33,10 @@ public class TriggerChest : MonoBehaviour
     float rotation_x = 0;
     bool startOnParticle = false;
 
-    
+    bool once = false;
     BoxCollider bx;
 
+    QuestScript_UI questScriptUI;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,8 @@ public class TriggerChest : MonoBehaviour
         rotation_x = 0;
         skullPosition = skull.position;
         bx = GetComponent<BoxCollider>();
+        questScriptUI = GameObject.FindGameObjectWithTag("QuestScriptUI").GetComponent<QuestScript_UI>();
+
     }
 
     // Update is called once per frame
@@ -52,6 +55,15 @@ public class TriggerChest : MonoBehaviour
         {
             if (isOpen == true)
             {
+                if(!once)
+                {
+                    var scriptText = questScriptUI.GetQuestScriptTextUI("Chest");
+                    int num = scriptText.GetCurrentQuetsText();
+                    num += 1;
+                    scriptText.SetCurrentQuestText(num);
+                    once = true;
+                }
+
                 if (rotation_x > openTransformRotation)
                 {
                     Debug.Log("is open");

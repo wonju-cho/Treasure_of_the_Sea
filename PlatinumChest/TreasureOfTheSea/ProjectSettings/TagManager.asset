@@ -20,6 +20,7 @@ TagManager:
   - CowSkull
   - QuestDescription
   - QuestScriptUI
+  - Bridge
   layers:
   - Default
   - TransparentFX

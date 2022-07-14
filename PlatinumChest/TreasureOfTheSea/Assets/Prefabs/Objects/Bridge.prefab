@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 7759063730653176084}
   m_Layer: 0
   m_Name: Bridge
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -822,7 +822,6 @@ MonoBehaviour:
   questUI: {fileID: 8360681998686465386}
   fogEffect: {fileID: 4006921812346771319, guid: 863149b1ec2321b4484bde862f8f04c2, type: 3}
   fogTranslation: {fileID: 5359921004040867466}
-  questScriptTextUI: []
 --- !u!1 &7197998985710754557
 GameObject:
   m_ObjectHideFlags: 0

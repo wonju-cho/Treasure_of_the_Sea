@@ -24,8 +24,6 @@ public class Quest : MonoBehaviour
     private StaticInventoryDisplay staticInventoryDisplay;
     private InventorySlot_UI[] UISlots;
 
-    public List<GameObject> questScriptTextUI;
-    private GameObject[] checkScriptTexts;
     QuestScript_UI questScriptUI;
 
     public void Start()
@@ -35,26 +33,6 @@ public class Quest : MonoBehaviour
         questUI.SetActive(false);
 
         fogObject = Instantiate(fogEffect, fogTranslation.position, Quaternion.identity);
-
-        inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
-        staticInventoryDisplay = GameObject.FindWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
-        UISlots = staticInventoryDisplay.GetAllSlots();
-        questScriptUI = GameObject.FindWithTag("QuestScriptUI").GetComponent<QuestScript_UI>();
-
-        if (questScriptUI)
-            Debug.Log("There is no quest script UI in the quets trigger.cs");
-
-        if (!inventoryHolder)
-            Debug.Log("There is no inventoryHolder in the quest script");
-
-        if (!staticInventoryDisplay)
-            Debug.Log("There is no static inventory display in the quest script");
-
-        if (UISlots.Length < 1)
-            Debug.Log("UI slots are not initialized in the quest script");
-
-        if (!questScriptUI)
-            Debug.Log("There is no quest script UI script in the quets script");
     }
 
     private void Update()
@@ -68,12 +46,34 @@ public class Quest : MonoBehaviour
     public void Initialize()
     {
         completed = false;
+
+        inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
+        staticInventoryDisplay = GameObject.FindWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
+        questScriptUI = GameObject.FindWithTag("QuestScriptUI").GetComponent<QuestScript_UI>();
+
+        UISlots = staticInventoryDisplay.GetAllSlots();
+
+        if (!questScriptUI)
+            Debug.Log("There is no quest script UI in the quets trigger.cs");
+
+        if (!inventoryHolder)
+            Debug.Log("There is no inventoryHolder in the quest script");
+
+        if (!staticInventoryDisplay)
+            Debug.Log("There is no static inventory display in the quest script");
+
+        if (UISlots.Length < 1)
+            Debug.Log("UI slots are not initialized in the quest script");
+
+        if (!questScriptUI)
+            Debug.Log("There is no quest script UI script in the quets script");
+
         for (int i = 0; i < Goals.Count; i++)
         {
             Goals[i].Initialize();
         }
 
-        for(int i = 0; i < Goals.Count; i++)
+        for (int i = 0; i < Goals.Count; i++)
         {
             questSlots[i].SetSprite(Goals[i].icon);
             questSlots[i].SetTMP(Goals[i].requiredAmount.ToString());
@@ -83,7 +83,6 @@ public class Quest : MonoBehaviour
     protected void Evaulate()
     {
         bool isEmptyInventory = true;
-        checkScriptTexts = questScriptUI.GetAllQuestScripts();
 
         for (int i = 0; i < Goals.Count; i++)
         {
@@ -101,11 +100,6 @@ public class Quest : MonoBehaviour
                     questSlots[i].EnableCheckImage();
                     Goals[i].Complete();
 
-                    if(checkScriptTexts[0] != null)
-                    {
-                        GameObject completedScript = Array.Find(checkScriptTexts, arr => arr.GetComponent<TextMeshProUGUI>() != null && arr.GetComponent<TextMeshProUGUI>().text == Goals[i].questDescription);
-                        completedScript.GetComponentInChildren<Image>().enabled = true;
-                    }
                 }
                 else
                 {

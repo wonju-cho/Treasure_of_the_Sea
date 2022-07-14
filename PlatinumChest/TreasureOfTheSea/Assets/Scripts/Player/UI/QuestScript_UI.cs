@@ -5,20 +5,41 @@ using TMPro;
 
 public class QuestScript_UI : MonoBehaviour
 {
-    public GameObject questScriptUI;
-    public GameObject questScriptTextPrefab;
+    //added quest lists from the quest script
     public bool isQuestUIOn;
-    private GameObject[] questScriptPrefabs;
-    public List<QuestGoal> allQuestLists;
-    public RectTransform textPosition;
-    public int yOffset;
+    public GameObject questScriptUI;
+    public List<QuestScripText_UI> questScriptTextUIs;
+
+    //private Dictionary<QuestScripText_UI, int> questScriptTests;
 
     // Start is called before the first frame update
     void Start()
     {
-        questScriptUI.SetActive(false);
         isQuestUIOn = false;
-        questScriptPrefabs = new GameObject[allQuestLists.Count];
+        questScriptUI.SetActive(false);
+
+        GameObject[] chests = GameObject.FindGameObjectsWithTag("Chest");
+        int chestsCount = chests.Length;
+
+        GameObject[] bridges = GameObject.FindGameObjectsWithTag("Bridge");
+        int bridgeCount = bridges.Length;
+        
+        for (int i = 0; i < questScriptTextUIs.Count; i++)
+        {
+            if(questScriptTextUIs[i].questName == "Chest")
+            {
+                questScriptTextUIs[i].SetResultQuestText(chestsCount);
+            }
+            else
+            {
+                questScriptTextUIs[i].SetResultQuestText(bridgeCount);
+            }
+        }
+    }
+
+    public QuestScripText_UI GetQuestScriptTextUI(string questName)
+    {
+        return questScriptTextUIs.Find(arr => arr != null && arr.questName == questName);
     }
 
     // Update is called once per frame
@@ -27,13 +48,11 @@ public class QuestScript_UI : MonoBehaviour
         if (isQuestUIOn)
         {
             questScriptUI.SetActive(true);
-            CheckQuestList();
-            SetScriptActive(true);
+            CheckQuestGoals();
         }
         else
         {
             questScriptUI.SetActive(false);
-            SetScriptActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -44,35 +63,20 @@ public class QuestScript_UI : MonoBehaviour
 
     public bool GetIsQuestUIOn() { return isQuestUIOn; }
 
-    void SetScriptActive(bool value)
+    void CheckQuestGoals()
     {
-        if (questScriptPrefabs[0] != null)
+        for (int i = 0; i < questScriptTextUIs.Count; i++)
         {
-            for (int i = 0; i < questScriptPrefabs.Length; i++)
+            if(questScriptTextUIs[i].currentInteger >= questScriptTextUIs[i].resultInteger)
             {
-                questScriptPrefabs[i].SetActive(value);
+                questScriptTextUIs[i].SetRedLineActive(true);
             }
         }
     }
 
-    void CheckQuestList()
-    {
-        for(int i = 0; i < allQuestLists.Count; i++)
-        {
-            if(allQuestLists[i].called)
-            {
-                if(!allQuestLists[i].once)
-                {
-                    var ob = Instantiate(questScriptTextPrefab, new Vector3(textPosition.localPosition.x, textPosition.localPosition.y + (yOffset * i)), Quaternion.identity, transform.parent);
-                    ob.GetComponent<RectTransform>().anchoredPosition = new Vector3(textPosition.anchoredPosition.x, textPosition.anchoredPosition.y + (yOffset * i));
-                    questScriptTextPrefab.GetComponent<TextMeshProUGUI>().text = allQuestLists[i].questDescription;
-                    questScriptTextPrefab.GetComponentInChildren<Image>().enabled = false;
-                    questScriptPrefabs.SetValue(ob, i);
-                    allQuestLists[i].once = true;
-                }
-            }
-        }
-    }
+    //void SetScriptActive(bool value)
+    //{
 
-    public GameObject[] GetAllQuestScripts() { return questScriptPrefabs; }
+    //}
+
 }

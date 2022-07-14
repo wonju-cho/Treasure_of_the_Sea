@@ -10,12 +10,15 @@ public class QuestTrigger : MonoBehaviour
 
     public Quest quest;
 
-    bool isInteract = false;
+    bool isInteract = false; 
+    private QuestScript_UI questScriptUI;
 
 
     private void Awake()
     {
         notificationMarkTrigger.SetActive(false);
+        questScriptUI = GameObject.FindGameObjectWithTag("QuestScriptUI").GetComponent<QuestScript_UI>();
+
     }
 
     private void Update()
@@ -26,6 +29,11 @@ public class QuestTrigger : MonoBehaviour
             questCheck = quest.CheckGoals();
             if (questCheck)
             {
+                var scriptText = questScriptUI.GetQuestScriptTextUI("Bridge");
+                int num = scriptText.GetCurrentQuetsText();
+                num += 1;
+                scriptText.SetCurrentQuestText(num);
+
                 Destroy(notificationMarkTrigger);
             }
         }
