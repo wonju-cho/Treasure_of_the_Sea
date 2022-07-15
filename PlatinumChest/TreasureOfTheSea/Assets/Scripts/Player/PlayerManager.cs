@@ -85,8 +85,6 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TestingItems();
-
         if (Input.GetKeyDown(KeyCode.F1) && isPlayerDead)
         {
             PlayerRespawn();
@@ -182,7 +180,7 @@ public class PlayerManager : MonoBehaviour
 
     public void CharacterFire()
     {
-        animator.SetTrigger(animStrings.fire);
+        animator.SetTrigger(animStrings.fire);   
     }
 
     private void AimShoot()
@@ -203,19 +201,6 @@ public class PlayerManager : MonoBehaviour
         {
             animator.ResetTrigger("GetDamage");
             animator.SetTrigger("GetDamage");
-        }
-    }
-
-    void TestingItems()
-    {
-        if (Input.GetKeyDown(KeyCode.F9))
-        {
-            inventoryHolder.InventorySystem.AddToInventory(cottonTest, 1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.F10))
-        {
-            inventoryHolder.InventorySystem.AddToInventory(arrowTest, 1);
         }
     }
 
