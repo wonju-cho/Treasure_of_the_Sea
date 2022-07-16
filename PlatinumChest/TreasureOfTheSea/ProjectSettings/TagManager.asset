@@ -21,6 +21,7 @@ TagManager:
   - QuestDescription
   - QuestScriptUI
   - Bridge
+  - TreasureBox
   layers:
   - Default
   - TransparentFX

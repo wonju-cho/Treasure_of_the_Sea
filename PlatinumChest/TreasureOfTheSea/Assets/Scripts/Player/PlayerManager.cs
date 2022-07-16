@@ -293,6 +293,7 @@ public class PlayerManager : MonoBehaviour
     {
         if(NumOfSkull >= NumOfSkullInWorld)
         {
+            GameObject.FindGameObjectWithTag("TreasureBox").GetComponent<TreasureBox>().SetHasEverySkull(true);
             return true;
         }
 

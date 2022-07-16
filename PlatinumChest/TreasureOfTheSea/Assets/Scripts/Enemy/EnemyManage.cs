@@ -47,6 +47,7 @@ public class EnemyManage : MonoBehaviour
                     //die
                     StartCoroutine(DelayedDead(animator.GetCurrentAnimatorStateInfo(0).length));
                     isInBossIsland = false;
+                    GameObject.FindGameObjectWithTag("TreasureBox").GetComponent<TreasureBox>().KillZombieEnemy();
                     return;
                 }
 
