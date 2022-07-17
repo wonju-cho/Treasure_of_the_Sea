@@ -20,7 +20,7 @@ public class RangeEnemyAIManage : MonoBehaviour
     public int HP = 100;
     public Animator animator;
     public bool isInBossIsland;
-    
+    public ParticleSystem particle;
 
     public GameObject projectile;
     public Transform projectilePoint; // have to change from enemy transform to weapon transform.
@@ -32,6 +32,28 @@ public class RangeEnemyAIManage : MonoBehaviour
     private void Start()
     {
         enemyHP = HP;
+
+        if(particle)
+        {
+            if(isInBossIsland)
+            {
+                particle.Play();
+            }
+            else
+            {
+                particle.Stop();
+            }
+        }
+    }
+
+
+    private void Update()
+    {
+        if(!isInBossIsland && particle.isPlaying)
+        {
+            particle.Stop();
+        }
+
     }
 
     public Transform[] GetWayPoints()
