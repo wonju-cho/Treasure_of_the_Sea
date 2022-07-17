@@ -1335,6 +1335,8 @@ MonoBehaviour:
     stringInitialParent: {fileID: 0}
   crossHairObject: {fileID: 1709577852984602659, guid: 9c49d9ac9c291ca4fab141b7f5f63d22, type: 3}
   currentCrossHair: {fileID: 0}
+  startArrowCount: 5
+  arrow: {fileID: 11400000, guid: feb72af53b7c3004693dfaf51a7c97a2, type: 2}
 --- !u!1 &8496949086597502485
 GameObject:
   m_ObjectHideFlags: 3

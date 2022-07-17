@@ -6,11 +6,16 @@ public class ItemPickUp : MonoBehaviour
 
     private CapsuleCollider myCollider;
     private Rigidbody rigidBody;
+    PlayerManager pm;
 
     private void Awake()
     {
         myCollider = GetComponent<CapsuleCollider>();
         rigidBody = GetComponent<Rigidbody>();
+        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+
+        if (!pm)
+            Debug.Log("there is no pm");
 
         myCollider.isTrigger = false;
     }
@@ -19,13 +24,21 @@ public class ItemPickUp : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            var inventory = other.transform.GetComponent<InventoryHolder>();
-
-            if (!inventory)
-                return;
-
-            if (inventory.InventorySystem.AddToInventory(itemData, 1))
+            if(this.name != "Fruit(Clone)")
             {
+                var inventory = other.transform.GetComponent<InventoryHolder>();
+
+                if (!inventory)
+                    return;
+
+                if (inventory.InventorySystem.AddToInventory(itemData, 1))
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+            else
+            {
+                pm.HealingHP(20);
                 Destroy(this.gameObject);
             }
         }
@@ -37,19 +50,29 @@ public class ItemPickUp : MonoBehaviour
         Collider collider = collision.collider;
         if (collider.tag == "Player")
         {
-            InventoryHolder inventory = collision.collider.transform.GetComponent<InventoryHolder>();
-            
-            if(!inventory)
+            if (this.name != "Fruit(Clone)")
             {
-                return;
-            }
+                InventoryHolder inventory = collision.collider.transform.GetComponent<InventoryHolder>();
 
-            if(inventory.InventorySystem.AddToInventory(itemData, 1))
+                if (!inventory)
+                {
+                    return;
+                }
+
+                if (inventory.InventorySystem.AddToInventory(itemData, 1))
+                {
+                    Destroy(this.gameObject);
+                }
+
+            }
+            else
             {
+                pm.HealingHP(20);
                 Destroy(this.gameObject);
+
             }
         }
-        else if(collider.tag == "Plane")
+        else if (collider.tag == "Plane")
         {
             Destroy(gameObject.GetComponent<Rigidbody>());
             myCollider.isTrigger = true;

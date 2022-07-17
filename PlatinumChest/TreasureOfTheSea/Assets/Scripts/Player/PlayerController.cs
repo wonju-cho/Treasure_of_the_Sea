@@ -81,12 +81,10 @@ public class PlayerController : MonoBehaviour
         if (isInventoryDisplayed)
         {
             InventoryUI.SetActive(true);
-            //inventoryImage.SetActive(true);
         }
         else
         {
             InventoryUI.SetActive(false);
-            //inventoryImage.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))

@@ -9,13 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8594590652063896565}
-  - component: {fileID: 7911769191209353953}
   - component: {fileID: 2992767657869012657}
   - component: {fileID: 71051370528154392}
-  - component: {fileID: 4864515125318626898}
+  - component: {fileID: 2800693904958805980}
   m_Layer: 0
   m_Name: Fruit
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,20 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7911769191209353953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4613897257730562928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a62ac198f43ca4bb64477cb8a3016f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PickUpRadius: 1
-  itemData: {fileID: 11400000, guid: 0bbe9e4d3f1a78a40997fd27cabcf0c2, type: 2}
 --- !u!54 &2992767657869012657
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -79,7 +64,7 @@ CapsuleCollider:
   m_Height: 0.4945979
   m_Direction: 1
   m_Center: {x: -0.00088730454, y: -0.020118028, z: 0.03247699}
---- !u!114 &4864515125318626898
+--- !u!114 &2800693904958805980
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,9 +73,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4613897257730562928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99c62a5e76f708943a4a1c59f2a18def, type: 3}
+  m_Script: {fileID: 11500000, guid: b2a62ac198f43ca4bb64477cb8a3016f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpRadius: 1
+  itemData: {fileID: 0}
 --- !u!1001 &7993444595453714053
 PrefabInstance:
   m_ObjectHideFlags: 0

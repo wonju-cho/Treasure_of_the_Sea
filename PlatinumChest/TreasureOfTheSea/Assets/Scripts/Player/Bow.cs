@@ -8,7 +8,7 @@ public class Bow : MonoBehaviour
     public class BowSettings
     {
         [Header("Arrow Settings")]
-        public float arrowCount;
+        public int arrowCount;
         public Transform arrowPos;
         public Transform arrowEquipParent;
         public float arrowForce;
@@ -34,22 +34,54 @@ public class Bow : MonoBehaviour
     public GameObject crossHairObject;
     public GameObject currentCrossHair;
 
+    InventoryHolder inventoryHolder;
+    
     Rigidbody currentArrow;
 
     bool canPullString = false;
     bool canFireArrow = false;
 
+    public int startArrowCount = 5;
+
+    private InventorySlot_UI[] uiSlots;
+    private StaticInventoryDisplay staticInventoryDisplay;
+
+    public InventoryItemData arrow;
+
+    private bool canFire = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventoryHolder = GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryHolder>();
+        staticInventoryDisplay = GameObject.FindGameObjectWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
+
+        uiSlots = staticInventoryDisplay.GetAllSlots();
+
+        inventoryHolder.InventorySystem.AddToInventory(arrow, startArrowCount);
+
+        UpdateUISlots();
+
+        bowSettings.arrowCount = startArrowCount;
+
+        if (!inventoryHolder)
+            Debug.Log("There is no inventoryholder in the bow script");
+
+        if (!staticInventoryDisplay)
+            Debug.Log("There is no static inventory display in the bow script");
+
+        if (uiSlots.Length < 1)
+            Debug.Log("UI slots are not initialized in the bow script");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        var arrowSlot = inventoryHolder.InventorySystem.GetInventorySlot("Arrow");
+        if(arrowSlot != null)
+        {
+            bowSettings.arrowCount = arrowSlot.StackSize;
+        }
     }
 
     public void PullString()
@@ -110,9 +142,36 @@ public class Bow : MonoBehaviour
     public void Fire(Vector3 hitPoint)
     {
         //Debug.Log("fire arrow");
-        Vector3 dir = hitPoint - bowSettings.arrowPos.position;
 
-        currentArrow = Instantiate(bowSettings.arrowObject, bowSettings.arrowPos.position, bowSettings.arrowPos.rotation) as Rigidbody;
-        currentArrow.AddForce(dir * bowSettings.arrowForce, ForceMode.VelocityChange);
+        if(bowSettings.arrowCount >= 1)
+        {
+            canFire = true;
+            Vector3 dir = hitPoint - bowSettings.arrowPos.position;
+
+            currentArrow = Instantiate(bowSettings.arrowObject, bowSettings.arrowPos.position, bowSettings.arrowPos.rotation) as Rigidbody;
+            currentArrow.AddForce(dir * bowSettings.arrowForce, ForceMode.VelocityChange);
+
+            bowSettings.arrowCount--;
+
+            var arrowSlot = inventoryHolder.InventorySystem.GetInventorySlot("Arrow");
+            arrowSlot.RemoveFromStack(1);
+
+            UpdateUISlots();
+
+        }
+        else
+        {
+            canFire = false;
+        }
     }
+
+    void UpdateUISlots()
+    {
+        for (int i = 0; i < uiSlots.Length; i++)
+        {
+            uiSlots[i].UpdateUISlot();
+        }
+    }
+
+    public bool GetCanFireArrow() { return canFire; }
 }
