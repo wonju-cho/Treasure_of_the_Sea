@@ -233,7 +233,7 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (Input.GetButton(aim_input))
+        if (Input.GetButton(aim_input) && (bowScript.bowSettings.arrowCount>0))
         {
             RotateCharacterSpine();
         }

@@ -134,8 +134,12 @@ public class Camera_Controller : MonoBehaviour
     {
         if (Input.GetButton(inputSettings.AimingInput))
         {
-            mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, cameraSettings.zoomFieldOfView, cameraSettings.zoomSpeed * Time.deltaTime);
-            UICam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, cameraSettings.zoomFieldOfView, cameraSettings.zoomSpeed * Time.deltaTime);
+            if(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().bowScript.bowSettings.arrowCount > 0)
+            {
+                mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, cameraSettings.zoomFieldOfView, cameraSettings.zoomSpeed * Time.deltaTime);
+                UICam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, cameraSettings.zoomFieldOfView, cameraSettings.zoomSpeed * Time.deltaTime);
+            }
+            
         }
         else
         {

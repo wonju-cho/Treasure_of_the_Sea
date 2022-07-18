@@ -138,6 +138,13 @@ public class PlayerManager : MonoBehaviour
 
         is_aiming = Input.GetButton(animStrings.aim_input);
 
+        //Debug.Log(playerController.bowScript.bowSettings.arrowCount);
+        if (playerController.bowScript.bowSettings.arrowCount <= 0)
+        {
+            is_aiming = false;
+        }
+
+
         if (Input.GetButtonDown("Fire1") && controller.isGrounded)
         {
             //if (animator.GetBool("IsShooting") == false)
