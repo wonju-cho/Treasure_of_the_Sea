@@ -15,7 +15,7 @@ public class TreasureBox : MonoBehaviour
         numOfZombies = 0;
         hasEverySkull = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CheckPlayerHasEverySkull();
 
-        GameObject[] melees = GameObject.FindGameObjectsWithTag("MeleeEnemey");
+        GameObject[] melees = GameObject.FindGameObjectsWithTag("MeleeEnemy");
         GameObject[] ranges = GameObject.FindGameObjectsWithTag("RangeEnemy");
 
         foreach (GameObject melee in melees)
