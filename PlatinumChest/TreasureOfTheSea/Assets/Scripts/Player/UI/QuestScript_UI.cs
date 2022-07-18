@@ -7,7 +7,8 @@ public class QuestScript_UI : MonoBehaviour
     public bool isQuestUIOn;
     public GameObject questScriptUI;
     public List<QuestScripText_UI> questScriptTextUIs;
-    public ParticleSystem PS;
+    public GameObject PS;
+    public RectTransform particlePosition;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,10 @@ public class QuestScript_UI : MonoBehaviour
             Debug.Log("There is no ps in the quest script ui script");
 
         //PS.Simulate(50);
-        //PS.Play(true);
+        //Instantiate(PS, particlePosition.anchoredPosition3D, Quaternion.identity);
+
+        
+        //PS.GetComponentInChildren<ParticleSystem>().Play(true);
     }
 
     public QuestScripText_UI GetQuestScriptTextUI(string questName)
@@ -52,7 +56,7 @@ public class QuestScript_UI : MonoBehaviour
         {
             questScriptUI.SetActive(true);
             CheckQuestGoals();
-            PS.Pause();
+            //PS.GetComponentInChildren<ParticleSystem>().Pause();
         }
         else
         {
