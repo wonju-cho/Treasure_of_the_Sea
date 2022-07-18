@@ -38,7 +38,7 @@ public class Camera_Controller : MonoBehaviour
     [SerializeField]
     public CameraInputSettings inputSettings;
 
-    private Crafting crafting;
+    private CraftingUI craftingUI;
 
     Transform center;
     Transform target;
@@ -57,7 +57,7 @@ public class Camera_Controller : MonoBehaviour
     {
         mainCam = Camera.main;
         UICam = mainCam.GetComponentInChildren<Camera>();
-        crafting = GameObject.FindWithTag("Crafting").GetComponent<Crafting>();
+        craftingUI = GameObject.FindWithTag("CraftingUI").GetComponent<CraftingUI>();
 
         center = transform.GetChild(0);
         InitialCamPos = mainCam.transform.localPosition;
@@ -76,7 +76,7 @@ public class Camera_Controller : MonoBehaviour
         if (!Application.isPlaying)
             return;
 
-        if (!crafting.getCraftingActivated())
+        if (!craftingUI.GetCraftingUIActive())
         {
             RotateCamera();
             ZoomCamera();
