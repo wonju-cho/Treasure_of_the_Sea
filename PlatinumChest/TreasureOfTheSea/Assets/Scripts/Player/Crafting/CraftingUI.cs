@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class CraftingUI : MonoBehaviour
 {
-    public GameObject[] craftingUIs;
     public GameObject[] allRenderers;
+    private GameObject[] craftingUIs;
     public Button exitButton;
 
     private GameObject playerHotbar;
@@ -27,12 +27,11 @@ public class CraftingUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //craftingUIs = GameObject.FindGameObjectsWithTag("Crafting");
-
         inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
         staticInventoryDisplay = GameObject.FindGameObjectWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
         playerHotbar = GameObject.FindWithTag("InventoryDisplay");
 
+        craftingUIs = GameObject.FindGameObjectsWithTag("Crafting");
         bow = GameObject.FindWithTag("Bow").GetComponent<Bow>();
         pc = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         pm = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
@@ -78,6 +77,10 @@ public class CraftingUI : MonoBehaviour
 
             playerHotbar.GetComponent<RectTransform>().anchoredPosition = inventoryPosition.GetComponent<RectTransform>().anchoredPosition;
         }
+        else
+        {
+            Cursor.visible = false;
+        }
 
     }
 
@@ -98,6 +101,7 @@ public class CraftingUI : MonoBehaviour
         {   
             craftingUIs[i].GetComponent<Crafting>().SetCrafting(false);
         }
+
         craftingCheck = false;  
     }
 

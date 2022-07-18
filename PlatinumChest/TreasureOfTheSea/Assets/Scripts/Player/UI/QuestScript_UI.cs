@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class QuestScript_UI : MonoBehaviour
 {
@@ -9,8 +7,7 @@ public class QuestScript_UI : MonoBehaviour
     public bool isQuestUIOn;
     public GameObject questScriptUI;
     public List<QuestScripText_UI> questScriptTextUIs;
-
-    //private Dictionary<QuestScripText_UI, int> questScriptTests;
+    public ParticleSystem PS;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +32,12 @@ public class QuestScript_UI : MonoBehaviour
                 questScriptTextUIs[i].SetResultQuestText(bridgeCount);
             }
         }
+
+        if (!PS)
+            Debug.Log("There is no ps in the quest script ui script");
+
+        //PS.Simulate(50);
+        //PS.Play(true);
     }
 
     public QuestScripText_UI GetQuestScriptTextUI(string questName)
@@ -49,6 +52,7 @@ public class QuestScript_UI : MonoBehaviour
         {
             questScriptUI.SetActive(true);
             CheckQuestGoals();
+            PS.Pause();
         }
         else
         {
@@ -73,10 +77,5 @@ public class QuestScript_UI : MonoBehaviour
             }
         }
     }
-
-    //void SetScriptActive(bool value)
-    //{
-
-    //}
 
 }

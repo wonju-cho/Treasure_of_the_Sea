@@ -144,6 +144,11 @@ public class Quest : MonoBehaviour
             Destroy(questUI);
             Destroy(fogObject);
 
+            for (int i = 0; i < Goals.Count; i++)
+            {
+                Goals[i].Initialize();
+            }
+
             return true;
         }
         return false;

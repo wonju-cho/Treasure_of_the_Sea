@@ -11,6 +11,7 @@ public class QuestTrigger : MonoBehaviour
     public Quest quest;
 
     bool isInteract = false; 
+
     private QuestScript_UI questScriptUI;
 
 
@@ -18,14 +19,12 @@ public class QuestTrigger : MonoBehaviour
     {
         notificationMarkTrigger.SetActive(false);
         questScriptUI = GameObject.FindGameObjectWithTag("QuestScriptUI").GetComponent<QuestScript_UI>();
-
     }
 
     private void Update()
     {
         if(isInteract == true && Input.GetKeyDown(KeyCode.E) && questCheck == false)
         {
-            Cursor.lockState = CursorLockMode.None;
             questCheck = quest.CheckGoals();
             if (questCheck)
             {

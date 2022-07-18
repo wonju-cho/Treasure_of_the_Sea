@@ -45,7 +45,6 @@ public class TriggerChest : MonoBehaviour
         skullPosition = skull.position;
         bx = GetComponent<BoxCollider>();
         questScriptUI = GameObject.FindGameObjectWithTag("QuestScriptUI").GetComponent<QuestScript_UI>();
-
     }
 
     // Update is called once per frame

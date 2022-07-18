@@ -176,20 +176,6 @@ public class PlayerController : MonoBehaviour
         
     }
 
-   
-
-    private void OnApplicationFocus(bool focus)
-    {
-        if (focus)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-    }
-
     public void PullArrow()
     {
         bowScript.PullString();

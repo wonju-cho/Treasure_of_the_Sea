@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,24 +13,10 @@ public class Crafting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
-        //uiSlots = staticInventoryDisplay.GetAllSlots();
-        //staticInventoryDisplay = GameObject.FindGameObjectWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
-
         if (craftingEvent == null)
             craftingEvent = new UnityEvent();
 
-        //if (!inventoryHolder)
-        //    Debug.Log("There is no inventory holder in the crafting script");
-
-        //if (!staticInventoryDisplay)
-        //    Debug.Log("There is no static inventory display in the crafting script");
-
-        //if (uiSlots.Length < 1)
-        //    Debug.Log("UI slots are not initialized in the crafting script");
-
         craftingSignifier.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -39,26 +24,6 @@ public class Crafting : MonoBehaviour
     {
         TriggerCheck();
     }
-
-    //public void CraftingCheck(string receiptName)
-    //{
-    //    CraftingReceipt cr = craftingReceipts.Find(i => i.resultItem.displayName == receiptName);
-    //    CraftTool(cr);
-    //}
-
-    //void CraftTool(CraftingReceipt cr)
-    //{
-    //    cr.Craft(inventoryHolder);
-    //    UpdateUISlots();        
-    //}
-
-    //void UpdateUISlots()
-    //{
-    //    for (int i = 0; i < uiSlots.Length; i++)
-    //    {
-    //        uiSlots[i].UpdateUISlot();
-    //    }
-    //}
 
     void TriggerCheck()
     {
