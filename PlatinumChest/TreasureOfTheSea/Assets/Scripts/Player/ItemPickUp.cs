@@ -24,7 +24,7 @@ public class ItemPickUp : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            if(this.name != "Fruit(Clone)")
+            if(this.tag != "Fruit") //change fruit name, not the fruit(clone)
             {
                 var inventory = other.transform.GetComponent<InventoryHolder>();
 
@@ -50,7 +50,7 @@ public class ItemPickUp : MonoBehaviour
         Collider collider = collision.collider;
         if (collider.tag == "Player")
         {
-            if (this.name != "Fruit(Clone)")
+            if (this.tag != "Fruit")
             {
                 InventoryHolder inventory = collision.collider.transform.GetComponent<InventoryHolder>();
 

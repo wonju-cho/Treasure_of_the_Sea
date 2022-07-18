@@ -21,6 +21,8 @@ TagManager:
   - QuestDescription
   - QuestScriptUI
   - Bridge
+  - Fruit
+  - CraftingUI
   layers:
   - Default
   - TransparentFX
