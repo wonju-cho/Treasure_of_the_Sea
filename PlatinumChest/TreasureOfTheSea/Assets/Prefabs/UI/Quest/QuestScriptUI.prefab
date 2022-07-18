@@ -129,7 +129,8 @@ MonoBehaviour:
   questScriptTextUIs:
   - {fileID: 2547830468440204958}
   - {fileID: 681248132922608144}
-  PS: {fileID: 5078282873662490530}
+  PS: {fileID: 8696909844223905464, guid: d7b1ff5bcf3981840b09b4827316a2b7, type: 3}
+  particlePosition: {fileID: 0}
 --- !u!1 &2639790901449034777
 GameObject:
   m_ObjectHideFlags: 0
