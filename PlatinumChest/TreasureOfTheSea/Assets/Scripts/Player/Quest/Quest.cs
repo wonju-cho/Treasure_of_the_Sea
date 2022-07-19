@@ -25,6 +25,7 @@ public class Quest : MonoBehaviour
     private InventorySlot_UI[] UISlots;
 
     QuestScript_UI questScriptUI;
+    public QuestTrigger qt;
 
     public void Start()
     {
@@ -156,19 +157,22 @@ public class Quest : MonoBehaviour
 
     public void CheatCode()
     {
-        for (int i = 0; i< Goals.Count;++i)
-        {
-            Goals[i].Complete();
-        }
+        //for (int i = 0; i< Goals.Count;++i)
+        //{
+        //    Goals[i].Complete();
+        //}
         middle.SetActive(true);
-        Destroy(questUI);
+        //Destroy(questUI);
         Destroy(fogObject);
 
-        for (int i = 0; i < Goals.Count; i++)
-        {
-            Goals[i].Initialize();
-        }
+        //for (int i = 0; i < Goals.Count; i++)
+        //{
+        //    Goals[i].Initialize();
+        //}
 
-        this.gameObject.GetComponentInChildren<QuestTrigger>().gameObject.SetActive(false);
+        qt.enabled = false;
+        //this.gameObject.GetComponentInChildren<QuestTrigger>().gameObject.SetActive(false);
+        //if(this.gameObject.GetComponentInChildren<QuestTrigger>().notificationMarkTrigger != null)
+        //    this.gameObject.GetComponentInChildren<QuestTrigger>().notificationMarkTrigger.SetActive(false);
     }
 }

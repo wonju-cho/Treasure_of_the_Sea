@@ -739,6 +739,7 @@ MonoBehaviour:
   questUI: {fileID: 8360681998686465386}
   fogEffect: {fileID: 4006921812346771319, guid: 863149b1ec2321b4484bde862f8f04c2, type: 3}
   fogTranslation: {fileID: 5359921004040867466}
+  qt: {fileID: 5693830332889411413}
 --- !u!1 &7197998985710754557
 GameObject:
   m_ObjectHideFlags: 0
