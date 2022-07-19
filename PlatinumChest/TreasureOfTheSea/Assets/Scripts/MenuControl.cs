@@ -9,6 +9,7 @@ public class MenuControl : MonoBehaviour
     public string mainMenuLevel;
     public void StartGame()
     {
+        audioSource.Play();
         SceneManager.LoadScene(firstLevel);
     }
 
@@ -19,6 +20,7 @@ public class MenuControl : MonoBehaviour
 
     public void QuitGame()
     {
+        audioSource.Play();
         Application.Quit();
         Debug.Log("Quitting");
     }

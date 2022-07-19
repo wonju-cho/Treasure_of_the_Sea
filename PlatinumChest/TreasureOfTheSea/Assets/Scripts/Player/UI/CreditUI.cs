@@ -32,6 +32,7 @@ public class CreditUI : MonoBehaviour
 
     public void OpenCreditUI()
     {
+        audioSource.Play();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
@@ -55,6 +56,7 @@ public class CreditUI : MonoBehaviour
 
     public void CloseCreditUI()
     {
+        audioSource.Play();
         creditUI.SetActive(false);
         
         if(isMainGameOn && !tb.gameEnd)
