@@ -66,6 +66,7 @@ MonoBehaviour:
   - item: {fileID: 4590457073531325977, guid: c05febeed49552646a512b54ceb3be41, type: 3}
     dropRate: 100
   dropItemPosition: {fileID: 6787857631256833309}
+  sfx: {fileID: 3379895239146033444, guid: 541c03a9f11cc4043bdb720962a6b35b, type: 3}
   particlePosition: {fileID: 7738162424819957971}
   particleObject: {fileID: 8552089469321397741, guid: 00a820fd42e2e1a498f7376c00c04af4, type: 3}
   destroyTime: 3
@@ -145,6 +146,7 @@ MonoBehaviour:
   hitCount: 3
   loots: []
   dropItemPosition: {fileID: 0}
+  sfx: {fileID: 0}
   particlePosition: {fileID: 0}
   particleObject: {fileID: 0}
   destroyTime: 0

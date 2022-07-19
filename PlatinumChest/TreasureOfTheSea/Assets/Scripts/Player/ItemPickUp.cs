@@ -26,6 +26,7 @@ public class ItemPickUp : MonoBehaviour
         {
             if(this.tag != "Fruit") //change fruit name, not the fruit(clone)
             {
+                pm.itemSFX.Play();
                 var inventory = other.transform.GetComponent<InventoryHolder>();
 
                 if (!inventory)
@@ -38,6 +39,7 @@ public class ItemPickUp : MonoBehaviour
             }
             else
             {
+                pm.eatingSFX.Play();
                 pm.HealingHP(20);
                 Destroy(this.gameObject);
             }

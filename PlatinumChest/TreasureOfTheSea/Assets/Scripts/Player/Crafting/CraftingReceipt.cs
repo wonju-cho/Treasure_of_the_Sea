@@ -38,6 +38,7 @@ public class CraftingReceipt : ScriptableObject
             }
         }
 
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().craftingSFX.Play();
         return true;
     }
 

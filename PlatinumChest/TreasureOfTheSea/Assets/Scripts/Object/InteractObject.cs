@@ -9,6 +9,8 @@ public class InteractObject : MonoBehaviour
     public Loot[] loots;
 
     public Transform dropItemPosition;
+    public AudioSource sfx;
+
 
     [Header("Particle Settings")]
     public Transform particlePosition;
@@ -18,6 +20,8 @@ public class InteractObject : MonoBehaviour
     public void TakeDamage()
     {
         --hitCount;
+        Debug.Log("play sound");
+        sfx.Play();
 
         if(hitCount <= 0)
         {
