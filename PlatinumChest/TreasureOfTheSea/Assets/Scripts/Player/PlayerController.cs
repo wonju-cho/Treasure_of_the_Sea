@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     [Header("Camera & Character Syncing")]
@@ -212,11 +213,15 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = mainCamera.transform.forward;
 
         ray = new Ray(camPosition, direction);
+
+        Vector2 centerPos = new Vector2(Screen.width / 2f, Screen.height / 2f);
+
+        ray = Camera.main.ScreenPointToRay(centerPos);
         
         if (Physics.Raycast(ray, out hit, 500f, aimLayers))
         {
             hitDetected = true;
-            Debug.DrawLine(ray.origin, hit.point, Color.green);
+            //Debug.DrawLine(ray.origin, hit.point, Color.green);
             bowScript.ShowCrosshair(hit.point);
         }
         else
@@ -224,7 +229,6 @@ public class PlayerController : MonoBehaviour
             hitDetected = false;
             bowScript.ReMoveCrossHair();
         }
-        
     }
 
     private void LateUpdate()

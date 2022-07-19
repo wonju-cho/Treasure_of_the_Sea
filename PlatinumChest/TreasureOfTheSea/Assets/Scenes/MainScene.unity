@@ -754,6 +754,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1024359583095178180, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
+      propertyPath: crossHairObject
+      value: 
+      objectReference: {fileID: 6830987471935349086, guid: 19250ae1977e02944951149399548427, type: 3}
+    - target: {fileID: 1024359583095178180, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: startArrowCount
       value: 50
       objectReference: {fileID: 0}
@@ -7044,7 +7048,6 @@ GameObject:
   m_Component:
   - component: {fileID: 857338491}
   - component: {fileID: 857338489}
-  - component: {fileID: 857338490}
   m_Layer: 0
   m_Name: UICamera
   m_TagString: Untagged
@@ -7095,14 +7098,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &857338490
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 857338488}
-  m_Enabled: 0
 --- !u!4 &857338491
 Transform:
   m_ObjectHideFlags: 0

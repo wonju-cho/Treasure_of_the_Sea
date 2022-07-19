@@ -32,6 +32,7 @@ public class Bow : MonoBehaviour
 
     [Header("Crosshair Settings")]
     public GameObject crossHairObject;
+
     public GameObject currentCrossHair;
 
     InventoryHolder inventoryHolder;

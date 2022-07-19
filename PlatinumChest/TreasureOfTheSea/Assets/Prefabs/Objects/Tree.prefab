@@ -65,9 +65,9 @@ MonoBehaviour:
   hitCount: 4
   loots:
   - item: {fileID: 4613897257730562928, guid: b3949cf5157ab204bbc28209ffef8bc7, type: 3}
-    dropRate: 50
+    dropRate: 35.6
   - item: {fileID: 793910412201168641, guid: 78cdc779376504049b12603ccb813424, type: 3}
-    dropRate: 50
+    dropRate: 78.9
   dropItemPosition: {fileID: 6126923747226635517}
   sfx: {fileID: 1139982599127488646, guid: 302221579a09bee438b1267dea60dadc, type: 3}
   particlePosition: {fileID: 4259069499627018368}

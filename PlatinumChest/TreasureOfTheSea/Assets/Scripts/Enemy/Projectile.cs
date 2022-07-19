@@ -23,6 +23,11 @@ public class Projectile : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
+
+        if(gameObject)
+        {
+            Destroy(gameObject, 7);
+        }
     }
 
 
@@ -42,7 +47,15 @@ public class Projectile : MonoBehaviour
             bx.isTrigger = true;
         }
 
-        if(collision.collider.tag == "Player")
+
+        if (collision.collider.tag != "Bridge")
+        {
+            disableRotation = true;
+            rb.isKinematic = true;
+            bx.isTrigger = true;
+        }
+
+        if (collision.collider.tag == "Player")
         {
             collision.collider.GetComponent<PlayerManager>().TakeDamge(damageAmount);
             Destroy(this.gameObject);

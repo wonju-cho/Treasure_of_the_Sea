@@ -31,7 +31,7 @@ public class PlayerProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("detect collision: " + collision.collider.name);
+        Debug.Log("detect collision: " + collision.collider.name);
 
         if(collision.collider.tag != "Player")
         {
@@ -39,6 +39,8 @@ public class PlayerProjectile : MonoBehaviour
             rb.isKinematic = true;
             bx.isTrigger = true;
         }
+
+        
 
         //GameObject impact = Instantiate(impactEffect, transform.position, Quaternion.identity);
         //Destroy(impact, 2);
