@@ -2688,6 +2688,7 @@ GameObject:
   - component: {fileID: 336057829}
   - component: {fileID: 336057828}
   - component: {fileID: 336057827}
+  - component: {fileID: 336057831}
   m_Layer: 0
   m_Name: Plane (1)
   m_TagString: Sea
@@ -2775,6 +2776,20 @@ Transform:
   m_Father: {fileID: 802393070}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &336057831
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336057826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 4caed9cba306ff04999c33d20d858b97, type: 2}
 --- !u!1 &350744473
 GameObject:
   m_ObjectHideFlags: 0
@@ -15556,6 +15571,7 @@ GameObject:
   - component: {fileID: 2096193080}
   - component: {fileID: 2096193079}
   - component: {fileID: 2096193078}
+  - component: {fileID: 2096193082}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Sea
@@ -15643,6 +15659,20 @@ Transform:
   m_Father: {fileID: 802393070}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &2096193082
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096193077}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 4caed9cba306ff04999c33d20d858b97, type: 2}
 --- !u!1001 &2117308699
 PrefabInstance:
   m_ObjectHideFlags: 0
