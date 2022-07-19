@@ -372,7 +372,7 @@ Transform:
   m_GameObject: {fileID: 3634388227848519587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.475, y: 0.475, z: 0.475}
   m_Children:
   - {fileID: 2718039594052791749}
   m_Father: {fileID: 0}
@@ -404,6 +404,8 @@ MonoBehaviour:
   - {fileID: 4347838345287621474}
   - {fileID: 4011725386593936941}
   - {fileID: 4956075402027972873}
+  nextButton: {fileID: 8195584473998385401}
+  backButton: {fileID: 4111180565932647713}
 --- !u!82 &6790870201497643868
 AudioSource:
   m_ObjectHideFlags: 0
@@ -414,7 +416,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ad04b6263e76df64c8376bba622c530b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2304,6 +2306,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3043497153419740907, guid: 21b07804ac82c8d4c9a14f6e11e656c9, type: 3}
   m_PrefabInstance: {fileID: 2622343256420156547}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4111180565932647713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2119427122332639650, guid: 21b07804ac82c8d4c9a14f6e11e656c9, type: 3}
+  m_PrefabInstance: {fileID: 2622343256420156547}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7842217297863655771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2472,5 +2479,10 @@ PrefabInstance:
 --- !u!224 &5109768754676975536 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3043497153419740907, guid: 21b07804ac82c8d4c9a14f6e11e656c9, type: 3}
+  m_PrefabInstance: {fileID: 7842217297863655771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8195584473998385401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2119427122332639650, guid: 21b07804ac82c8d4c9a14f6e11e656c9, type: 3}
   m_PrefabInstance: {fileID: 7842217297863655771}
   m_PrefabAsset: {fileID: 0}

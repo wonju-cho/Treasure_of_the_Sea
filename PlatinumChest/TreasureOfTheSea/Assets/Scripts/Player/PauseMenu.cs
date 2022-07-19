@@ -11,18 +11,18 @@ public class PauseMenu : MonoBehaviour
     private Bow bow;
     private PlayerManager pm;
     private PlayerController pc;
+    public GameObject warningUI;
 
     // Start is called before the first frame update
     void Start()
     {
         isGamePasued = false;
         pauseMenu.SetActive(false);
+        warningUI.SetActive(false);
+
         bow = GameObject.FindWithTag("Bow").GetComponent<Bow>();
         pc = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         pm = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
-
-        if (!pauseMenu)
-            Debug.Log("there is no pause menu in the pause menu script");
     }
 
     // Update is called once per frame
@@ -40,6 +40,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        audioSource.Play();
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isGamePasued = false;
@@ -64,9 +65,23 @@ public class PauseMenu : MonoBehaviour
         isGamePasued = true;
     }
 
+    public void WarningAlert()
+    {
+        audioSource.Play();
+        pauseMenu.SetActive(false);
+        warningUI.SetActive(true);
+    }
+
+    public void CloseWarning()
+    {
+        audioSource.Play();
+        pauseMenu.SetActive(true);
+        warningUI.SetActive(false);
+    }
+
     public void QuitGame()
     {
+        audioSource.Play();
         Application.Quit();
-        Debug.Log("quitting game");
     }
 }
