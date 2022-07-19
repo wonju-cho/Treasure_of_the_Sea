@@ -27,6 +27,8 @@ public class CraftingUI : MonoBehaviour
     public TreasureBox tb;
     public AudioSource UI_sfx;
 
+    bool sfx_play = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,7 @@ public class CraftingUI : MonoBehaviour
         uiSlots = staticInventoryDisplay.GetAllSlots();
 
         CloseCraftingUI();
+        sfx_play = true;
 
         if (craftingUIs.Length < 1)
         {
@@ -106,7 +109,11 @@ public class CraftingUI : MonoBehaviour
         }
 
         craftingCheck = false;
-        UI_sfx.Play();
+
+        if(sfx_play)
+        {
+            UI_sfx.Play();
+        }
     }
 
     void CraftingActiveCheck()
