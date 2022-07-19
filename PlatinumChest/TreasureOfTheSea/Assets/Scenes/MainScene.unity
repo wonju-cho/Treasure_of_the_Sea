@@ -6324,6 +6324,10 @@ PrefabInstance:
       propertyPath: TargetPosition
       value: 
       objectReference: {fileID: 128952229}
+    - target: {fileID: 1082727947044556228, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ad04b6263e76df64c8376bba622c530b, type: 3}
     - target: {fileID: 1340311097589812138, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
