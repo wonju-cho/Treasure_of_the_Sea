@@ -4,23 +4,17 @@ using UnityEngine.SceneManagement;
 public class MenuControl : MonoBehaviour
 {
     public string firstLevel;
-    public string creditLevel;
-    public string mainLevel;
-
+    public string mainMenuLevel;
     public void StartGame()
     {
         SceneManager.LoadScene(firstLevel);
     }
 
-    public void CreditScreen()
-    {
-        SceneManager.LoadScene(creditLevel);
-    }
-
     public void MainMenuScreen()
     {
-        SceneManager.LoadScene(mainLevel);
+        SceneManager.LoadScene(mainMenuLevel);
     }
+
     public void QuitGame()
     {
         Application.Quit();

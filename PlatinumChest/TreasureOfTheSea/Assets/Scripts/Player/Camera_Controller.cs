@@ -5,6 +5,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Camera_Controller : MonoBehaviour
 {
+    public CreditUI creditUI;
+    public PauseMenu pauseMenu;
     [System.Serializable]
     public class CameraSettings
     {
@@ -76,7 +78,7 @@ public class Camera_Controller : MonoBehaviour
         if (!Application.isPlaying)
             return;
 
-        if (!craftingUI.GetCraftingUIActive())
+        if (!craftingUI.GetCraftingUIActive() && !pauseMenu.isGamePasued && !creditUI.isCreditOn)
         {
             RotateCamera();
             ZoomCamera();
