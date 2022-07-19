@@ -9,6 +9,8 @@ public class TreasureBox : MonoBehaviour
     private int numOfZombies;
     private bool hasEverySkull;
 
+    private bool already_openned = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,11 @@ public class TreasureBox : MonoBehaviour
             if (numOfZombies == 0)
             {
                 //open and the end of this game
-                chestAnim.SetTrigger("open");
+                if(already_openned == false)
+                {
+                    chestAnim.SetTrigger("open");
+                    already_openned = true;
+                }
             }
         }
     }

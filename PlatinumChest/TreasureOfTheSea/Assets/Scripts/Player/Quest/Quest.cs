@@ -153,4 +153,22 @@ public class Quest : MonoBehaviour
         }
         return false;
     }
+
+    public void CheatCode()
+    {
+        for (int i = 0; i< Goals.Count;++i)
+        {
+            Goals[i].Complete();
+        }
+        middle.SetActive(true);
+        Destroy(questUI);
+        Destroy(fogObject);
+
+        for (int i = 0; i < Goals.Count; i++)
+        {
+            Goals[i].Initialize();
+        }
+
+        this.gameObject.GetComponentInChildren<QuestTrigger>().gameObject.SetActive(false);
+    }
 }

@@ -267,6 +267,21 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    public void PlayerResapwn(Transform pos)
+    {
+        playerController.enabled = true;
+
+        currentHP = playerHP;
+        animator.SetBool("IsIdle", true);
+
+        controller.enabled = false;
+        controller.transform.position = pos.position;
+        controller.enabled = true;
+
+        isPlayerDead = false;
+        triggerOnce = false;
+    }
+
     public void Shoot(/*vector3 hitpoint*/)
     {
         Rigidbody rb = Instantiate(projectile, projectilePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
@@ -298,6 +313,13 @@ public class PlayerManager : MonoBehaviour
 
         if (currentHP > 100)
             currentHP = 100;
+
+    }
+
+    public void CheatCodeForBossIsland()
+    {
+        NumOfSkull = NumOfSkullInWorld;
+        bool checked_cheat_code = CheckPlayerHasEverySkull();
 
     }
 }
