@@ -7,8 +7,15 @@ public class QuestScript_UI : MonoBehaviour
     public bool isQuestUIOn;
     public GameObject questScriptUI;
     public List<QuestScripText_UI> questScriptTextUIs;
-    public GameObject PS;
+    public GameObject questParticleSystem;
+
+    //public ParticleSystem questParticleSystem;
     public RectTransform particlePosition;
+    public GameObject bossBridge;
+    private ParticleSystem particleSystemObject;
+    private bool check = false;
+    private bool once = false;
+    private ParticleSystem secondParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +28,10 @@ public class QuestScript_UI : MonoBehaviour
 
         GameObject[] bridges = GameObject.FindGameObjectsWithTag("Bridge");
         int bridgeCount = bridges.Length;
-        
+
         for (int i = 0; i < questScriptTextUIs.Count; i++)
         {
-            if(questScriptTextUIs[i].questName == "Chest")
+            if (questScriptTextUIs[i].questName == "Chest")
             {
                 questScriptTextUIs[i].SetResultQuestText(chestsCount);
             }
@@ -33,15 +40,9 @@ public class QuestScript_UI : MonoBehaviour
                 questScriptTextUIs[i].SetResultQuestText(bridgeCount);
             }
         }
-
-        if (!PS)
-            Debug.Log("There is no ps in the quest script ui script");
-
-        //PS.Simulate(50);
-        //Instantiate(PS, particlePosition.anchoredPosition3D, Quaternion.identity);
-
-        
-        //PS.GetComponentInChildren<ParticleSystem>().Play(true);
+        questParticleSystem.GetComponentInChildren<ParticleSystem>().Play();
+        //particleSystemObject = questParticleSystem;
+        //particleSystemObject.Play();
     }
 
     public QuestScripText_UI GetQuestScriptTextUI(string questName)
@@ -52,11 +53,18 @@ public class QuestScript_UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(bossBridge.GetComponent<Quest>().completed && !check)
+        {
+            questParticleSystem.SetActive(true);
+            questParticleSystem.GetComponentInChildren<ParticleSystem>().Play();
+            //check = true;
+        }
+
         if (isQuestUIOn)
         {
             questScriptUI.SetActive(true);
             CheckQuestGoals();
-            //PS.GetComponentInChildren<ParticleSystem>().Pause();
+            questParticleSystem.SetActive(false);
         }
         else
         {
