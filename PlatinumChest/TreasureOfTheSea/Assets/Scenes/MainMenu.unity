@@ -345,6 +345,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 793940560936001512, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2214666841399763778, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -401,9 +405,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2718039594052791749, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718039594052791749, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718039594052791749, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718039594052791749, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718039594052791749, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718039594052791749, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718039594052791749, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718039594052791749, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718039594052791749, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718039594052791749, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3634388227848519587, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
       propertyPath: m_Name
       value: CreditUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843579932665067647, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843579932665067647, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843579932665067647, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843579932665067647, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843579932665067647, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 6449376972381020468, guid: 20fea29a4d08c0948bec0a13839ca467, type: 3}
       propertyPath: otherUI
