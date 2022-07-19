@@ -25,6 +25,7 @@ public class CraftingUI : MonoBehaviour
     bool craftingCheck = false;
     public PauseMenu pauseUI;
     public TreasureBox tb;
+    public AudioSource UI_sfx;
 
     // Start is called before the first frame update
     void Start()
@@ -104,7 +105,8 @@ public class CraftingUI : MonoBehaviour
             craftingUIs[i].GetComponent<Crafting>().SetCrafting(false);
         }
 
-        craftingCheck = false;  
+        craftingCheck = false;
+        UI_sfx.Play();
     }
 
     void CraftingActiveCheck()

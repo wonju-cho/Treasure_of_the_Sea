@@ -5,6 +5,7 @@ using UnityEngine;
 public class TreasureBox : MonoBehaviour
 {
     public Animator chestAnim;
+    public AudioSource sfx;
 
     private int numOfZombies;
     private bool hasEverySkull;
@@ -67,6 +68,7 @@ public class TreasureBox : MonoBehaviour
 
                 if(already_openned == false)
                 {
+                    sfx.Play();
                     chestAnim.SetTrigger("open");
                     already_openned = true;
                 }

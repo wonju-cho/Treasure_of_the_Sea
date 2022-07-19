@@ -4,6 +4,8 @@ using UnityEngine.Events;
 public class Crafting : MonoBehaviour
 {
     public GameObject craftingSignifier;
+    public AudioSource UI_sfx;
+
 
     private bool isNearTheCrafting = false;
     private bool isCraftingActive = false;
@@ -47,7 +49,13 @@ public class Crafting : MonoBehaviour
 
         if (isNearTheCrafting && Input.GetKeyDown(KeyCode.E))
         {
+            if (isCraftingActive == false)
+            {
+                UI_sfx.Play();
+            }
+
             isCraftingActive = true;
+            
         }
     }
 

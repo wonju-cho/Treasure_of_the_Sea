@@ -15,6 +15,17 @@ public class PlayerManager : MonoBehaviour
         public string aim_input = "Fire1";
         public string fire_input = "Fire2";
     }
+
+    [Header("Player SFX")]
+    public AudioSource itemSFX;
+    public AudioSource eatingSFX;
+    public AudioSource shootingSFX;
+    public AudioSource aimingSFX;
+    public AudioSource craftingSFX;
+    public AudioSource dyingSFX;
+    public AudioSource hittingSFX;
+    public AudioSource walkingSFX;
+
     [SerializeField]
     public AnimationStrings animStrings;
 
@@ -53,7 +64,8 @@ public class PlayerManager : MonoBehaviour
     Crafting crafting;
     private int NumOfSkull = 0;
     private int NumOfSkullInWorld;
-    
+
+    bool aiming_trigger = false;
 
     // Start is called before the first frame update
     void Start()
@@ -111,13 +123,21 @@ public class PlayerManager : MonoBehaviour
 
         if(is_aiming)
         {
+            if(aiming_trigger == false)
+            {
+                aimingSFX.Play();
+                aiming_trigger = true;
+            }
+
             playerController.Aim();
             playerController.bowScript.EquipWeapon();
             //CharacterPullString(Input.GetButton(animStrings.fire_input));
 
             if(Input.GetButtonUp(animStrings.aim_input))
             {
+                shootingSFX.Play();
                 CharacterFire();
+                aiming_trigger = false;
                 if(playerController.hitDetected == true)
                 {
                     playerController.bowScript.Fire(playerController.hit.point);
@@ -136,6 +156,7 @@ public class PlayerManager : MonoBehaviour
             playerController.bowScript.ReleaseString();
         }
 
+        
         is_aiming = Input.GetButton(animStrings.aim_input);
 
         //Debug.Log(playerController.bowScript.bowSettings.arrowCount);
@@ -144,6 +165,7 @@ public class PlayerManager : MonoBehaviour
             is_aiming = false;
         }
 
+        
 
         if (Input.GetButtonDown("Fire1") && controller.isGrounded)
         {
@@ -203,9 +225,16 @@ public class PlayerManager : MonoBehaviour
     public void TakeDamge(int damage) 
     {
         //Debug.Log("Player take damage: " + currentHP);
-        currentHP -= damage; 
+        currentHP -= damage;
+        
+
         if(currentHP > 0)
         {
+            if (hittingSFX.isPlaying == false)
+            {
+                hittingSFX.Play();
+            }
+
             animator.ResetTrigger("GetDamage");
             animator.SetTrigger("GetDamage");
         }
@@ -240,6 +269,7 @@ public class PlayerManager : MonoBehaviour
 
         if(isPlayerDead && triggerOnce == false)
         {
+            dyingSFX.Play();
             triggerOnce = true;
             animator.ResetTrigger("Death");
             animator.SetTrigger("Death");

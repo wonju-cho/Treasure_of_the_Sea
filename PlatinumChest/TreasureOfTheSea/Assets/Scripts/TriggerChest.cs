@@ -25,6 +25,8 @@ public class TriggerChest : MonoBehaviour
     public GameObject particleObject;
     public float destroyTime;
 
+    public AudioSource sfx;
+
     bool isOpen = false;
     bool skullGoesUp = true;
     bool isNearPlayer = false;
@@ -56,6 +58,7 @@ public class TriggerChest : MonoBehaviour
             {
                 if(!once)
                 {
+                    sfx.Play();
                     var scriptText = questScriptUI.GetQuestScriptTextUI("Chest");
                     int num = scriptText.GetCurrentQuetsText();
                     num += 1;
