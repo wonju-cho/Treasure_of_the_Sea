@@ -20,10 +20,13 @@ public class CreditUI : MonoBehaviour
     public int currentIndex;
     public List<GameObject> creditTexts;
 
+    public GameObject nextButton;
+    public GameObject backButton;
+
     private void Start()
     {
         creditUI.SetActive(false);
-        currentIndex = 0;
+        currentIndex = -1;
 
         if(SceneManager.GetActiveScene().name == "MainScene")
         {
@@ -37,8 +40,8 @@ public class CreditUI : MonoBehaviour
     public void OpenCreditUI()
     {
         audioSource.Play();
-        currentIndex = 0;
-        UpdateScene(currentIndex);
+        currentIndex = -1;
+        UpdateScene(1);
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -63,7 +66,7 @@ public class CreditUI : MonoBehaviour
 
     public void UpdateScene(int index)
     {
-        audioSource.Play();
+        audioSource.Play();  
 
         currentIndex += index;
         
@@ -73,7 +76,7 @@ public class CreditUI : MonoBehaviour
         if (currentIndex < 0)
             currentIndex = 0;
 
-        for(int i =0; i< creditTexts.Count; i++)
+        for(int i = 0; i< creditTexts.Count; i++)
         {
             if(i == currentIndex)
             {
@@ -83,6 +86,16 @@ public class CreditUI : MonoBehaviour
             {
                 creditTexts[i].SetActive(false);
             }
+        }
+
+        if (currentIndex == 0)
+            backButton.SetActive(false);
+        else if (currentIndex == creditTexts.Count - 1)
+            nextButton.SetActive(false);
+        else
+        {
+            backButton.SetActive(true);
+            nextButton.SetActive(true);
         }
     }
 
