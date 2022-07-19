@@ -9,9 +9,14 @@ public class TreasureBox : MonoBehaviour
     private int numOfZombies;
     private bool hasEverySkull;
 
+    public GameObject gameGoalUI;
+    public CreditUI creditUI;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameGoalUI.SetActive(true);
+
         numOfZombies = 0;
         hasEverySkull = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CheckPlayerHasEverySkull();
 
@@ -45,6 +50,7 @@ public class TreasureBox : MonoBehaviour
             {
                 //open and the end of this game
                 chestAnim.SetTrigger("open");
+                gameGoalUI.SetActive(true);
             }
         }
     }
