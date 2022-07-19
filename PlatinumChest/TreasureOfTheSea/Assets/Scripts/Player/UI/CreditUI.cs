@@ -63,6 +63,8 @@ public class CreditUI : MonoBehaviour
 
     public void UpdateScene(int index)
     {
+        audioSource.Play();
+
         currentIndex += index;
         
         if (currentIndex >= creditTexts.Count - 1)
