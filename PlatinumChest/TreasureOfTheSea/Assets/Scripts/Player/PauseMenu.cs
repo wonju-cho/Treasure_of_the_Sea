@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    public AudioSource audioSource;
     public GameObject pauseMenu;
     public bool isGamePasued;
     public Texture2D cursorTexture;

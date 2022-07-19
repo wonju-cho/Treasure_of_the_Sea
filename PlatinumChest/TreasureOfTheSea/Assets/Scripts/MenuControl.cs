@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuControl : MonoBehaviour
 {
+    public AudioSource audioSource;
+
     public string firstLevel;
     public string mainMenuLevel;
     public void StartGame()

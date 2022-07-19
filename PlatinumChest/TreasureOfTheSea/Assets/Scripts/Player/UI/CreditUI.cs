@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CreditUI : MonoBehaviour
 {
+    public AudioSource audioSource;
     public GameObject creditUI;
     public Texture2D cursorTexture;
     private Bow bow;
