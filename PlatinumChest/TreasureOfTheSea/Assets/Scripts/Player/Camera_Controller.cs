@@ -7,6 +7,7 @@ public class Camera_Controller : MonoBehaviour
 {
     public CreditUI creditUI;
     public PauseMenu pauseMenu;
+    public TreasureBox treasureBox;
     [System.Serializable]
     public class CameraSettings
     {
@@ -78,7 +79,7 @@ public class Camera_Controller : MonoBehaviour
         if (!Application.isPlaying)
             return;
 
-        if (!craftingUI.GetCraftingUIActive() && !pauseMenu.isGamePasued && !creditUI.isCreditOn)
+        if (!craftingUI.GetCraftingUIActive() && !treasureBox.gameEnd && !pauseMenu.isGamePasued && !creditUI.isCreditOn)
         {
             RotateCamera();
             ZoomCamera();

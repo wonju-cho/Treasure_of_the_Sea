@@ -9,17 +9,28 @@ public class TreasureBox : MonoBehaviour
     private int numOfZombies;
     private bool hasEverySkull;
 
-
     private bool already_openned = false;
 
     public GameObject gameGoalUI;
     public CreditUI creditUI;
+    public bool gameEnd = false;
 
+    private Bow bow;
+    private PlayerManager pm;
+    private PlayerController pc;
+    public Texture2D cursorTexture;
+
+    bool once = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameGoalUI.SetActive(true);
+        gameGoalUI.SetActive(false);
+ 
+        bow = GameObject.FindWithTag("Bow").GetComponent<Bow>();
+        pc = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        pm = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
+
 
         numOfZombies = 0;
         hasEverySkull = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CheckPlayerHasEverySkull();
@@ -60,10 +71,26 @@ public class TreasureBox : MonoBehaviour
                     already_openned = true;
                 }
 
-                chestAnim.SetTrigger("open");
-                gameGoalUI.SetActive(true);
+                gameEnd = true;
+                if (!once)
+                {
+                    chestAnim.SetTrigger("open");
+                    gameGoalUI.SetActive(true);
+
+                    once = true;
+
+                }
+
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+
+                pc.enabled = false;
+                pm.enabled = false;
+                bow.enabled = false;
 
             }
+
         }
     }
 

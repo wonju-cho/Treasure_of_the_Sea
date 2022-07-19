@@ -13,6 +13,8 @@ public class CreditUI : MonoBehaviour
     public bool isCreditOn = false;
     public bool isMainGameOn = false;
     public GameObject otherUI;
+    public GameObject treasureBoxUI;
+    public TreasureBox tb;
 
     private void Start()
     {
@@ -39,6 +41,7 @@ public class CreditUI : MonoBehaviour
             pm.enabled = false;
             bow.enabled = false;
             otherUI.SetActive(false);
+            treasureBoxUI.SetActive(false);
         }
         else
         {
@@ -53,12 +56,16 @@ public class CreditUI : MonoBehaviour
     {
         creditUI.SetActive(false);
         
-        if(isMainGameOn)
+        if(isMainGameOn && !tb.gameEnd)
         {
             pc.enabled = true;
             pm.enabled = true;
             bow.enabled = true;
             otherUI.SetActive(true);
+        }
+        else if(isMainGameOn && tb.gameEnd)
+        {
+            treasureBoxUI.SetActive(true);
         }
         else
         {

@@ -3290,6 +3290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creditUI: {fileID: 812131824}
   pauseMenu: {fileID: 812131823}
+  treasureBox: {fileID: 1742546765}
   cameraSettings:
     zoomSpeed: 5
     moveSpeed: 5
@@ -5730,6 +5731,10 @@ PrefabInstance:
       propertyPath: inventoryHolder
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 581784076870105346, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
+      propertyPath: tb
+      value: 
+      objectReference: {fileID: 1742546765}
     - target: {fileID: 591604862534510523, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
       propertyPath: TargetPosition
       value: 
@@ -5843,7 +5848,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8135476621103390759, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
+      propertyPath: tb
+      value: 
+      objectReference: {fileID: 1742546765}
+    - target: {fileID: 8135476621103390759, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
       propertyPath: otherUI
+      value: 
+      objectReference: {fileID: 76301452}
+    - target: {fileID: 8135476621103390759, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
+      propertyPath: treasureBoxUI
+      value: 
+      objectReference: {fileID: 1742546764}
+    - target: {fileID: 8135476621103390759, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
+      propertyPath: otherUI.Array.data[0]
       value: 
       objectReference: {fileID: 76301452}
     - target: {fileID: 8510160151069400658, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
@@ -13118,6 +13135,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1734738382}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1742546764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5596274248268776429, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
+  m_PrefabInstance: {fileID: 1141678955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1742546765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2918635070477439894, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
+  m_PrefabInstance: {fileID: 1141678955}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742546764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ebbbbd88e4e85499cf662dbf6d9510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1764341189
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public class CraftingUI : MonoBehaviour
 
     bool craftingCheck = false;
     public PauseMenu pauseUI;
+    public TreasureBox tb;
 
     // Start is called before the first frame update
     void Start()
@@ -78,7 +79,7 @@ public class CraftingUI : MonoBehaviour
 
             playerHotbar.GetComponent<RectTransform>().anchoredPosition = inventoryPosition.GetComponent<RectTransform>().anchoredPosition;
         }
-        else if(!craftingCheck && !pauseUI.isGamePasued)
+        else if(!craftingCheck && !pauseUI.isGamePasued && !tb.gameEnd)
         {
             Cursor.visible = false;
         }

@@ -414,6 +414,8 @@ MonoBehaviour:
   chestAnim: {fileID: 5546183393259114421}
   gameGoalUI: {fileID: 4550186545936268736}
   creditUI: {fileID: 0}
+  gameEnd: 0
+  cursorTexture: {fileID: 2800000, guid: 5988a2020badc834c96521b52b6a08f5, type: 3}
 --- !u!1 &7044803512206794106
 GameObject:
   m_ObjectHideFlags: 0
