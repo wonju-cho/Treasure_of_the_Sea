@@ -17,9 +17,13 @@ public class CreditUI : MonoBehaviour
     public GameObject treasureBoxUI;
     public TreasureBox tb;
 
+    public int currentIndex;
+    public List<GameObject> creditTexts;
+
     private void Start()
     {
         creditUI.SetActive(false);
+        currentIndex = 0;
 
         if(SceneManager.GetActiveScene().name == "MainScene")
         {
@@ -33,6 +37,9 @@ public class CreditUI : MonoBehaviour
     public void OpenCreditUI()
     {
         audioSource.Play();
+        currentIndex = 0;
+        UpdateScene(currentIndex);
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
@@ -52,6 +59,29 @@ public class CreditUI : MonoBehaviour
 
         creditUI.SetActive(true);
         isCreditOn = true;
+    }
+
+    public void UpdateScene(int index)
+    {
+        currentIndex += index;
+        
+        if (currentIndex >= creditTexts.Count - 1)
+            currentIndex = creditTexts.Count - 1;
+
+        if (currentIndex < 0)
+            currentIndex = 0;
+
+        for(int i =0; i< creditTexts.Count; i++)
+        {
+            if(i == currentIndex)
+            {
+                creditTexts[i].SetActive(true);
+            }
+            else
+            {
+                creditTexts[i].SetActive(false);
+            }
+        }
     }
 
     public void CloseCreditUI()
