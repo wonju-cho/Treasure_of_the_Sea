@@ -71,6 +71,8 @@ MonoBehaviour:
   InventoryUI: {fileID: 0}
   bowScript: {fileID: 1024359583095178180}
   hitDetected: 0
+  inventory_SFX: {fileID: 0}
+  playerWalkingSFX: {fileID: 0}
 --- !u!143 &5380464276882523233
 CharacterController:
   m_ObjectHideFlags: 0
@@ -101,6 +103,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c667f79839b35a4b9440c52d2f92116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemSFX: {fileID: 0}
+  eatingSFX: {fileID: 0}
+  shootingSFX: {fileID: 0}
+  aimingSFX: {fileID: 0}
+  craftingSFX: {fileID: 0}
+  dyingSFX: {fileID: 0}
+  hittingSFX: {fileID: 0}
+  walkingSFX: {fileID: 0}
   animStrings:
     aim: Aim
     pull: PullString
@@ -161,6 +171,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bdc0f8e02e15245a9b9a94bb38086d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  F2_melees: []
+  F2_ranges: []
+  F2_bridges: []
+  F2_playerPosition: {fileID: 0}
+  F3_melees: []
+  F3_ranges: []
+  F3_bridge: {fileID: 0}
+  F3_playerPosition: {fileID: 0}
+  F4_melees: []
+  F4_ranges: []
+  F4_bridge: {fileID: 0}
+  player: {fileID: 0}
+  F4_playerPosition: {fileID: 0}
 --- !u!1 &2413129480695372826
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +332,7 @@ MonoBehaviour:
     stringInitialParent: {fileID: 0}
   crossHairObject: {fileID: 1709577852984602659, guid: 9c49d9ac9c291ca4fab141b7f5f63d22, type: 3}
   currentCrossHair: {fileID: 0}
-  startArrowCount: 5
+  startArrowCount: 15
   arrow: {fileID: 11400000, guid: feb72af53b7c3004693dfaf51a7c97a2, type: 2}
 --- !u!1001 &1979158501417371347
 PrefabInstance:

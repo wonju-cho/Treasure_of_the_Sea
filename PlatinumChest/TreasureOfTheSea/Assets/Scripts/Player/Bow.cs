@@ -41,7 +41,7 @@ public class Bow : MonoBehaviour
     bool canPullString = false;
     bool canFireArrow = false;
 
-    public int startArrowCount = 5;
+    public int startArrowCount = 10;
 
     private InventorySlot_UI[] uiSlots;
     private StaticInventoryDisplay staticInventoryDisplay;
