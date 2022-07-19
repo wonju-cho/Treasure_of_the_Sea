@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour
 
     private Crafting crafting;
 
+    [Header("Sound Effects")]
+    public AudioSource inventory_SFX;
+    public AudioSource playerWalkingSFX;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -89,7 +93,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            isInventoryDisplayed = isInventoryDisplayed ? false : true;            
+            isInventoryDisplayed = isInventoryDisplayed ? false : true;
+            inventory_SFX.Play();
         }
 
         if (Input.GetAxis(forwardInput)!= 0 || Input.GetAxis(leftInput) !=0)
@@ -163,6 +168,10 @@ public class PlayerController : MonoBehaviour
         
         if (direction != Vector3.zero) //when moving
         {
+            if(playerWalkingSFX.isPlaying == false)
+            {
+                playerWalkingSFX.Play();
+            }
             animator.SetBool("IsMoving", true);
         
             Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
@@ -171,6 +180,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            playerWalkingSFX.Pause();
             animator.SetBool("IsMoving", false);
         }
         
