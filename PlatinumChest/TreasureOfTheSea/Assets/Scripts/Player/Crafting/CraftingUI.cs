@@ -23,6 +23,7 @@ public class CraftingUI : MonoBehaviour
     private PlayerController pc;
 
     bool craftingCheck = false;
+    public PauseMenu pauseUI;
 
     // Start is called before the first frame update
     void Start()
@@ -77,7 +78,7 @@ public class CraftingUI : MonoBehaviour
 
             playerHotbar.GetComponent<RectTransform>().anchoredPosition = inventoryPosition.GetComponent<RectTransform>().anchoredPosition;
         }
-        else
+        else if(!craftingCheck && !pauseUI.isGamePasued)
         {
             Cursor.visible = false;
         }
