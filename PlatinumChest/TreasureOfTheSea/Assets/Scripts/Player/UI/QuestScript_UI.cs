@@ -12,10 +12,7 @@ public class QuestScript_UI : MonoBehaviour
     //public ParticleSystem questParticleSystem;
     public RectTransform particlePosition;
     public GameObject bossBridge;
-    private ParticleSystem particleSystemObject;
     private bool check = false;
-    private bool once = false;
-    private ParticleSystem secondParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -41,8 +38,6 @@ public class QuestScript_UI : MonoBehaviour
             }
         }
         questParticleSystem.GetComponentInChildren<ParticleSystem>().Play();
-        //particleSystemObject = questParticleSystem;
-        //particleSystemObject.Play();
     }
 
     public QuestScripText_UI GetQuestScriptTextUI(string questName)
@@ -57,7 +52,6 @@ public class QuestScript_UI : MonoBehaviour
         {
             questParticleSystem.SetActive(true);
             questParticleSystem.GetComponentInChildren<ParticleSystem>().Play();
-            //check = true;
         }
 
         if (isQuestUIOn)
