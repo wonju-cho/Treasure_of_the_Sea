@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "@2022 Digipen (USA) corporation(small)\r"
+  m_text: '@2022 Digipen (USA) corporation'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a8c259b31791a94abf6bac3d2e8e2d7, type: 2}
   m_sharedMaterial: {fileID: 910661495805535425, guid: 6a8c259b31791a94abf6bac3d2e8e2d7, type: 2}
