@@ -40,6 +40,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        audioSource.Play();
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isGamePasued = false;
@@ -66,7 +67,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        audioSource.Play();
         Application.Quit();
-        Debug.Log("quitting game");
     }
 }
