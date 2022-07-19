@@ -57,4 +57,11 @@ public class QuestTrigger : MonoBehaviour
             isInteract = false;
         }
     }
+
+    public void SetQuestCheck(bool isDone)
+    {
+        questCheck = isDone;
+        if(questCheck)
+            Destroy(notificationMarkTrigger);
+    }
 }

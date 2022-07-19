@@ -170,7 +170,10 @@ public class Quest : MonoBehaviour
         //    Goals[i].Initialize();
         //}
 
+        qt.SetQuestCheck(true);
         qt.enabled = false;
+
+        GameObject.FindGameObjectWithTag("Crafting").GetComponent<Crafting>().SetIsNearTheCrafting(false);
         //this.gameObject.GetComponentInChildren<QuestTrigger>().gameObject.SetActive(false);
         //if(this.gameObject.GetComponentInChildren<QuestTrigger>().notificationMarkTrigger != null)
         //    this.gameObject.GetComponentInChildren<QuestTrigger>().notificationMarkTrigger.SetActive(false);

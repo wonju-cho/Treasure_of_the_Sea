@@ -49,6 +49,7 @@ public class Crafting : MonoBehaviour
 
         if (isNearTheCrafting && Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("crafting click");
             if (isCraftingActive == false)
             {
                 UI_sfx.Play();
@@ -78,4 +79,9 @@ public class Crafting : MonoBehaviour
     public bool getCraftingActivated() { return isCraftingActive; }
 
     public void SetCrafting(bool status) { isCraftingActive = status; }
+
+    public void SetIsNearTheCrafting(bool isNear)
+    {
+        isNearTheCrafting = isNear;
+    }
 }
