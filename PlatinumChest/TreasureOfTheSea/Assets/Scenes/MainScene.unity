@@ -8836,6 +8836,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 23750211}
     m_Modifications:
+    - target: {fileID: 336923181087338786, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000045776367
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020399427790183023, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 812131824}
+    - target: {fileID: 1020399427790183023, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenCreditUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020399427790183023, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CreditUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1020399427790183023, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918635070477439894, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
+      propertyPath: creditUI
+      value: 
+      objectReference: {fileID: 812131824}
     - target: {fileID: 5594425894083717751, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -8895,6 +8919,22 @@ PrefabInstance:
     - target: {fileID: 5596274248268776429, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
       propertyPath: m_Name
       value: Treasure Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874100857049590391, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 812131823}
+    - target: {fileID: 5874100857049590391, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874100857049590391, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874100857049590391, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f5a8e9a1b1b02344b153f377feb6aa6, type: 3}
