@@ -106,7 +106,6 @@ public class RangeEnemyAIManage : MonoBehaviour
                 if(wasInBossIsland)
                 {
                     GameObject.FindGameObjectWithTag("TreasureBox").GetComponent<TreasureBox>().KillZombieEnemy();
-
                 }
                 //die
                 GetComponent<CapsuleCollider>().enabled = false;
