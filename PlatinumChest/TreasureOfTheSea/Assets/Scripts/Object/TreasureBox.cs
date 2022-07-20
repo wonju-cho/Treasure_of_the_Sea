@@ -62,7 +62,6 @@ public class TreasureBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(numOfZombies);
         if(is_near_player == true)
         {
             if(Input.GetKeyDown(KeyCode.E))
@@ -122,6 +121,7 @@ public class TreasureBox : MonoBehaviour
             is_near_player = false;
         }
     }
+
 
     public void SetHasEverySkull(bool hasSkull)
     {

@@ -94,6 +94,7 @@ public class CheatCode : MonoBehaviour
             DisableCraftingSignifier();
 
             gameObject.GetComponent<PlayerManager>().PlayerResapwn(F4_playerPosition);
+            GameObject.FindGameObjectWithTag("TreasureBox").GetComponent<TreasureBox>().KillEveryZombie();
         }
 
         if (Input.GetKeyDown(KeyCode.F5))
@@ -120,6 +121,7 @@ public class CheatCode : MonoBehaviour
             DisableCraftingSignifier();
 
             gameObject.GetComponent<PlayerManager>().PlayerResapwn(F4_playerPosition);
+            GameObject.FindGameObjectWithTag("TreasureBox").GetComponent<TreasureBox>().KillEveryZombie();
         }
 
     }
@@ -185,31 +187,38 @@ public class CheatCode : MonoBehaviour
 
     void CheatCodeF4()
     {
+
+
         if (player != null)
         {
             player.GetComponent<PlayerManager>().CheatCodeForBossIsland();
-        }
-
-        if (F4_melees != null)
-        {
-            foreach (GameObject melee in F4_melees)
-            {
-                melee.GetComponent<EnemyManage>().TakeDamage(200);
-            }
-
-        }
-        if (F4_ranges != null)
-        {
-            foreach (GameObject range in F4_ranges)
-            {
-                range.GetComponent<RangeEnemyAIManage>().TakeDamage(200);
-            }
         }
 
         if (F4_bridge != null)
         {
             F4_bridge.GetComponent<Quest>().CheatCode();
         }
+
+        if (F4_ranges != null)
+        {
+            foreach (GameObject range in F4_ranges)
+            {
+                Destroy(range);
+                //range.GetComponent<RangeEnemyAIManage>().MustKillEnemyForCheatCode();
+            }
+        }
+
+
+        if (F4_melees != null)
+        {
+            foreach (GameObject melee in F4_melees)
+            {
+                Destroy(melee);
+                //melee.GetComponent<EnemyManage>().MustKillEnemyForCheatCode();
+            }
+
+        }
+
 
 
     }
@@ -220,14 +229,12 @@ public class CheatCode : MonoBehaviour
         //if (player != null)
         //    player.GetComponent<PlayerManager>().CheatCodeForBossIslandF5();
 
-        GameObject.FindGameObjectWithTag("TreasureBox").GetComponent<TreasureBox>().KillEveryZombie();
 
         if (F4_melees != null)
         {
             foreach(GameObject melee in F4_melees)
             {
-                melee.GetComponent<EnemyManage>().isInBossIsland = false;
-                melee.GetComponent<EnemyManage>().TakeDamage(200);
+                Destroy(melee);
             }
         }
 
@@ -235,8 +242,7 @@ public class CheatCode : MonoBehaviour
         {
             foreach (GameObject range in F4_ranges)
             {
-                range.GetComponent<RangeEnemyAIManage>().isInBossIsland = false;
-                range.GetComponent<RangeEnemyAIManage>().TakeDamage(200);
+                Destroy(range);
             }
         }
 

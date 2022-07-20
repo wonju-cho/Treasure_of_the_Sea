@@ -20,7 +20,7 @@ public class EnemyManage : MonoBehaviour
     {
         enemyHP = HP;
 
-        if(particle)
+        if (particle)
         {
             if (isInBossIsland)
             {
@@ -32,12 +32,12 @@ public class EnemyManage : MonoBehaviour
                 particle.Stop();
             }
         }
-        
+
     }
 
     private void Update()
     {
-        if(isInBossIsland)
+        if (isInBossIsland)
         {
             if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CheckPlayerHasEverySkulls())
             {
@@ -55,6 +55,13 @@ public class EnemyManage : MonoBehaviour
     public Transform[] GetWayPoints()
     {
         return wayPoints;
+    }
+
+    public void MustKillEnemyForCheatCode()
+    {
+        isInBossIsland = false;
+        StartCoroutine(DelayedDead(animator.GetCurrentAnimatorStateInfo(0).length));
+        GameObject.FindGameObjectWithTag("TreasureBox").GetComponent<TreasureBox>().KillZombieEnemy();
     }
 
     //Add this function to player's slingshot
@@ -110,6 +117,7 @@ public class EnemyManage : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
+        Destroy(particle);
         DropItem();
     }
 

@@ -364,13 +364,9 @@ public class PlayerManager : MonoBehaviour
     public void CheatCodeForBossIsland()
     {
         NumOfSkull = NumOfSkullInWorld;
-        bool checked_cheat_code = CheckPlayerHasEverySkull();
 
     }
 
-    public void CheatCodeForBossIslandF5()
-    {
-        NumOfSkull = NumOfSkullInWorld;
-    }
+    
 
 }

@@ -67,6 +67,12 @@ public class RangeEnemyAIManage : MonoBehaviour
         return wayPoints;   
     }
 
+    public void MustKillEnemyForCheatCode()
+    {
+        StartCoroutine(DelayedDead(animator.GetCurrentAnimatorStateInfo(0).length));
+        GameObject.FindGameObjectWithTag("TreasureBox").GetComponent<TreasureBox>().KillZombieEnemy();
+    }
+
     public void TakeDamage(int damageAmount)
     {
         enemyHP -= damageAmount;
