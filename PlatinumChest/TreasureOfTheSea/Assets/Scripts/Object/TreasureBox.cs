@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TreasureBox : MonoBehaviour
@@ -32,8 +34,9 @@ public class TreasureBox : MonoBehaviour
         pc = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         pm = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
 
+
         numOfZombies = 0;
-        hasEverySkull = pm.CheckPlayerHasEverySkull();
+        hasEverySkull = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CheckPlayerHasEverySkull();
 
         GameObject[] melees = GameObject.FindGameObjectsWithTag("MeleeEnemy");
         GameObject[] ranges = GameObject.FindGameObjectsWithTag("RangeEnemy");
@@ -64,6 +67,7 @@ public class TreasureBox : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
+                //hasEverySkull = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CheckPlayerHasEverySkulls();
                 hasEverySkull = pm.CheckPlayerHasEverySkulls();
 
                 if (hasEverySkull)
