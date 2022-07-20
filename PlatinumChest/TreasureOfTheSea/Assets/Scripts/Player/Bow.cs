@@ -145,7 +145,7 @@ public class Bow : MonoBehaviour
         if(bowSettings.arrowCount >= 1)
         {
             canFire = true;
-            Vector3 dir = (hitPoint - bowSettings.arrowPos.position);
+            Vector3 dir = (hitPoint - bowSettings.arrowPos.position).normalized;
             
             currentArrow = Instantiate(bowSettings.arrowObject, bowSettings.arrowPos.position, bowSettings.arrowPos.rotation) as Rigidbody;
             currentArrow.AddForce(dir * bowSettings.arrowForce, ForceMode.VelocityChange);

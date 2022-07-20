@@ -142,6 +142,8 @@ public class PlayerManager : MonoBehaviour
                 if(playerController.hitDetected == true)
                 {
                     Debug.Log("Detect");
+                    
+                    //playerController.bowScript.Fire(Camera.main.transform.position + Camera.main.transform.forward * 10f);
                     playerController.bowScript.Fire(playerController.hit.point);
                 }
                 else

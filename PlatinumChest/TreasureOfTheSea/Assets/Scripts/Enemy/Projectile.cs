@@ -77,6 +77,11 @@ public class Projectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        else if (collision.collider.tag == "DesertTag")
+        {
+
+            Destroy(this.gameObject);
+        }
         //Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
         //foreach(Collider nearbyObject in colliders)

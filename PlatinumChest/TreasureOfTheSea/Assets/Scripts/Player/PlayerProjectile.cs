@@ -81,6 +81,11 @@ public class PlayerProjectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        else if(collision.collider.tag == "DesertTag")
+        {
+
+            Destroy(this.gameObject);
+        }
 
     }
 

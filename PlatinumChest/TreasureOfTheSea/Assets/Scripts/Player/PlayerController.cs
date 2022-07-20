@@ -218,7 +218,7 @@ public class PlayerController : MonoBehaviour
 
         Vector2 centerPos = new Vector2(Screen.width / 2f, Screen.height / 2f);
 
-        //ray = Camera.main.ScreenPointToRay(centerPos);
+        ray = Camera.main.ScreenPointToRay(centerPos);
         
         if (Physics.Raycast(ray, out hit, 500f, aimLayers))
         {

@@ -188,7 +188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Palm_Tree_02
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3877404954919080138, guid: 15d2d855ed479c449a972b313ae0b23c, type: 3}
+    - {fileID: 8209222041628214501, guid: 15d2d855ed479c449a972b313ae0b23c, type: 3}
+    - {fileID: 819019088944204805, guid: 15d2d855ed479c449a972b313ae0b23c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 15d2d855ed479c449a972b313ae0b23c, type: 3}
 --- !u!4 &8533612977480199933 stripped
 Transform:

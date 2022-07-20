@@ -761,6 +761,10 @@ PrefabInstance:
       propertyPath: startArrowCount
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1024359583095178180, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
+      propertyPath: bowSettings.arrowForce
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1469756223478343892, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: m_Name
       value: Player
