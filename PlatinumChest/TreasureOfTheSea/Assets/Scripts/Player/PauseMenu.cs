@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
@@ -12,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     private PlayerManager pm;
     private PlayerController pc;
     public GameObject warningUI;
+    public TreasureBox tb;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +28,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
-        if(Input.GetKeyDown(KeyCode.CapsLock))
+        if(Input.GetKeyDown(KeyCode.CapsLock) && !tb.gameGoalUI.activeSelf)
 #else
         if(Input.GetKeyDown(KeyCode.Escape))
 #endif
