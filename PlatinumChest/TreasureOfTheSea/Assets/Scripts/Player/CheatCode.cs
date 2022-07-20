@@ -27,6 +27,8 @@ public class CheatCode : MonoBehaviour
     private bool already_press_f3 = false;
     private bool already_press_f4 = false;
 
+    public Crafting[] craftings;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +37,6 @@ public class CheatCode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.F2))
         {
             if(already_press_f2 == false)
@@ -43,6 +44,8 @@ public class CheatCode : MonoBehaviour
                 CheatCodeF2();
                 already_press_f2 = true;
             }
+
+            DisableCraftingSignifier();
 
             gameObject.GetComponent<PlayerManager>().PlayerResapwn(F2_playerPosition);
         }
@@ -60,6 +63,8 @@ public class CheatCode : MonoBehaviour
                 CheatCodeF3();
                 already_press_f3 = true;
             }
+
+            DisableCraftingSignifier();
 
             gameObject.GetComponent<PlayerManager>().PlayerResapwn(F3_playerPosition);
         }
@@ -83,10 +88,20 @@ public class CheatCode : MonoBehaviour
                 CheatCodeF4();
                 already_press_f4 = true;
             }
+            
+            DisableCraftingSignifier();
 
             gameObject.GetComponent<PlayerManager>().PlayerResapwn(F4_playerPosition);
         }
         
+    }
+
+    void DisableCraftingSignifier()
+    {
+        for (int i = 0; i < craftings.Length; i++)
+        {
+            craftings[i].SetIsNearTheCrafting(false);
+        }
     }
 
     void CheatCodeF2()
@@ -168,6 +183,6 @@ public class CheatCode : MonoBehaviour
             F4_bridge.GetComponent<Quest>().CheatCode();
         }
 
-        
+
     }
 }

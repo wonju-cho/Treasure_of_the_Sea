@@ -1,23 +1,17 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Crafting : MonoBehaviour
 {
     public GameObject craftingSignifier;
     public AudioSource UI_sfx;
 
-
     private bool isNearTheCrafting = false;
     private bool isCraftingActive = false;
 
-    UnityEvent craftingEvent;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (craftingEvent == null)
-            craftingEvent = new UnityEvent();
-
         craftingSignifier.SetActive(false);
     }
 
@@ -39,7 +33,7 @@ public class Crafting : MonoBehaviour
             craftingSignifier.SetActive(false);
         }
         else if (isNearTheCrafting)
-        {
+        { 
             craftingSignifier.SetActive(true);
         }
         else
