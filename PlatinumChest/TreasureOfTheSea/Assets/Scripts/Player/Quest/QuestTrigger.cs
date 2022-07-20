@@ -15,7 +15,7 @@ public class QuestTrigger : MonoBehaviour
     private QuestScript_UI questScriptUI;
 
 
-    private void Start()
+    private void Awake()
     {
         notificationMarkTrigger.SetActive(false);
         questScriptUI = GameObject.FindGameObjectWithTag("QuestScriptUI").GetComponent<QuestScript_UI>();

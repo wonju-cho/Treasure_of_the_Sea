@@ -24,6 +24,7 @@ TagManager:
   - TreasureBox
   - Fruit
   - CraftingUI
+  - DesertTag
   layers:
   - Default
   - TransparentFX

@@ -849,3 +849,4 @@ MonoBehaviour:
   digipenImage: {fileID: 1579871492}
   teamImage: {fileID: 433869783}
   text: {fileID: 1639843954}
+  cursorTexture: {fileID: 2800000, guid: 5988a2020badc834c96521b52b6a08f5, type: 3}

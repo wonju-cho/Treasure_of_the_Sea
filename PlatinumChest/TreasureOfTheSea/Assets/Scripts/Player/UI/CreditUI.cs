@@ -40,6 +40,7 @@ public class CreditUI : MonoBehaviour
     public void OpenCreditUI()
     {
         audioSource.Play();
+
         currentIndex = -1;
         UpdateScene(1);
 
@@ -89,7 +90,11 @@ public class CreditUI : MonoBehaviour
         }
 
         if (currentIndex == 0)
+        {
             backButton.SetActive(false);
+            if (nextButton.activeSelf == false)
+                nextButton.SetActive(true);
+        }
         else if (currentIndex == creditTexts.Count - 1)
             nextButton.SetActive(false);
         else
