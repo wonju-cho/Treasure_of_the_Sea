@@ -40,9 +40,15 @@ public class PlayerProjectile : MonoBehaviour
                 rb.isKinematic = true;
                 bx.isTrigger = true;
         }
+        if(collision.collider.tag == "Projectile")
+        {
+            rb.isKinematic = true;
+            bx.isTrigger = true;
+        }
 
         //GameObject impact = Instantiate(impactEffect, transform.position, Quaternion.identity);
         //Destroy(impact, 2);
+
         if (collision.collider.tag == "MeleeEnemy")
         {
             collision.collider.GetComponent<EnemyManage>().TakeDamage(damageAmount); 
@@ -84,6 +90,14 @@ public class PlayerProjectile : MonoBehaviour
         else if(collision.collider.tag == "DesertTag")
         {
 
+            Destroy(this.gameObject);
+        }
+        else if(collision.collider.tag == "PlayerProjectile")
+        {
+            Destroy(this.gameObject);
+        }
+        else if(collision.collider.tag == "Projectile")
+        {
             Destroy(this.gameObject);
         }
 

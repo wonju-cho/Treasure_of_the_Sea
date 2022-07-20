@@ -25,6 +25,8 @@ TagManager:
   - Fruit
   - CraftingUI
   - DesertTag
+  - PlayerProjectile
+  - Projectile
   layers:
   - Default
   - TransparentFX

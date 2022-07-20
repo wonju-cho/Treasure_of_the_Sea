@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5330234007165519259}
   m_Layer: 0
   m_Name: PlayerProjectile
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 30
+  destroyTime: 5
 --- !u!65 &5330234007165519259
 BoxCollider:
   m_ObjectHideFlags: 0

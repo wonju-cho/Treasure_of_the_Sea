@@ -40,9 +40,14 @@ public class Projectile : MonoBehaviour
 
         if(collision.collider.tag != "RangeEnemy")
         {
-            Debug.Log("detect with" + collision.collider.name);
             disableRotation = true;
-            disableRotation = true;
+            rb.isKinematic = true;
+            bx.isTrigger = true;
+        }
+
+        if(collision.collider.tag == "PlayerProjectile")
+        {
+
             rb.isKinematic = true;
             bx.isTrigger = true;
         }
@@ -80,6 +85,14 @@ public class Projectile : MonoBehaviour
         else if (collision.collider.tag == "DesertTag")
         {
 
+            Destroy(this.gameObject);
+        }
+        else if (collision.collider.tag == "PlayerProjectile")
+        {
+            Destroy(this.gameObject);
+        }
+        else if (collision.collider.tag == "Projectile")
+        {
             Destroy(this.gameObject);
         }
         //Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
