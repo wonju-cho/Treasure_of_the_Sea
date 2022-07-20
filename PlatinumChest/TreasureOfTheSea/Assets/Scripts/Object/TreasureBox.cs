@@ -62,6 +62,7 @@ public class TreasureBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(numOfZombies);
         if(is_near_player == true)
         {
             if(Input.GetKeyDown(KeyCode.E))

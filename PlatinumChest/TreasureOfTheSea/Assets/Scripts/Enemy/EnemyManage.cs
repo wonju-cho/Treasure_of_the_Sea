@@ -14,6 +14,7 @@ public class EnemyManage : MonoBehaviour
     [SerializeField] Transform[] wayPoints;
 
     private int enemyHP;
+    private bool wasInBossIsland = false;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class EnemyManage : MonoBehaviour
             if (isInBossIsland)
             {
                 particle.Play();
+                wasInBossIsland = true;
             }
             else
             {
@@ -35,11 +37,14 @@ public class EnemyManage : MonoBehaviour
 
     private void Update()
     {
-        if(!isInBossIsland && particle.isPlaying)
+        if(isInBossIsland)
         {
-            particle.Stop();
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CheckPlayerHasEverySkulls())
+            {
+                particle.Stop();
+                isInBossIsland = false;
+            }
         }
-
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -82,6 +87,10 @@ public class EnemyManage : MonoBehaviour
             else
             {
                 //die
+                if(wasInBossIsland)
+                {
+                    GameObject.FindGameObjectWithTag("TreasureBox").GetComponent<TreasureBox>().KillZombieEnemy();
+                }
                 StartCoroutine(DelayedDead(animator.GetCurrentAnimatorStateInfo(0).length));
             }
         }

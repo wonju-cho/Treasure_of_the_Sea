@@ -28,6 +28,7 @@ public class RangeEnemyAIManage : MonoBehaviour
     [SerializeField] Transform[] wayPoints;
 
     private int enemyHP;
+    private bool wasInBossIsland = false;
 
     private void Start()
     {
@@ -38,6 +39,7 @@ public class RangeEnemyAIManage : MonoBehaviour
             if(isInBossIsland)
             {
                 particle.Play();
+                wasInBossIsland = true;
             }
             else
             {
@@ -49,9 +51,13 @@ public class RangeEnemyAIManage : MonoBehaviour
 
     private void Update()
     {
-        if(!isInBossIsland && particle.isPlaying)
+        if(isInBossIsland)
         {
-            particle.Stop();
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CheckPlayerHasEverySkulls())
+            {
+                particle.Stop();
+                isInBossIsland = false;
+            }
         }
 
     }
@@ -91,6 +97,11 @@ public class RangeEnemyAIManage : MonoBehaviour
             }
             else
             {
+                if(wasInBossIsland)
+                {
+                    GameObject.FindGameObjectWithTag("TreasureBox").GetComponent<TreasureBox>().KillZombieEnemy();
+
+                }
                 //die
                 GetComponent<CapsuleCollider>().enabled = false;
                 StartCoroutine(DelayedDead(animator.GetCurrentAnimatorStateInfo(0).length));
