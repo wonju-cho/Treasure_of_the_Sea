@@ -69,11 +69,19 @@ public class Projectile : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        else if (collision.collider.tag == "Chest")
+        {
+            Destroy(this.gameObject);
+        }
+        else if (collision.collider.tag == "TreasureBox")
+        {
+            Destroy(this.gameObject);
+        }
         //Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
         //foreach(Collider nearbyObject in colliders)
         //{
-            
+
         //    if (nearbyObject.tag == "Player")
         //    {
         //        //playermanager.takedamage();

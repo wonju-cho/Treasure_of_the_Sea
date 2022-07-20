@@ -26,6 +26,7 @@ public class CheatCode : MonoBehaviour
     private bool already_press_f2 = false;
     private bool already_press_f3 = false;
     private bool already_press_f4 = false;
+    private bool already_press_f5 = false;
 
     public Crafting[] craftings;
 
@@ -87,13 +88,40 @@ public class CheatCode : MonoBehaviour
             {
                 CheatCodeF4();
                 already_press_f4 = true;
+                already_press_f5 = true;
             }
             
             DisableCraftingSignifier();
 
             gameObject.GetComponent<PlayerManager>().PlayerResapwn(F4_playerPosition);
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            if (already_press_f2 == false)
+            {
+                CheatCodeF2();
+                already_press_f2 = true;
+            }
+
+            if (already_press_f3 == false)
+            {
+                CheatCodeF3();
+                already_press_f3 = true;
+            }
+
+            if (already_press_f5 == false)
+            {
+                CheatCodeF5();
+                already_press_f4 = true;
+                already_press_f5 = true;
+            }
+
+            DisableCraftingSignifier();
+
+            gameObject.GetComponent<PlayerManager>().PlayerResapwn(F4_playerPosition);
+        }
+
     }
 
     void DisableCraftingSignifier()
@@ -184,5 +212,37 @@ public class CheatCode : MonoBehaviour
         }
 
 
+    }
+    
+    void CheatCodeF5()
+    {
+        //kill all enemies;
+        //if (player != null)
+        //    player.GetComponent<PlayerManager>().CheatCodeForBossIslandF5();
+
+        GameObject.FindGameObjectWithTag("TreasureBox").GetComponent<TreasureBox>().KillEveryZombie();
+
+        if (F4_melees != null)
+        {
+            foreach(GameObject melee in F4_melees)
+            {
+                melee.GetComponent<EnemyManage>().isInBossIsland = false;
+                melee.GetComponent<EnemyManage>().TakeDamage(200);
+            }
+        }
+
+        if (F4_ranges != null)
+        {
+            foreach (GameObject range in F4_ranges)
+            {
+                range.GetComponent<RangeEnemyAIManage>().isInBossIsland = false;
+                range.GetComponent<RangeEnemyAIManage>().TakeDamage(200);
+            }
+        }
+
+        if (F4_bridge != null)
+        {
+            F4_bridge.GetComponent<Quest>().CheatCode();
+        }
     }
 }

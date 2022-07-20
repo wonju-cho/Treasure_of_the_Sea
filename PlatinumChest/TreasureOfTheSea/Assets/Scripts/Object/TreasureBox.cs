@@ -23,6 +23,8 @@ public class TreasureBox : MonoBehaviour
 
     bool once = false;
 
+    private bool is_near_player = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,39 +62,63 @@ public class TreasureBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hasEverySkull)
+        if(is_near_player == true)
         {
-            if (numOfZombies == 0)
+            if(Input.GetKeyDown(KeyCode.E))
             {
-                //open and the end of this game
+                hasEverySkull = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().CheckPlayerHasEverySkulls();
 
-                if(already_openned == false)
+                if (hasEverySkull)
                 {
-                    sfx.Play();
-                    chestAnim.SetTrigger("open");
-                    already_openned = true;
+                    if (numOfZombies == 0)
+                    {
+                        //open and the end of this game
+
+                        if (already_openned == false)
+                        {
+                            sfx.Play();
+                            chestAnim.SetTrigger("open");
+                            already_openned = true;
+                        }
+
+                        gameEnd = true;
+                        if (!once)
+                        {
+                            chestAnim.SetTrigger("open");
+                            gameGoalUI.SetActive(true);
+
+                            once = true;
+
+                        }
+
+                        Cursor.visible = true;
+                        Cursor.lockState = CursorLockMode.None;
+                        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+
+                        pc.enabled = false;
+                        pm.enabled = false;
+                        bow.enabled = false;
+
+                    }
+
                 }
-
-                gameEnd = true;
-                if (!once)
-                {
-                    chestAnim.SetTrigger("open");
-                    gameGoalUI.SetActive(true);
-
-                    once = true;
-
-                }
-
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
-
-                pc.enabled = false;
-                pm.enabled = false;
-                bow.enabled = false;
-
             }
+        }
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            is_near_player = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            is_near_player = false;
         }
     }
 
@@ -104,6 +130,12 @@ public class TreasureBox : MonoBehaviour
     public void KillZombieEnemy()
     {
         --numOfZombies;
+    }
+
+    public void KillEveryZombie()
+    {
+        numOfZombies = 0;
+
     }
     
 }

@@ -77,6 +77,10 @@ public class PlayerProjectile : MonoBehaviour
             collision.collider.GetComponent<TriggerChest>().OpenChest();
             Destroy(this.gameObject);
         }
+        else if(collision.collider.tag == "TreasureBox")
+        {
+            Destroy(this.gameObject);
+        }
 
     }
 

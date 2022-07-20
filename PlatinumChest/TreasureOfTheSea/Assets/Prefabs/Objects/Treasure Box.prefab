@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 5619956491308374885}
   m_Layer: 0
   m_Name: DesertChestBottom
-  m_TagString: Untagged
+  m_TagString: TreasureBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 5620472513948226513}
   m_Layer: 0
   m_Name: DesertChestTop
-  m_TagString: Untagged
+  m_TagString: TreasureBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 5594425894083717751}
   - component: {fileID: 5546183393259114421}
   - component: {fileID: 2918635070477439894}
+  - component: {fileID: 1082188789578091892}
   m_Layer: 0
   m_Name: Treasure Box
   m_TagString: TreasureBox
@@ -412,10 +413,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chestAnim: {fileID: 5546183393259114421}
+  sfx: {fileID: 0}
   gameGoalUI: {fileID: 4550186545936268736}
   creditUI: {fileID: 0}
   gameEnd: 0
   cursorTexture: {fileID: 2800000, guid: 5988a2020badc834c96521b52b6a08f5, type: 3}
+--- !u!65 &1082188789578091892
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5596274248268776429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7743683, y: 0.42059535, z: 1.5521159}
+  m_Center: {x: 0.43088722, y: -0.28970233, z: 0.24076486}
 --- !u!1 &7044803512206794106
 GameObject:
   m_ObjectHideFlags: 0

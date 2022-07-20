@@ -31,4 +31,17 @@ public class CowSkullObject : MonoBehaviour
     //        }
     //    }
     //}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            if(chest.GetComponent<TriggerChest>().GetIsOpenChest() == true)
+            {
+                Debug.Log("collision with player");
+                other.GetComponent<PlayerManager>().GetSkull();
+                Destroy(this.gameObject);
+            }
+        }
+    }
 }

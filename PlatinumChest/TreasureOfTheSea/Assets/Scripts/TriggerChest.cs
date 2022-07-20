@@ -108,8 +108,8 @@ public class TriggerChest : MonoBehaviour
                     {
                         if (Input.GetKeyDown(KeyCode.E))
                         {
-                            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().GetSkull();
-                            Destroy(skullObject);
+                            //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().GetSkull();
+                            //Destroy(skullObject);
                         }
                     }
                 }

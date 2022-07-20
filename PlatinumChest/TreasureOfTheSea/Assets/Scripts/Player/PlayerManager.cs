@@ -340,6 +340,15 @@ public class PlayerManager : MonoBehaviour
         return false;
     }
 
+    public bool CheckPlayerHasEverySkulls()
+    {
+        if(NumOfSkull >= NumOfSkullInWorld)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void HealingHP(int healing)
     {
         currentHP += healing;
@@ -355,4 +364,10 @@ public class PlayerManager : MonoBehaviour
         bool checked_cheat_code = CheckPlayerHasEverySkull();
 
     }
+
+    public void CheatCodeForBossIslandF5()
+    {
+        NumOfSkull = NumOfSkullInWorld;
+    }
+
 }
