@@ -9,7 +9,6 @@ public class QuestScript_UI : MonoBehaviour
     public List<QuestScripText_UI> questScriptTextUIs;
     public GameObject questParticleSystem;
 
-    //public ParticleSystem questParticleSystem;
     public RectTransform particlePosition;
     public GameObject bossBridge;
     private bool check = false;

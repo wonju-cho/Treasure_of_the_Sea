@@ -18,6 +18,6 @@ public class BGM : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
+        DontDestroyOnLoad(transform.root.gameObject);
     }
 }
