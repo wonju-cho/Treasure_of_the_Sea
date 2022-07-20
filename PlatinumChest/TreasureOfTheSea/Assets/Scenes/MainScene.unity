@@ -6660,6 +6660,10 @@ PrefabInstance:
       propertyPath: otherUI.Array.data[0]
       value: 
       objectReference: {fileID: 76301452}
+    - target: {fileID: 8381224531940825729, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
+      propertyPath: tb
+      value: 
+      objectReference: {fileID: 1742546765}
     - target: {fileID: 8510160151069400658, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
