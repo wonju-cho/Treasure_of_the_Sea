@@ -13,6 +13,8 @@ public class QuestScript_UI : MonoBehaviour
     public GameObject bossBridge;
     private bool check = false;
 
+    public GameObject skullQuestUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,17 +27,26 @@ public class QuestScript_UI : MonoBehaviour
         GameObject[] bridges = GameObject.FindGameObjectsWithTag("Bridge");
         int bridgeCount = bridges.Length;
 
+        int skullsCount = chestsCount;
+
         for (int i = 0; i < questScriptTextUIs.Count; i++)
         {
             if (questScriptTextUIs[i].questName == "Chest")
             {
                 questScriptTextUIs[i].SetResultQuestText(chestsCount);
             }
+            else if(questScriptTextUIs[i].questName == "Skull")
+            {
+                questScriptTextUIs[i].SetResultQuestText(skullsCount);
+            }
             else
             {
                 questScriptTextUIs[i].SetResultQuestText(bridgeCount);
             }
         }
+        
+        skullQuestUI.SetActive(false);
+
         questParticleSystem.GetComponentInChildren<ParticleSystem>().Play();
     }
 
@@ -79,6 +90,8 @@ public class QuestScript_UI : MonoBehaviour
             if(questScriptTextUIs[i].currentInteger >= questScriptTextUIs[i].resultInteger)
             {
                 questScriptTextUIs[i].SetRedLineActive(true);
+                if (questScriptTextUIs[i].questName == "Chest")
+                    skullQuestUI.SetActive(true);
             }
         }
     }

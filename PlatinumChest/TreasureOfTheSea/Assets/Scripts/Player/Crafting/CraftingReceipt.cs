@@ -48,7 +48,7 @@ public class CraftingReceipt : ScriptableObject
         {
             if(resultItem.displayName == "Arrow")
             {
-                inventoryHolder.InventorySystem.AddToInventory(resultItem, 5);
+                inventoryHolder.InventorySystem.AddToInventory(resultItem, 10);
             }
             else
             {

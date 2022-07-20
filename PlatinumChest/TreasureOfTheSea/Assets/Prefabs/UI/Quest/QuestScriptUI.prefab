@@ -66,6 +66,7 @@ RectTransform:
   m_Children:
   - {fileID: 8494157990626039238}
   - {fileID: 6903664662299294024}
+  - {fileID: 6397152729267003412}
   m_Father: {fileID: 6929543638957046376}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -129,9 +130,11 @@ MonoBehaviour:
   questScriptTextUIs:
   - {fileID: 2547830468440204958}
   - {fileID: 681248132922608144}
+  - {fileID: 1044194631449137996}
   questParticleSystem: {fileID: 0}
   particlePosition: {fileID: 0}
   bossBridge: {fileID: 0}
+  skullQuestUI: {fileID: 6294296004318883982}
 --- !u!1 &2639790901449034777
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,8 +280,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -106, y: 267.82812}
-  m_SizeDelta: {x: 250, y: 214.3105}
+  m_AnchoredPosition: {x: -106, y: 235.0326}
+  m_SizeDelta: {x: 250, y: 281.5281}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7784437862391296225
 CanvasRenderer:
@@ -575,6 +578,140 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6929312032145345085}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1467f36c50e3b5a4389185b1acd8a5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &7430977292022076257
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3154415151286127661}
+    m_Modifications:
+    - target: {fileID: 199360273773774940, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 128.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359777341520690931, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 150.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493094187022033903, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_Name
+      value: SkullQuestScriptText_UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -152
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592394995867123757, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: questName
+      value: Skull
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780809081169137510, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+      propertyPath: m_text
+      value: Get all skulls (   /   )
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+--- !u!1 &6294296004318883982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3493094187022033903, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+  m_PrefabInstance: {fileID: 7430977292022076257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &6397152729267003412 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4604757971520009077, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+  m_PrefabInstance: {fileID: 7430977292022076257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1044194631449137996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7592394995867123757, guid: 77292918d9af7ce44aa7541e041d489e, type: 3}
+  m_PrefabInstance: {fileID: 7430977292022076257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6294296004318883982}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1467f36c50e3b5a4389185b1acd8a5cc, type: 3}
