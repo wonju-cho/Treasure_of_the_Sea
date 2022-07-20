@@ -11,6 +11,7 @@ public class DangerAlert : MonoBehaviour
     private bool start = false;
     public Animation anim;
     private bool once = false;
+    private bool flag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,12 +32,17 @@ public class DangerAlert : MonoBehaviour
             }
             alertText0.enabled = true;
             alertText1.enabled = true;
-            anim.Play();
+            if(!flag)
+                anim.Play();
             timer += Time.deltaTime;
             if (timer > aTime)
             {
                 audioSource.Stop();
-                anim.Stop();
+                if(!flag)
+                {
+                    Destroy(anim);
+                    flag = true;
+                }
             }
         }    
     }

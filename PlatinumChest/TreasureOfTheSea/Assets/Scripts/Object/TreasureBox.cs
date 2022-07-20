@@ -7,7 +7,7 @@ public class TreasureBox : MonoBehaviour
     public Animator chestAnim;
     public AudioSource sfx;
 
-    private int numOfZombies;
+    public int numOfZombies;
     private bool hasEverySkull;
 
     private bool already_openned = false;
@@ -41,22 +41,23 @@ public class TreasureBox : MonoBehaviour
         GameObject[] melees = GameObject.FindGameObjectsWithTag("MeleeEnemy");
         GameObject[] ranges = GameObject.FindGameObjectsWithTag("RangeEnemy");
 
-        foreach (GameObject melee in melees)
-        {
-            if(melee.GetComponent<EnemyManage>().isInBossIsland == true)
-            {
-                numOfZombies++;
-            }
-        }
+        //foreach (GameObject melee in melees)
+        //{
+        //    if(melee.GetComponent<EnemyManage>().isInBossIsland == true)
+        //    {
+        //        numOfZombies++;
+        //    }
+        //}
 
-        foreach(GameObject range in ranges)
-        {
-            if(range.GetComponent<RangeEnemyAIManage>().isInBossIsland == true)
-            {
-                numOfZombies++;
-            }
-        }
-        
+        //foreach(GameObject range in ranges)
+        //{
+        //    if(range.GetComponent<RangeEnemyAIManage>().isInBossIsland == true)
+        //    {
+        //        numOfZombies++;
+        //    }
+        //}
+
+        numOfZombies = 6;
     }
 
     // Update is called once per frame

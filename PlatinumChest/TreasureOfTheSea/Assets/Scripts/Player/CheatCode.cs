@@ -140,7 +140,8 @@ public class CheatCode : MonoBehaviour
         {
             foreach (GameObject melee in F2_melees)
             {
-                melee.GetComponent<EnemyManage>().TakeDamage(200);
+                Destroy(melee);
+                //melee.GetComponent<EnemyManage>().TakeDamage(200);
             }
 
         }
@@ -148,7 +149,8 @@ public class CheatCode : MonoBehaviour
         {
             foreach (GameObject range in F2_ranges)
             {
-                range.GetComponent<RangeEnemyAIManage>().TakeDamage(200);
+                Destroy(range);
+                //range.GetComponent<RangeEnemyAIManage>().TakeDamage(200);
             }
         }
 
@@ -167,7 +169,8 @@ public class CheatCode : MonoBehaviour
         {
             foreach (GameObject melee in F3_melees)
             {
-                melee.GetComponent<EnemyManage>().TakeDamage(200);
+                Destroy(melee);
+                //melee.GetComponent<EnemyManage>().TakeDamage(200);
             }
 
         }
@@ -175,7 +178,9 @@ public class CheatCode : MonoBehaviour
         {
             foreach (GameObject range in F3_ranges)
             {
-                range.GetComponent<RangeEnemyAIManage>().TakeDamage(200);
+
+                Destroy(range);
+                //range.GetComponent<RangeEnemyAIManage>().TakeDamage(200);
             }
         }
 
