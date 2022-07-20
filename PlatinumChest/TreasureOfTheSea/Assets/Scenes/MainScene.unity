@@ -2710,7 +2710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: loots.Array.data[1].dropRate
-      value: 60
+      value: 34.8
       objectReference: {fileID: 0}
     - target: {fileID: 1978631254124554130, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: m_Name
@@ -5572,7 +5572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: loots.Array.data[1].dropRate
-      value: 60
+      value: 25.9
       objectReference: {fileID: 0}
     - target: {fileID: 1978631254124554130, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: m_Name
@@ -13716,7 +13716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: loots.Array.data[1].dropRate
-      value: 60
+      value: 35.9
       objectReference: {fileID: 0}
     - target: {fileID: 1978631254124554130, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: m_Name
@@ -13984,11 +13984,11 @@ PrefabInstance:
       objectReference: {fileID: 4613897257730562928, guid: b3949cf5157ab204bbc28209ffef8bc7, type: 3}
     - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: loots.Array.data[0].dropRate
-      value: 57.2
+      value: 75.3
       objectReference: {fileID: 0}
     - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: loots.Array.data[1].dropRate
-      value: 60
+      value: 35.9
       objectReference: {fileID: 0}
     - target: {fileID: 1978631254124554130, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: m_Name
@@ -14260,7 +14260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: loots.Array.data[1].dropRate
-      value: 50.4
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 1978631254124554130, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: m_Name
@@ -14627,7 +14627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: loots.Array.data[1].dropRate
-      value: 51.5
+      value: 34.1
       objectReference: {fileID: 0}
     - target: {fileID: 1978631254124554130, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: m_Name
@@ -16058,7 +16058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: loots.Array.data[1].dropRate
-      value: 60
+      value: 41.9
       objectReference: {fileID: 0}
     - target: {fileID: 1978631254124554130, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: m_Name
@@ -17021,7 +17021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: loots.Array.data[1].dropRate
-      value: 60
+      value: 45.9
       objectReference: {fileID: 0}
     - target: {fileID: 1978631254124554130, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: m_Name
@@ -17943,7 +17943,7 @@ PrefabInstance:
       objectReference: {fileID: 141488386}
     - target: {fileID: 1408299891167409329, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: loots.Array.data[0].dropRate
-      value: 47.7
+      value: 23.3
       objectReference: {fileID: 0}
     - target: {fileID: 1978631254124554130, guid: ab56b0e746733dc4a9a9b1b00aeb6967, type: 3}
       propertyPath: m_Name
