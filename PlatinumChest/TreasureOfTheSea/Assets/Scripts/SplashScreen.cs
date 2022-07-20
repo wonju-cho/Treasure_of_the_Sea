@@ -20,6 +20,8 @@ public class SplashScreen : MonoBehaviour
     bool once = false;
     private bool digipenLogoEnd = false;
 
+    public Texture2D cursorTexture;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,10 @@ public class SplashScreen : MonoBehaviour
 
     private void Update()
     {
+        Cursor.visible = true;
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+        Cursor.lockState = CursorLockMode.Confined;
+
         ShowUI(digipenImage, tempColor);
         digipenTimer += Time.deltaTime;
         if (digipenTimer > time)

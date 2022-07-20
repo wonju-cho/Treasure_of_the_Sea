@@ -83,6 +83,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+
         if (isInventoryDisplayed)
         {
             InventoryUI.SetActive(true);

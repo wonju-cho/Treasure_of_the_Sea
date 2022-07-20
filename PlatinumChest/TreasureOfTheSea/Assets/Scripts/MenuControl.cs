@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class MenuControl : MonoBehaviour
 {
     public AudioSource audioSource;
-
+    public Texture2D cursorTexture;
     public string firstLevel;
     public string mainMenuLevel;
     public void StartGame()
@@ -22,6 +22,12 @@ public class MenuControl : MonoBehaviour
     {
         audioSource.Play();
         Application.Quit();
-        Debug.Log("Quitting");
+    }
+
+    private void Update()
+    {
+        Cursor.visible = true;
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+        Cursor.lockState = CursorLockMode.Confined;        
     }
 }
