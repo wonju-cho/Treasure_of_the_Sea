@@ -845,6 +845,10 @@ PrefabInstance:
       propertyPath: shootingSFX
       value: 
       objectReference: {fileID: 387578542}
+    - target: {fileID: 5642741666778700519, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
+      propertyPath: questScriptUI
+      value: 
+      objectReference: {fileID: 1015748867}
     - target: {fileID: 7937887683071646762, guid: 3777145d0f9dfa54cb7b885bc291d2ec, type: 3}
       propertyPath: player
       value: 
@@ -9040,6 +9044,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 38335279662569219, guid: 34d3f526198dae440bb2ce6005d86055, type: 3}
   m_PrefabInstance: {fileID: 992664637}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1015748867 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 154300067831062722, guid: e3df1e68f39282949b600e9f3b723b6a, type: 3}
+  m_PrefabInstance: {fileID: 812131818}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc92ac520da1bf4c86741c248e84cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1016077985
 GameObject:
   m_ObjectHideFlags: 0

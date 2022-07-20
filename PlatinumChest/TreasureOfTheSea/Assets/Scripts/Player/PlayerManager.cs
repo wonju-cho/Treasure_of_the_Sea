@@ -53,8 +53,6 @@ public class PlayerManager : MonoBehaviour
 
     //for testing the arrow
     private InventoryHolder inventoryHolder;
-    public InventoryItemData cottonTest;
-    public InventoryItemData arrowTest;
 
     Camera mainCamera;
     Vector3 worldPosition;
@@ -66,6 +64,8 @@ public class PlayerManager : MonoBehaviour
     private int NumOfSkullInWorld;
 
     bool aiming_trigger = false;
+
+    public QuestScript_UI questScriptUI;
 
     // Start is called before the first frame update
     void Start()
@@ -327,6 +327,7 @@ public class PlayerManager : MonoBehaviour
     public void GetSkull()
     {
         NumOfSkull++;
+        questScriptUI.GetQuestScriptTextUI("Skull").SetCurrentQuestText(NumOfSkull);
     }
 
     public bool CheckPlayerHasEverySkull()
