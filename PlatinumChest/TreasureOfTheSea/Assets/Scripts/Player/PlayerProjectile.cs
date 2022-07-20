@@ -32,6 +32,7 @@ public class PlayerProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("collision with: " + collision.collider.name);
 
         if (collision.collider.tag != "Player" )
         {

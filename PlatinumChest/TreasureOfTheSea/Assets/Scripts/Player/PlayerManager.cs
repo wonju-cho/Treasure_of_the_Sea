@@ -141,12 +141,13 @@ public class PlayerManager : MonoBehaviour
                 aiming_trigger = false;
                 if(playerController.hitDetected == true)
                 {
+                    Debug.Log("Detect");
                     playerController.bowScript.Fire(playerController.hit.point);
                 }
                 else
                 {
-                    Debug.Log(playerController.ray);
-                    playerController.bowScript.Fire(playerController.ray.GetPoint(300));
+                    Debug.Log("No Detect");
+                    playerController.bowScript.Fire(Camera.main.transform.position + Camera.main.transform.forward*10f);
                 }
             }
         }

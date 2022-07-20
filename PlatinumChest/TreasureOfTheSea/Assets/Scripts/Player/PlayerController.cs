@@ -229,7 +229,7 @@ public class PlayerController : MonoBehaviour
             hitDetected = false;
             //bowScript.ReMoveCrossHair();
         }
-
+        Debug.DrawLine(ray.origin, hit.point, Color.green);
         bowScript.ShowCrosshair(hit.point);
 
     }
