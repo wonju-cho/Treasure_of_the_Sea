@@ -135,6 +135,7 @@ public class PlayerManager : MonoBehaviour
 
             if(Input.GetButtonUp(animStrings.aim_input))
             {
+                playerController.bowScript.ReMoveCrossHair();
                 shootingSFX.Play();
                 CharacterFire();
                 aiming_trigger = false;
@@ -144,6 +145,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log(playerController.ray);
                     playerController.bowScript.Fire(playerController.ray.GetPoint(300));
                 }
             }

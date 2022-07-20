@@ -26,21 +26,19 @@ public class PlayerProjectile : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(rb.velocity);
         }
 
+
         Destroy(this.gameObject, destroyTime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("detect collision: " + collision.collider.name);
 
-        if(collision.collider.tag != "Player")
+        if (collision.collider.tag != "Player" )
         {
-            disableRotation = true;
-            rb.isKinematic = true;
-            bx.isTrigger = true;
+                disableRotation = true;
+                rb.isKinematic = true;
+                bx.isTrigger = true;
         }
-
-        
 
         //GameObject impact = Instantiate(impactEffect, transform.position, Quaternion.identity);
         //Destroy(impact, 2);
@@ -55,6 +53,10 @@ public class PlayerProjectile : MonoBehaviour
             Destroy(this.gameObject);
         }
         else if(collision.collider.tag == "Plane")
+        {
+            Destroy(this.gameObject);
+        }
+        else if(collision.collider.tag == "Sea")
         {
             Destroy(this.gameObject);
         }
@@ -75,5 +77,14 @@ public class PlayerProjectile : MonoBehaviour
             Destroy(this.gameObject);
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "InteractableObject")
+        {
+            other.GetComponent<InteractObject>().TakeDamage();
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2694433022681489596}
   m_Layer: 0
   m_Name: Fences
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6934634220889104614}
   m_Layer: 0
   m_Name: Fence (2)
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,8 +257,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0008116, y: 1, z: 1}
-  m_Center: {x: -0.0015274207, y: 0, z: 0}
+  m_Size: {x: 0.82966, y: 1, z: 1}
+  m_Center: {x: -0.005461598, y: 0, z: 0}
 --- !u!1 &7197155281149518221
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 7183415118918284771}
   m_Layer: 0
   m_Name: DesertBridgeExtra01
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 7183415118235776757}
   m_Layer: 0
   m_Name: DesertBridgeExtra01 (2)
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 7183415117835668581}
   m_Layer: 0
   m_Name: DesertBridgeExtra01 (1)
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 7183415118671023809}
   m_Layer: 0
   m_Name: DesertBridgeExtra01 (3)
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 1063650356898062049}
   m_Layer: 0
   m_Name: Middle
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -633,8 +633,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.368633, y: 0.17593777, z: 3.9793134}
-  m_Center: {x: -5.8889484, y: -0.4661221, z: -0.0011842251}
+  m_Size: {x: 12.55183, y: 0.17593777, z: 3.9793134}
+  m_Center: {x: -7.29735, y: -0.4661221, z: -0.0011842251}
 --- !u!1 &7197558089448983543
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 7197558089448983536}
   m_Layer: 0
   m_Name: End
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 6666304067087914649}
   m_Layer: 0
   m_Name: DesertBridgeEnd (1)
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 1375627901237650964}
   m_Layer: 0
   m_Name: DesertBridgeEnd
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -948,7 +948,7 @@ GameObject:
   - component: {fileID: 3676148199702223544}
   m_Layer: 0
   m_Name: Fence
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1028,8 +1028,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0001572, y: 1, z: 1}
-  m_Center: {x: 0.00007867342, y: 0, z: 0}
+  m_Size: {x: 0.7968279, y: 1, z: 1}
+  m_Center: {x: -0.0058401106, y: 0, z: 0}
 --- !u!1 &7690851380697243190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,7 +1135,7 @@ GameObject:
   - component: {fileID: 5693830332889411413}
   m_Layer: 0
   m_Name: TriggerBox
-  m_TagString: Untagged
+  m_TagString: Bridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1215,8 +1215,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.9530841, y: 0.17130242, z: 0.9214028}
+  m_Center: {x: 0.4673953, y: -0.41434863, z: -0.026519867}
 --- !u!114 &5693830332889411413
 MonoBehaviour:
   m_ObjectHideFlags: 0

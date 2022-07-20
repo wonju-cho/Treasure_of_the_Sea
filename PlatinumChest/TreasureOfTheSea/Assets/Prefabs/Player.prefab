@@ -320,7 +320,7 @@ MonoBehaviour:
     arrowCount: 0
     arrowPos: {fileID: 1979158501417269671}
     arrowEquipParent: {fileID: 395682861337992857}
-    arrowForce: 3
+    arrowForce: 5
     arrowObject: {fileID: 8122634655132374314, guid: 4aca66028b4a16c41af57dcf274f9848, type: 3}
     EquipPos: {fileID: 746773876428759194}
     UnEquipPos: {fileID: 6338273596358405909}

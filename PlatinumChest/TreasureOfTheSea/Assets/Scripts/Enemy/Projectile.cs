@@ -48,7 +48,7 @@ public class Projectile : MonoBehaviour
         }
 
 
-        if (collision.collider.tag != "Bridge")
+        if (collision.collider.tag == "Bridge")
         {
             disableRotation = true;
             rb.isKinematic = true;
@@ -61,6 +61,18 @@ public class Projectile : MonoBehaviour
             Destroy(this.gameObject);
         }
         else if(collision.collider.tag == "Plane")
+        {
+            Destroy(this.gameObject);
+        }
+        else if(collision.collider.tag == "Bridge")
+        {
+            Destroy(this.gameObject);
+        }
+        else if(collision.collider.tag == "Sea")
+        {
+            Destroy(this.gameObject);
+        }
+        else if(collision.collider.tag == "MeleeEnemy")
         {
             Destroy(this.gameObject);
         }

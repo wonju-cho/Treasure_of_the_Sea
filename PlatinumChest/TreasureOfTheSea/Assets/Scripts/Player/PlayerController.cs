@@ -216,19 +216,22 @@ public class PlayerController : MonoBehaviour
 
         Vector2 centerPos = new Vector2(Screen.width / 2f, Screen.height / 2f);
 
-        ray = Camera.main.ScreenPointToRay(centerPos);
+        //ray = Camera.main.ScreenPointToRay(centerPos);
         
         if (Physics.Raycast(ray, out hit, 500f, aimLayers))
         {
             hitDetected = true;
             //Debug.DrawLine(ray.origin, hit.point, Color.green);
-            bowScript.ShowCrosshair(hit.point);
+            //bowScript.ShowCrosshair(hit.point);
         }
         else
         {
             hitDetected = false;
-            bowScript.ReMoveCrossHair();
+            //bowScript.ReMoveCrossHair();
         }
+
+        bowScript.ShowCrosshair(hit.point);
+
     }
 
     private void LateUpdate()

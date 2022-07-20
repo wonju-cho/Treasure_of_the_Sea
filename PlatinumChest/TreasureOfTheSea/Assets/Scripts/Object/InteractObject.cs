@@ -20,7 +20,6 @@ public class InteractObject : MonoBehaviour
     public void TakeDamage()
     {
         --hitCount;
-        Debug.Log("play sound");
         sfx.Play();
 
         if(hitCount <= 0)

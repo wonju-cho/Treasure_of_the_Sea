@@ -22,6 +22,12 @@ public class ItemPickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.tag == "Tree")
+        {
+            rigidBody.isKinematic = false;
+            myCollider.isTrigger = false;
+        }
+
         if(other.tag == "Player")
         {
             if(this.tag != "Fruit") //change fruit name, not the fruit(clone)
