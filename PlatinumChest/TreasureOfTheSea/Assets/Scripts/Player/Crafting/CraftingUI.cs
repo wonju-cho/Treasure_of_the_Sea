@@ -78,9 +78,9 @@ public class CraftingUI : MonoBehaviour
             if (!playerHotbar.activeSelf)
             {
                 playerHotbar.SetActive(true);
-                playerHotbar.GetComponent<FollowWorld>().enabled = false;
             }
 
+            playerHotbar.GetComponent<FollowWorld>().enabled = false;
             playerHotbar.GetComponent<RectTransform>().anchoredPosition = inventoryPosition.GetComponent<RectTransform>().anchoredPosition;
         }
         else if(!craftingCheck && !pauseUI.isGamePasued && !tb.gameEnd)
