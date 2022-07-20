@@ -157,25 +157,10 @@ public class Quest : MonoBehaviour
 
     public void CheatCode()
     {
-        //for (int i = 0; i< Goals.Count;++i)
-        //{
-        //    Goals[i].Complete();
-        //}
         middle.SetActive(true);
-        //Destroy(questUI);
         Destroy(fogObject);
-
-        //for (int i = 0; i < Goals.Count; i++)
-        //{
-        //    Goals[i].Initialize();
-        //}
 
         qt.SetQuestCheck(true);
         qt.enabled = false;
-
-        GameObject.FindGameObjectWithTag("Crafting").GetComponent<Crafting>().SetIsNearTheCrafting(false);
-        //this.gameObject.GetComponentInChildren<QuestTrigger>().gameObject.SetActive(false);
-        //if(this.gameObject.GetComponentInChildren<QuestTrigger>().notificationMarkTrigger != null)
-        //    this.gameObject.GetComponentInChildren<QuestTrigger>().notificationMarkTrigger.SetActive(false);
     }
 }
