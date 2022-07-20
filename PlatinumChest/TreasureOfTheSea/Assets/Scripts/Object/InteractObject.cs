@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractObject : MonoBehaviour
 {
-    public string name;
+    //public string name;
     public int hitCount;
     public Loot[] loots;
 

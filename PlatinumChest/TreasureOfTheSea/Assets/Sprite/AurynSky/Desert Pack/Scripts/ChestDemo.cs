@@ -25,7 +25,7 @@ public class ChestDemo : MonoBehaviour {
         //wait 2 seconds;
         yield return new WaitForSeconds(2);
         //play close animation;
-        chestAnim.SetTrigger("close");
+        //chestAnim.SetTrigger("close");
         //wait 2 seconds;
         yield return new WaitForSeconds(2);
         //Do it again;
