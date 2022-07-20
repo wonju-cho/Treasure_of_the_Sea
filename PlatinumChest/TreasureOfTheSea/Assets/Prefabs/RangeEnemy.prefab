@@ -375,6 +375,34 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.04
       objectReference: {fileID: 0}
+    - target: {fileID: 8944312452057452664, guid: 2ecdd107dc308554f9f817ebac16b491, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944312452057452664, guid: 2ecdd107dc308554f9f817ebac16b491, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944312452057452664, guid: 2ecdd107dc308554f9f817ebac16b491, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944312452057452664, guid: 2ecdd107dc308554f9f817ebac16b491, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944312452057452664, guid: 2ecdd107dc308554f9f817ebac16b491, type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944312452057452664, guid: 2ecdd107dc308554f9f817ebac16b491, type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.93188083
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944312452057452664, guid: 2ecdd107dc308554f9f817ebac16b491, type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ecdd107dc308554f9f817ebac16b491, type: 3}
 --- !u!4 &5850519336147777218 stripped

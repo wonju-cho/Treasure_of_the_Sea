@@ -48,13 +48,6 @@ public class Projectile : MonoBehaviour
         }
 
 
-        if (collision.collider.tag == "Bridge")
-        {
-            disableRotation = true;
-            rb.isKinematic = true;
-            bx.isTrigger = true;
-        }
-
         if (collision.collider.tag == "Player")
         {
             collision.collider.GetComponent<PlayerManager>().TakeDamge(damageAmount);
