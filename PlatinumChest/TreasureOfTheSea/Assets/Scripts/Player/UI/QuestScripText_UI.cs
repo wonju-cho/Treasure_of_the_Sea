@@ -12,7 +12,7 @@ public class QuestScripText_UI : MonoBehaviour
     public string questName;
     public Image redLine;
 
-    private void Start()
+    private void Awake()
     {
         redLine.enabled = false;
         currentInteger = 0;
