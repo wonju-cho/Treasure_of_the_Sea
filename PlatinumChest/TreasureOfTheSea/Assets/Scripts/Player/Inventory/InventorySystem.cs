@@ -13,7 +13,6 @@ public class InventorySystem
 
     public UnityAction<InventorySlot> OnInventorySlotChanged;
 
-
     public InventorySystem(int size)
     {
         inventorySlots = new List<InventorySlot>(size);
@@ -37,7 +36,6 @@ public class InventorySystem
                     return true;
                 }
             }
-            
         }
         
         if(HasFreeSlot(out InventorySlot freeSlot)) // Gets the first available slot

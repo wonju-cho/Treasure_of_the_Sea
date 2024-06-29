@@ -1,23 +1,29 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+
+[System.Serializable]
+public struct QuestData
+{
+    public InventoryItemData item;
+    [Range(1, 99)]
+    public int requiredAmount;
+}
 
 [CreateAssetMenu(menuName = "Quest System/Quest Goal")]
 public class QuestGoal : ScriptableObject
 {
-    public string requiredName;
+    public QuestData questItemData;
     public bool completed;
-    public bool called;
-    public int requiredAmount;
-    public int currentAmount;
-    public Sprite icon;
-    public bool once;
 
-    public virtual void Initialize()
+    //for debugging
+    public bool called;
+
+    public void Initialize()
     {
         completed = false;
         called = false;
-        once = false;
-        currentAmount = 0;
     }
 
     public void Complete()

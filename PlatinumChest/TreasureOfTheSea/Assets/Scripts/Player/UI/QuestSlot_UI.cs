@@ -12,11 +12,12 @@ public class QuestSlot_UI : MonoBehaviour
     {
         checkImage.SetActive(false);
     }
+
     public void SetSprite(Sprite sprite) { itemSprite.sprite = sprite; }
 
     public void SetTMP(string text) { itemCount.text = text; }
 
     public void EnableCheckImage() { checkImage.SetActive(true); }
-    
+
     public void DisableCheckImage() { checkImage.SetActive(false); }
 }

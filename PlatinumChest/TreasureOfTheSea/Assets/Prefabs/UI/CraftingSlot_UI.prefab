@@ -120,9 +120,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2265930764903596144, guid: 8a3a1b6d762acba47ae75eddc0d19a8f, type: 3}
-        m_TargetAssemblyTypeName: Crafting, Assembly-CSharp
-        m_MethodName: CraftingCheck
+      - m_Target: {fileID: 6765123709034725968, guid: 3699691c9d735de449f925e02d4297fb, type: 3}
+        m_TargetAssemblyTypeName: CraftingUI, Assembly-CSharp
+        m_MethodName: CraftTool
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -437,11 +437,6 @@ MonoBehaviour:
   - {fileID: 1322316376074501828}
   checkMarks:
   - {fileID: 3600169308371713323}
-  craftingReceipts:
-  - {fileID: 11400000, guid: 294c67eae12be874794efc8f4a32a6b1, type: 2}
-  - {fileID: 11400000, guid: c2b20907efa1c6544b787d75e2ff2756, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: c14a24f5c7934584399028641ac19405, type: 2}
 --- !u!114 &8775963354793863845
 MonoBehaviour:
   m_ObjectHideFlags: 0

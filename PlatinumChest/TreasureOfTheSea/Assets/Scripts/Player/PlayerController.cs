@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Input Settings")]
     public string forwardInput = "Vertical";
-    public string leftInput = "Horizontal"; 
+    public string leftInput = "Horizontal";
     public string aim_input = "Fire1";
     public string fire_input = "Fire2";
 
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     private float ySpeed;
     private float originalStepOffset; //to resolve the character glitch when jumping while colliding object
-    
+
     private float? lastGroundedTime; //? means this field is nullable -> if the value is null then return null, otherwise return the value
     private float? jumpButtonPressedTime;
 
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Need to add playerhotbar object")]
     public GameObject InventoryUI;
     private bool isInventoryDisplayed = false;
-    
+
     private Camera mainCamera;
     public Bow bowScript;
 
@@ -64,7 +64,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-        //inventoryImage.SetActive(false);
 
         InventoryUI = GameObject.FindWithTag("InventoryDisplay");
 
@@ -100,7 +99,7 @@ public class PlayerController : MonoBehaviour
             inventory_SFX.Play();
         }
 
-        if (Input.GetAxis(forwardInput)!= 0 || Input.GetAxis(leftInput) !=0)
+        if (Input.GetAxis(forwardInput) != 0 || Input.GetAxis(leftInput) != 0)
         {
             //RotateToCamView();
         }
@@ -111,41 +110,41 @@ public class PlayerController : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical);
         float directionMagnitude = Mathf.Clamp01(direction.magnitude) * moveSpeed;
-       
+
         direction = Quaternion.AngleAxis(mainCamera.transform.rotation.eulerAngles.y, Vector3.up) * direction;
         direction.Normalize();
 
         ySpeed += Physics.gravity.y * Time.deltaTime; //gravity = -9.81
-        
+
         if (controller.isGrounded)
         {
             lastGroundedTime = Time.time;
         }
-        
+
         if (Input.GetButtonDown("Jump"))
         {
             jumpButtonPressedTime = Time.time;
         }
-        
+
         if (Time.time - lastGroundedTime <= jumpButtonGracePeriod)
         {
             controller.stepOffset = originalStepOffset;
-        
+
             ySpeed = -0.5f; //keep character on the ground
-        
+
             animator.SetBool("IsGrounded", true);
             isGrounded = true;
-        
+
             animator.SetBool("IsJumping", false);
             isJumping = false;
-        
+
             animator.SetBool("IsFalling", false);
-        
+
             if (Time.time - jumpButtonPressedTime <= jumpButtonGracePeriod)
             {
                 animator.SetBool("IsJumping", true);
                 isJumping = true;
-        
+
                 ySpeed = jumpSpeed;
                 jumpButtonPressedTime = null;
                 lastGroundedTime = null;
@@ -154,31 +153,31 @@ public class PlayerController : MonoBehaviour
         else
         {
             controller.stepOffset = 0;
-        
+
             animator.SetBool("IsGrounded", false);
             isGrounded = false;
-        
+
             if ((isJumping && ySpeed < 0) || ySpeed < -2)
             {
                 animator.SetBool("IsFalling", true);
             }
         }
-        
+
         Vector3 velocity = direction * directionMagnitude;
         velocity.y = ySpeed;
-        
+
         controller.Move(velocity * Time.deltaTime);
-        
+
         if (direction != Vector3.zero) //when moving
         {
-            if(playerWalkingSFX.isPlaying == false)
+            if (playerWalkingSFX.isPlaying == false)
             {
                 playerWalkingSFX.Play();
             }
             animator.SetBool("IsMoving", true);
-        
+
             Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-        
+
             transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
         else
@@ -186,7 +185,7 @@ public class PlayerController : MonoBehaviour
             playerWalkingSFX.Pause();
             animator.SetBool("IsMoving", false);
         }
-        
+
     }
 
     public void PullArrow()
@@ -219,7 +218,7 @@ public class PlayerController : MonoBehaviour
         Vector2 centerPos = new Vector2(Screen.width / 2f, Screen.height / 2f);
 
         ray = Camera.main.ScreenPointToRay(centerPos);
-        
+
         if (Physics.Raycast(ray, out hit, 500f, aimLayers))
         {
             hitDetected = true;
@@ -238,7 +237,7 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (Input.GetButton(aim_input) && (bowScript.bowSettings.arrowCount>0))
+        if (Input.GetButton(aim_input) && (bowScript.bowSettings.arrowCount > 0))
         {
             RotateCharacterSpine();
         }

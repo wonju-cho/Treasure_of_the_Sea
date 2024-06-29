@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class InventorySlot
 {
+    //keep track of how many items in the inventory
     [SerializeField] private InventoryItemData itemData;
     [SerializeField] private int stackSize;
 
@@ -25,7 +26,7 @@ public class InventorySlot
         itemData = null;
         stackSize = -1;
     }
-    
+
     public void UpdateInventorySlot(InventoryItemData data, int amount)
     {
         itemData = data;
@@ -38,7 +39,7 @@ public class InventorySlot
         return RoomLeftInStack(amountToAdd);
     }
 
-    public bool RoomLeftInStack(int amountToAdd) // check if there is room that can add item
+    public bool RoomLeftInStack(int amountToAdd)
     {
         if (stackSize + amountToAdd <= itemData.maxStackSize)
             return true;

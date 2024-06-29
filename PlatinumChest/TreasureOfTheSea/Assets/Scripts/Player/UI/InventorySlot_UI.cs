@@ -8,19 +8,19 @@ public class InventorySlot_UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemCount;
     [SerializeField] private InventorySlot assignedInventorySlot;
 
-    private Button button;
+    //private Button button;
 
     public InventorySlot AssignedInventorySlot => assignedInventorySlot;
-    public InventoryDisplay ParentDisplay {get; private set;}
+    //public InventoryDisplay ParentDisplay {get; private set;}
 
     private void Awake()
     {
         ClearSlot();
-     
-        button = GetComponent<Button>();
-        button?.onClick.AddListener(OnUISlotClick);
 
-        ParentDisplay = transform.parent.GetComponent<InventoryDisplay>();
+        /*        button = GetComponent<Button>();
+                button?.onClick.AddListener(OnUISlotClick);
+        */
+        //ParentDisplay = transform.parent.GetComponent<InventoryDisplay>();
     }
 
     public void Init(InventorySlot slot)
@@ -40,13 +40,13 @@ public class InventorySlot_UI : MonoBehaviour
             {
                 itemCount.text = slot.StackSize.ToString();
             }
-            else if(slot.StackSize == 0)
+            else if (slot.StackSize == 0)
             {
                 ClearSlot();
             }
             else
             {
-                itemCount.text = "";   
+                itemCount.text = "";
             }
 
         }
@@ -54,12 +54,11 @@ public class InventorySlot_UI : MonoBehaviour
         {
             ClearSlot();
         }
-
     }
 
     public void UpdateUISlot()
     {
-        if(assignedInventorySlot != null)
+        if (assignedInventorySlot != null)
         {
             UpdateUISlot(assignedInventorySlot);
         }
@@ -73,9 +72,10 @@ public class InventorySlot_UI : MonoBehaviour
         itemCount.text = "";
     }
 
-    public void OnUISlotClick()
-    {
-        //Access display class function
-        ParentDisplay?.SlotClicked(this);
-    }
+    /*    public void OnUISlotClick()
+        {
+            //Access display class function
+            ParentDisplay?.SlotClicked(this);
+        }
+    */
 }

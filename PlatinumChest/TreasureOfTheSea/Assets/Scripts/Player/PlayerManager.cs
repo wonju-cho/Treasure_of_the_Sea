@@ -51,8 +51,6 @@ public class PlayerManager : MonoBehaviour
     public GameObject projectile;
     public Transform projectilePoint;
 
-    //for testing the arrow
-    private InventoryHolder inventoryHolder;
 
     Camera mainCamera;
     Vector3 worldPosition;
@@ -77,7 +75,6 @@ public class PlayerManager : MonoBehaviour
 
         controller = GetComponent<CharacterController>();
         playerController = GetComponent<PlayerController>();
-        inventoryHolder = GetComponent<InventoryHolder>();
         crafting = GameObject.FindWithTag("Crafting").GetComponent<Crafting>();
 
         NumOfSkull = 0;
@@ -88,10 +85,6 @@ public class PlayerManager : MonoBehaviour
 
         if (!HealthBar)
             Debug.Log("There is no healthbar in the playermanger script");
-
-        if (!inventoryHolder)
-            Debug.Log("There is no inventory holder in player manager script");
-
     }
 
     // Update is called once per frame
@@ -121,9 +114,9 @@ public class PlayerManager : MonoBehaviour
 
         CharacterAim(is_aiming);
 
-        if(is_aiming)
+        if (is_aiming)
         {
-            if(aiming_trigger == false)
+            if (aiming_trigger == false)
             {
                 aimingSFX.Play();
                 aiming_trigger = true;
@@ -133,23 +126,23 @@ public class PlayerManager : MonoBehaviour
             playerController.bowScript.EquipWeapon();
             //CharacterPullString(Input.GetButton(animStrings.fire_input));
 
-            if(Input.GetButtonUp(animStrings.aim_input))
+            if (Input.GetButtonUp(animStrings.aim_input))
             {
                 playerController.bowScript.ReMoveCrossHair();
                 shootingSFX.Play();
                 CharacterFire();
                 aiming_trigger = false;
-                if(playerController.hitDetected == true)
+                if (playerController.hitDetected == true)
                 {
                     Debug.Log("Detect");
-                    
+
                     //playerController.bowScript.Fire(Camera.main.transform.position + Camera.main.transform.forward * 10f);
                     playerController.bowScript.Fire(playerController.hit.point);
                 }
                 else
                 {
                     Debug.Log("No Detect");
-                    playerController.bowScript.Fire(Camera.main.transform.position + Camera.main.transform.forward*10f);
+                    playerController.bowScript.Fire(Camera.main.transform.position + Camera.main.transform.forward * 10f);
                 }
             }
         }
@@ -161,7 +154,6 @@ public class PlayerManager : MonoBehaviour
             playerController.bowScript.ReleaseString();
         }
 
-        
         is_aiming = Input.GetButton(animStrings.aim_input);
 
         //Debug.Log(playerController.bowScript.bowSettings.arrowCount);
@@ -170,8 +162,6 @@ public class PlayerManager : MonoBehaviour
             is_aiming = false;
         }
 
-        
-
         if (Input.GetButtonDown("Fire1") && controller.isGrounded)
         {
             //if (animator.GetBool("IsShooting") == false)
@@ -179,16 +169,14 @@ public class PlayerManager : MonoBehaviour
             //    animator.SetBool("IsShooting", true);
             //}
 
-        //    Vector3 mousePos = Input.mousePosition;
-        //    mousePos.z = mainCamera.nearClipPlane;
-        //    worldPosition = mainCamera.ScreenToWorldPoint(mousePos);
-        //    crossHairUI.transform.position = worldPosition;
-        //    crossHairUI.SetActive(true);
-        //}
-        //else { crossHairUI.SetActive(false);
+            //    Vector3 mousePos = Input.mousePosition;
+            //    mousePos.z = mainCamera.nearClipPlane;
+            //    worldPosition = mainCamera.ScreenToWorldPoint(mousePos);
+            //    crossHairUI.transform.position = worldPosition;
+            //    crossHairUI.SetActive(true);
+            //}
+            //else { crossHairUI.SetActive(false);
         }
-
-
     }
 
     private void LateUpdate()
@@ -201,7 +189,7 @@ public class PlayerManager : MonoBehaviour
 
     public void CharacterAim(bool aiming)
     {
-        if(!crafting.getCraftingActivated())
+        if (!crafting.GetCraftingActivated())
         {
             animator.SetBool(animStrings.aim, aiming);
         }
@@ -214,12 +202,12 @@ public class PlayerManager : MonoBehaviour
 
     public void CharacterFire()
     {
-        animator.SetTrigger(animStrings.fire);   
+        animator.SetTrigger(animStrings.fire);
     }
 
     private void AimShoot()
     {
-        if(animator.GetBool("IsShooting") == false)
+        if (animator.GetBool("IsShooting") == false)
         {
             animator.SetBool("IsShooting", true);
         }
@@ -227,13 +215,12 @@ public class PlayerManager : MonoBehaviour
 
     float GetCurrentHP() { return currentHP; }
 
-    public void TakeDamge(int damage) 
+    public void TakeDamge(int damage)
     {
         //Debug.Log("Player take damage: " + currentHP);
         currentHP -= damage;
-        
 
-        if(currentHP > 0)
+        if (currentHP > 0)
         {
             if (hittingSFX.isPlaying == false)
             {
@@ -272,7 +259,7 @@ public class PlayerManager : MonoBehaviour
         playerController.enabled = false;
         animator.SetBool("IsIdle", false);
 
-        if(isPlayerDead && triggerOnce == false)
+        if (isPlayerDead && triggerOnce == false)
         {
             dyingSFX.Play();
             triggerOnce = true;
@@ -299,7 +286,6 @@ public class PlayerManager : MonoBehaviour
 
         isPlayerDead = false;
         triggerOnce = false;
-
     }
 
     public void PlayerResapwn(Transform pos)
@@ -323,7 +309,7 @@ public class PlayerManager : MonoBehaviour
         //rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
         //rb.AddForce(transform.up * 7f, ForceMode.Impulse);
         Vector3 dir = transform.forward;
-        rb.AddForce(dir*20f, ForceMode.VelocityChange);
+        rb.AddForce(dir * 20f, ForceMode.VelocityChange);
     }
 
     public void GetSkull()
@@ -334,7 +320,7 @@ public class PlayerManager : MonoBehaviour
 
     public bool CheckPlayerHasEverySkull()
     {
-        if(NumOfSkull >= NumOfSkullInWorld)
+        if (NumOfSkull >= NumOfSkullInWorld)
         {
             GameObject.FindGameObjectWithTag("TreasureBox").GetComponent<TreasureBox>().SetHasEverySkull(true);
             return true;
@@ -345,7 +331,7 @@ public class PlayerManager : MonoBehaviour
 
     public bool CheckPlayerHasEverySkulls()
     {
-        if(NumOfSkull >= NumOfSkullInWorld)
+        if (NumOfSkull >= NumOfSkullInWorld)
         {
             return true;
         }
@@ -358,15 +344,10 @@ public class PlayerManager : MonoBehaviour
 
         if (currentHP > 100)
             currentHP = 100;
-
     }
 
     public void CheatCodeForBossIsland()
     {
         NumOfSkull = NumOfSkullInWorld;
-
     }
-
-    
-
 }

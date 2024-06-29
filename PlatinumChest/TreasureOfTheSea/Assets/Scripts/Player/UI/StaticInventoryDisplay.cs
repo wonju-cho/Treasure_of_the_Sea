@@ -9,11 +9,11 @@ public class StaticInventoryDisplay : InventoryDisplay
 
     protected override void Start()
     {
-        base.Start();
+        //base.Start();
 
         inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
 
-        if(inventoryHolder != null)
+        if (inventoryHolder != null)
         {
             inventorySystem = inventoryHolder.InventorySystem;
             inventorySystem.OnInventorySlotChanged += UpdateSlot;
@@ -35,7 +35,7 @@ public class StaticInventoryDisplay : InventoryDisplay
             Debug.Log($"Inventory slots out of sync of {this.gameObject}");
         }
 
-        for(int i = 0; i < inventorySystem.InventorySize; i++)
+        for (int i = 0; i < inventorySystem.InventorySize; i++)
         {
             slotDictionary.Add(slots[i], inventorySystem.InventorySlots[i]);
             slots[i].Init(inventorySystem.InventorySlots[i]);

@@ -60,7 +60,7 @@ public class TriggerChest : MonoBehaviour
                 {
                     sfx.Play();
                     var scriptText = questScriptUI.GetQuestScriptTextUI("Chest");
-                    int num = scriptText.GetCurrentQuetsText();
+                    int num = scriptText.GetCurrentQuestText();
                     num += 1;
                     scriptText.SetCurrentQuestText(num);
                     once = true;

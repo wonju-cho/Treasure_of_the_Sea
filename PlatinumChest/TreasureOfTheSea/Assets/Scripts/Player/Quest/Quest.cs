@@ -6,10 +6,10 @@ using System.Linq;
 using TMPro;
 
 public class Quest : MonoBehaviour
-{    
-    public bool completed;
+{
+    public bool allQuestsCompleted;
 
-    public List<QuestGoal> Goals;
+    public List<QuestGoal> goals;
     public List<QuestSlot_UI> questSlots;
     public GameObject middle;
     public GameObject questUI;
@@ -17,15 +17,13 @@ public class Quest : MonoBehaviour
     [Header("Fog Settings For Bridge")]
     public GameObject fogEffect;
     public Transform fogTranslation;
-
     private GameObject fogObject;
 
     private InventoryHolder inventoryHolder;
     private StaticInventoryDisplay staticInventoryDisplay;
     private InventorySlot_UI[] UISlots;
 
-    QuestScript_UI questScriptUI;
-    public QuestTrigger qt;
+    private QuestScript_UI questScriptUI;
 
     public void Start()
     {
@@ -38,15 +36,15 @@ public class Quest : MonoBehaviour
 
     private void Update()
     {
-        if(questScriptUI.GetIsQuestUIOn() && !completed)
+        if (questScriptUI.GetIsQuestUIOn() && !allQuestsCompleted)
         {
             Evaulate();
         }
     }
 
-    public void Initialize()
+    private void Initialize()
     {
-        completed = false;
+        allQuestsCompleted = false;
 
         inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
         staticInventoryDisplay = GameObject.FindWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
@@ -69,45 +67,43 @@ public class Quest : MonoBehaviour
         if (!questScriptUI)
             Debug.Log("There is no quest script UI script in the quets script");
 
-        for (int i = 0; i < Goals.Count; i++)
+        for (int i = 0; i < goals.Count; i++)
         {
-            Goals[i].Initialize();
+            goals[i].Initialize();
         }
 
-        for (int i = 0; i < Goals.Count; i++)
+        for (int i = 0; i < goals.Count; i++)
         {
-            questSlots[i].SetSprite(Goals[i].icon);
-            questSlots[i].SetTMP(Goals[i].requiredAmount.ToString());
+            questSlots[i].SetSprite(goals[i].questItemData.item.icon);
+            questSlots[i].SetTMP(goals[i].questItemData.requiredAmount.ToString());
         }
     }
 
-    protected void Evaulate()
+    private void Evaulate()
     {
-        bool isEmptyInventory = true;
+        bool isInventoryEmpty = true;
 
-        for (int i = 0; i < Goals.Count; i++)
+        for (int i = 0; i < goals.Count; i++)
         {
-            Goals[i].called = true;
-            if (inventoryHolder.InventorySystem.IsExistSlot(Goals[i].requiredName))
+            goals[i].called = true;
+            var questData = goals[i].questItemData;
+            if (inventoryHolder.InventorySystem.IsExistSlot(questData.item.displayName))
             {
-                isEmptyInventory = false;
-                InventorySlot test = inventoryHolder.InventorySystem.GetInventorySlot(Goals[i].requiredName);
-                Goals[i].currentAmount = test.StackSize;
-                
-                int check = Goals[i].currentAmount;
+                isInventoryEmpty = false;
+                InventorySlot slot = inventoryHolder.InventorySystem.GetInventorySlot(questData.item.displayName);
+                int currStkSize = slot.StackSize;
 
-                if (check >= Goals[i].requiredAmount)
+                if (currStkSize >= questData.requiredAmount)
                 {
                     questSlots[i].EnableCheckImage();
-                    Goals[i].Complete();
-
+                    goals[i].Complete();
                 }
                 else
                 {
                     questSlots[i].DisableCheckImage();
                 }
 
-                if(!questScriptUI.GetIsQuestUIOn())
+                if (!questScriptUI.GetIsQuestUIOn())
                 {
                     questUI.SetActive(true);
                 }
@@ -118,36 +114,39 @@ public class Quest : MonoBehaviour
             }
         }
 
-        if(isEmptyInventory && !questScriptUI.GetIsQuestUIOn())
+        if (isInventoryEmpty && !questScriptUI.GetIsQuestUIOn())
             questUI.SetActive(true);
     }
-
 
     public bool CheckGoals()
     {
         Evaulate();
-        completed = Goals.All(g => g.completed);
-        
-        if(completed)
+        allQuestsCompleted = goals.All(g => g.completed);
+
+        if (allQuestsCompleted)
         {
-            for(int i = 0; i < Goals.Count; i++)
+            for (int i = 0; i < goals.Count; i++)
             {
-                InventorySlot test = inventoryHolder.InventorySystem.GetInventorySlot(Goals[i].requiredName);
-                test.RemoveFromStack(Goals[i].requiredAmount);
+                var questData = goals[i].questItemData;
+                InventorySlot slot = inventoryHolder.InventorySystem.GetInventorySlot(questData.item.displayName);
+                slot.RemoveFromStack(questData.requiredAmount);
             }
 
             for (int i = 0; i < UISlots.Length; i++)
             {
-                UISlots[i].UpdateUISlot();                
+                UISlots[i].UpdateUISlot();
             }
 
             middle.SetActive(true);
             Destroy(questUI);
             Destroy(fogObject);
 
-            for (int i = 0; i < Goals.Count; i++)
+            for (int i = 0; i < goals.Count; i++)
             {
-                Goals[i].Initialize();
+                if (goals[i].completed)
+                {
+                    goals[i].Initialize();
+                }
             }
 
             return true;
@@ -159,8 +158,5 @@ public class Quest : MonoBehaviour
     {
         middle.SetActive(true);
         Destroy(fogObject);
-
-        qt.SetQuestCheck(true);
-        qt.enabled = false;
     }
 }

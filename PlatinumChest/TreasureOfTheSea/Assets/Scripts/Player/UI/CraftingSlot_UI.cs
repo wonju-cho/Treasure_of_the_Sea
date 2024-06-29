@@ -5,10 +5,11 @@ public class CraftingSlot_UI : MonoBehaviour
 {
     public List<GameObject> materialSprites;
     public List<GameObject> checkMarks;
-    public List<CraftingReceipt> craftingReceipts;
+    private Crafting crafting;
 
     private InventoryHolder inventoryHolder;
     private StaticInventoryDisplay staticInventoryDisplay;
+    private int receiptIdx;
 
     void Start()
     {
@@ -19,7 +20,8 @@ public class CraftingSlot_UI : MonoBehaviour
     {
         inventoryHolder = GameObject.FindWithTag("Player").GetComponent<InventoryHolder>();
         staticInventoryDisplay = GameObject.FindGameObjectWithTag("InventoryDisplay").GetComponent<StaticInventoryDisplay>();
-        
+        crafting = GameObject.FindGameObjectWithTag("Crafting").GetComponent<Crafting>();
+
         if (!inventoryHolder)
             Debug.Log("There is no inventory holder in the crafting script");
 
@@ -45,13 +47,13 @@ public class CraftingSlot_UI : MonoBehaviour
     {
         for (int i = 0; i < materialSprites.Count; i++)
         {
-            materialSprites[i].SetActive(false);    
+            materialSprites[i].SetActive(false);
         }
     }
 
-    public void CheckUISlots(string receiptName)
+    public void UpdateCraftingUISlot(string receiptName)
     {
-        CraftingReceipt cr = craftingReceipts.Find(i => i.resultItem.displayName == receiptName);
+        CraftingReceipt cr = crafting.receipts.Find(i => i.resultItem.displayName == receiptName);
 
         for (int i = 0; i < cr.materials.Count; i++)
         {
